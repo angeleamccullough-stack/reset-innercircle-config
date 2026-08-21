@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0.0",
+  "status": "active",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "system": "RMS Fully Automated Intelligence System",
+  "discord": {
+    "server_name": "Reset Inner Circle",
+    "server_id": "1429398855681573038",
+    "application_name": "RMS CreatorHub",
+    "application_id": "1540169303213609023",
+    "brand": {
+      "theme": "luxe-black-gold",
+      "primary": "#0B0B0D",
+      "accent": "#C8A24A",
+      "secondary": "#241C14",
+      "copy_principles": [
+        "ownership-first",
+        "multidisciplinary-creator-campus",
+        "premium",
+        "clear",
+        "warm",
+        "mobile-friendly"
+      ]
+    },
+    "platform_priorities": [
+      "Instagram",
+      "Facebook",
+      "TikTok",
+      "YouTube",
+      "Twitch",
+      "Discord",
+      "CreatorHub",
+      "RMS Marketplace"
+    ],
+    "low_priority_platforms": ["X"]
+  },
+  "automation_ownership": {
+    "rms_creatorhub_app": [
+      "RMS slash commands",
+      "CreatorHub routing",
+      "public-safe RMS intelligence events",
+      "Marketplace routing",
+      "opportunity lookup",
+      "RMS event status"
+    ],
+    "carl_bot": [
+      "Code of Law gate",
+      "CHOOSE YOUR SIGNALS self roles",
+      "reaction roles",
+      "static embeds and tags",
+      "moderation",
+      "event entry gates"
+    ],
+    "zapier": [
+      "schedule triggers",
+      "calendar and sheet automation",
+      "approved announcements",
+      "reminders",
+      "live-now signals",
+      "recaps",
+      "cross-platform routing",
+      "private failure alerts"
+    ],
+    "tatsu": [
+      "community recognition",
+      "verified participation rewards",
+      "positive engagement"
+    ],
+    "ticket_tool": [
+      "private support",
+      "privacy-sensitive escalation"
+    ],
+    "voicemaster": [
+      "temporary collaboration rooms"
+    ],
+    "statbot": [
+      "community analytics",
+      "server health reporting"
+    ]
+  },
+  "notification_roles": [
+    "Live Events",
+    "OmniLink Power Hour",
+    "RESET Arena Games",
+    "Platform Missions",
+    "Creator Education",
+    "Collaboration Calls"
+  ],
+  "commands": {
+    "portal": {"visibility": "public", "purpose": "CreatorHub and onboarding routing"},
+    "submit": {"visibility": "public", "purpose": "secure Submit Music routing"},
+    "marketplace": {"visibility": "public", "purpose": "RMS Marketplace routing"},
+    "sync": {"visibility": "public", "purpose": "licensing-readiness and Global Sync Catalog guidance"},
+    "rights": {"visibility": "public", "purpose": "Rights & Metadata Intelligence guidance"},
+    "events": {"visibility": "public", "purpose": "RESET LIVE programming"},
+    "missions": {"visibility": "public", "purpose": "current Platform Missions"},
+    "support": {"visibility": "private-preferred", "purpose": "private support routing"}
+  },
+  "event_contract": {
+    "approved_event_types": [
+      "rms.event.created",
+      "rms.event.live",
+      "rms.event.completed",
+      "rms.mission.published",
+      "rms.marketplace.public_listing",
+      "rms.creator_showcase.approved",
+      "rms.education.published",
+      "rms.collaboration_call.published",
+      "rms.sync_opportunity.public",
+      "rms.system.alert"
+    ],
+    "public_safe_fields": [
+      "event_id",
+      "event_type",
+      "title",
+      "public_description",
+      "public_url",
+      "discord_destination",
+      "notification_role",
+      "scheduled_timestamp",
+      "status",
+      "approved_image_url",
+      "correlation_id",
+      "source_system"
+    ],
+    "forbidden_public_fields": [
+      "passwords",
+      "banking_information",
+      "government_identification",
+      "private_contracts",
+      "unreleased_masters",
+      "rights_splits",
+      "confidential_metadata",
+      "payment_records",
+      "supabase_credentials",
+      "oauth_tokens",
+      "bot_tokens"
+    ],
+    "deduplication_key": "correlation_id"
+  },
+  "security": {
+    "guild_install_primary": true,
+    "user_install_required": false,
+    "least_privilege": true,
+    "administrator_permission_required": false,
+    "privileged_intents_default": "disabled-unless-proven-required",
+    "public_everyone_ping_for_routine_events": false,
+    "creatorhub_is_system_of_record": true,
+    "discord_stores_private_rights_data": false
+  },
+  "resilience": {
+    "carl_bot_failure": "Discord Events and manual RMS operations remain usable",
+    "zapier_failure": "send one private automation-alerts notice and use manual event fallback",
+    "tatsu_failure": "record recognition manually",
+    "single_automation_failure_must_not_block_server": true
+  },
+  "operating_loop": [
+    "Signal",
+    "Activate",
+    "Participate",
+    "Verify",
+    "Recognize",
+    "Measure",
+    "Improve"
+  ]
+}
