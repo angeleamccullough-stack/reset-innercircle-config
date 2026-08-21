@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "purpose": "Non-destructive baseline for Discord live rooms used with OBS Studio, Elgato Wave Link, and Elgato Camera Hub.",
+  "principles": [
+    "Discord remains functional if OBS, Wave Link, Camera Hub, or the RMS Discord bridge is unavailable.",
+    "Do not change global Windows audio devices solely for one Discord room.",
+    "Use dedicated monitor and stream mixes to prevent echo and double monitoring.",
+    "Do not route confidential creator audio into public rooms without explicit consent.",
+    "Record only when the room and event explicitly disclose recording status."
+  ],
+  "discord": {
+    "input_device": "Wave Link MicrophoneFX or the approved clean microphone mix",
+    "output_device": "Wave Link Game or approved monitoring mix",
+    "echo_cancellation": "evaluate per room; keep enabled for open-speaker sessions, disable only in controlled headphone-based studio routing if verified",
+    "noise_suppression": "light or disabled when Wave Link processing already provides clean gating/noise control",
+    "automatic_gain_control": "disable for controlled studio sessions; use only for general community voice rooms if needed",
+    "attenuation": "0 percent for production rooms unless host intentionally uses ducking",
+    "recording_notice_required": true
+  },
+  "wave_link": {
+    "microphone_path": "Mic -> Wave Link processing -> MicrophoneFX -> Discord",
+    "stream_path": "Mic + approved sources -> Stream Mix -> OBS",
+    "monitor_path": "Monitor Mix -> headphones",
+    "avoid": [
+      "feeding Discord output back into Discord input",
+      "monitoring the microphone twice",
+      "routing OBS monitoring back into the Discord microphone bus"
+    ]
+  },
+  "obs": {
+    "capture_strategy": "Capture Discord audio, microphone, game/app audio, and music/media as discrete sources where practical.",
+    "audio_monitoring": "Monitor only the sources required by the host. Avoid Monitor and Output on a source that is already returned through Wave Link unless the signal path is verified.",
+    "scene_guidance": [
+      "RESET Sound Stage",
+      "Creator Interview",
+      "Arena Live",
+      "Game Room",
+      "Creator Education",
+      "Claim Your Stage"
+    ],
+    "recording": "Use separate audio tracks for microphone, Discord guests, and program audio when the production requires post-production flexibility."
+  },
+  "camera_hub": {
+    "camera_role": "Primary host camera for OBS and approved video sessions.",
+    "exposure": "Lock exposure and white balance for live sessions after lighting is set to prevent visible pumping.",
+    "resolution": "Use the highest stable camera mode that matches the OBS canvas and available USB bandwidth.",
+    "background_apps": "Avoid simultaneous camera access by multiple apps unless the camera/virtual-camera workflow explicitly supports it."
+  },
+  "room_profiles": {
+    "RESET Sound Stage": {
+      "priority": "audio fidelity",
+      "headphones_required_for_hosts": true,
+      "recording_default": "off unless announced"
+    },
+    "Claim Your Stage": {
+      "priority": "performance and audience interaction",
+      "headphones_recommended": true,
+      "recording_default": "off unless announced"
+    },
+    "Game Room": {
+      "priority": "low-latency conversation and game audio balance",
+      "headphones_recommended": true,
+      "recording_default": "off"
+    },
+    "Creator Education": {
+      "priority": "speech intelligibility and screen-share clarity",
+      "headphones_recommended": true,
+      "recording_default": "event-specific"
+    }
+  },
+  "preflight": [
+    "Confirm Discord input and output devices.",
+    "Confirm Wave Link Monitor Mix and Stream Mix are not cross-fed.",
+    "Confirm OBS meters show one clean instance of each intended source.",
+    "Confirm Camera Hub framing and exposure.",
+    "Confirm recording status and participant consent.",
+    "Run a 30-second local recording and playback check before flagship events."
+  ]
+}
