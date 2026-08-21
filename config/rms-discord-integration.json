@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "status": "active",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "system": "RMS Fully Automated Intelligence System",
@@ -8,6 +8,15 @@
     "server_id": "1429398855681573038",
     "application_name": "RMS CreatorHub",
     "application_id": "1540169303213609023",
+    "runtime": {
+      "location": "rms-discord-bridge",
+      "node": ">=20",
+      "sdk": "discord.js@14.27.0",
+      "gateway_intents": ["Guilds"],
+      "privileged_intents_required": false,
+      "health_endpoint": "/health",
+      "deployment_model": "isolated-from-creatorhub-production"
+    },
     "brand": {
       "theme": "luxe-black-gold",
       "primary": "#0B0B0D",
@@ -88,7 +97,7 @@
   ],
   "commands": {
     "portal": {"visibility": "public", "purpose": "CreatorHub and onboarding routing"},
-    "submit": {"visibility": "public", "purpose": "secure Submit Music routing"},
+    "submit": {"visibility": "private-preferred", "purpose": "secure Submit Music routing"},
     "marketplace": {"visibility": "public", "purpose": "RMS Marketplace routing"},
     "sync": {"visibility": "public", "purpose": "licensing-readiness and Global Sync Catalog guidance"},
     "rights": {"visibility": "public", "purpose": "Rights & Metadata Intelligence guidance"},
@@ -138,6 +147,17 @@
     ],
     "deduplication_key": "correlation_id"
   },
+  "live_production": {
+    "profile": "config/rms-live-production-profile.json",
+    "supported_workflows": [
+      "Discord voice and stage rooms",
+      "OBS Studio",
+      "Elgato Wave Link",
+      "Elgato Camera Hub"
+    ],
+    "remote_control_by_bot": false,
+    "design_goal": "production apps remain independently usable and Discord remains functional if any single production component is unavailable"
+  },
   "security": {
     "guild_install_primary": true,
     "user_install_required": false,
@@ -149,9 +169,11 @@
     "discord_stores_private_rights_data": false
   },
   "resilience": {
+    "rms_creatorhub_app_failure": "Carl-bot, Discord native Events, and manual RMS operations remain usable",
     "carl_bot_failure": "Discord Events and manual RMS operations remain usable",
     "zapier_failure": "send one private automation-alerts notice and use manual event fallback",
     "tatsu_failure": "record recognition manually",
+    "production_app_failure": "continue Discord communication and switch to the approved manual media fallback",
     "single_automation_failure_must_not_block_server": true
   },
   "operating_loop": [
