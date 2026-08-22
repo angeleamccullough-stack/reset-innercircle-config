@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "status": "active",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "system": "RMS Fully Automated Intelligence System",
@@ -8,14 +8,33 @@
     "server_id": "1429398855681573038",
     "application_name": "RMS CreatorHub",
     "application_id": "1540169303213609023",
+    "managed_role_id": "1540522466420465726",
+    "managed_role_policy": {
+      "linked_role_requirements_enabled": false,
+      "manual_member_assignment": false,
+      "position": "below human authority roles and above routine automation roles",
+      "administrator": false,
+      "manage_server": false,
+      "manage_roles": false,
+      "create_events": false,
+      "manage_events": false,
+      "note": "This is an integration-managed bot role. Do not use Discord Linked Roles for the bot itself."
+    },
     "runtime": {
       "location": "rms-discord-bridge",
       "node": ">=20",
       "sdk": "discord.js@14.27.0",
       "gateway_intents": ["Guilds"],
       "privileged_intents_required": false,
-      "health_endpoint": "/health",
+      "health_endpoint": "/api/health",
+      "interactions_endpoint": "/api/interactions",
       "deployment_model": "isolated-from-creatorhub-production"
+    },
+    "discovery": {
+      "interaction_model": "slash-commands",
+      "message_content_intent_required": false,
+      "commands_registered": ["portal", "submit", "marketplace", "sync", "rights", "events", "missions", "support"],
+      "status_note": "If Discovery Status remains yellow after commands are registered and executable, do not broaden permissions or enable Message Content solely to satisfy the badge; allow Discord metadata to reconcile and verify Discovery Settings independently."
     },
     "brand": {
       "theme": "luxe-black-gold",
