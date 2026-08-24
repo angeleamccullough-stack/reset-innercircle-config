@@ -24,6 +24,7 @@
     }
     fetch('/api/intelligence', { method: 'POST', headers: { 'content-type': 'application/json' }, body, keepalive: true }).catch(() => {});
   };
+  window.resetTrack = send;
 
   const playTone = (kind = 'tap') => {
     if (!soundOn) return;
