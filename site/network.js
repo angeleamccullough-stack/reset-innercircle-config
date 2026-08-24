@@ -1,8 +1,10 @@
 (() => {
   const facebookNetworkPrimary = 'https://www.facebook.com/groups/search/groups?q=Engagement&filters=eyJteV9ncm91cHM6MCI6IntcIm5hbWVcIjpcIm15X2dyb3Vwc1wiLFwiYXJnc1wiOlwiXCJ9In0%3D';
   const facebookNetworkSecondary = 'https://www.facebook.com/groups/search/groups?q=engagment&filters=eyJteV9ncm91cHM6MCI6IntcIm5hbWVcIjpcIm15X2dyb3Vwc1wiLFwiYXJnc1wiOlwiXCJ9In0%3D';
+  const pinterestSurfaceUrl = 'https://www.pinterest.com/?tabId=1127166681679282275';
   const liveBridgeUrl = '/live.html';
   const partnerUrl = '/partner.html';
+  const arenaUrl = '/arena.html';
   const discordInviteUrl = 'https://discord.gg/hE5TarQsut';
   const studioAnchor = '#studio';
   const supportAnchor = '#support';
@@ -28,52 +30,53 @@
     <div class="wrap">
       <div class="network-head">
         <div><p class="kicker">RESET PARTNER NETWORK · PILOT</p><h2 id="network-title">Many communities.<br><em>One place to activate together.</em></h2></div>
-        <p>Reset Inner Circle gives independent group leaders a shared live-events bridge without absorbing their brands, member lists or communities. Leaders keep their identity. Reset supplies the connection layer, production capacity and measurable event infrastructure.</p>
+        <p>Reset Inner Circle connects independent communities and discovery surfaces into one shared creator ecosystem without absorbing their identity or private audience data.</p>
       </div>
 
       <div class="leader-promise">
-        <span>GROUP LEADER STANDARD</span>
+        <span>COMMUNITY STANDARD</span>
         <div><b>YOU KEEP YOUR COMMUNITY</b><small>No ownership transfer. No audience scraping.</small></div>
-        <div><b>YOU KEEP YOUR CREDIT</b><small>Approved partner groups can be visibly attributed.</small></div>
-        <div><b>WE BUILD THE BRIDGE</b><small>Events, production, collaboration and public-safe analytics.</small></div>
+        <div><b>YOU KEEP YOUR CREDIT</b><small>Approved partner communities can retain visible attribution.</small></div>
+        <div><b>WE BUILD THE BRIDGE</b><small>Discovery, Arena access, events, production and public-safe analytics.</small></div>
       </div>
 
       <div class="network-map">
         <article class="network-node">
-          <div class="node-label"><span>DISCOVERY LAYER</span><b>FACEBOOK</b></div>
-          <h3>Your Engagement Group Cohorts</h3>
-          <p>Both account-scoped Facebook searches are now registered as discovery cohorts. They are intentionally treated as overlapping candidate sets until individual groups are deduplicated and the relevant leader approves public participation.</p>
-          <div class="node-stat"><span><strong>2</strong><small>DISCOVERY COHORTS</small></span><span><strong>VERIFY</strong><small>BEFORE ACTIVATION</small></span></div>
+          <div class="node-label"><span>DISCOVERY LAYER</span><b>FACEBOOK + PINTEREST</b></div>
+          <h3>External Discovery Surfaces</h3>
+          <p>Facebook group cohorts and Pinterest now act as discovery lanes into the same Reset gateway. They stay separate at the platform level while Reset measures only privacy-safe referral and conversion signals downstream.</p>
+          <div class="node-stat"><span><strong>3</strong><small>DISCOVERY SURFACES</small></span><span><strong>ONE</strong><small>RESET ECOSYSTEM</small></span></div>
           <div class="leader-actions">
-            <a class="text-link track soundable" data-event="facebook_network_click" data-placement="partner_network_primary" href="${facebookNetworkPrimary}" target="_blank" rel="noopener">Open primary group cohort <b>↗</b></a>
-            <a class="text-link track soundable" data-event="facebook_network_click" data-placement="partner_network_secondary" href="${facebookNetworkSecondary}" target="_blank" rel="noopener">Open additional group cohort <b>↗</b></a>
+            <a class="text-link track soundable" data-event="facebook_network_click" data-placement="partner_network_primary" href="${facebookNetworkPrimary}" target="_blank" rel="noopener">Open primary Facebook cohort <b>↗</b></a>
+            <a class="text-link track soundable" data-event="facebook_network_click" data-placement="partner_network_secondary" href="${facebookNetworkSecondary}" target="_blank" rel="noopener">Open additional Facebook cohort <b>↗</b></a>
+            <a class="text-link track soundable" data-event="pinterest_surface_click" data-placement="partner_network_pinterest" href="${pinterestSurfaceUrl}" target="_blank" rel="noopener">Open Pinterest discovery surface <b>↗</b></a>
           </div>
         </article>
 
         <article class="network-node center">
-          <div class="node-label"><span>CONTROLLED TEST LANE</span><b>RESET LIVE</b></div>
-          <h3>Public Live Events Bridge</h3>
-          <p>External group traffic now lands on the public Reset Live bridge first. Existing Discord members can open Live Events directly; new visitors join Reset first; leaders can enter the partnership intake without exposing unrelated server rooms.</p>
-          <div class="node-stat"><span><strong>LIVE</strong><small>PUBLIC ROUTING</small></span><span><strong>PILOT</strong><small>MEASURE FIRST</small></span></div>
-          <a class="button gold track soundable" data-event="live_bridge_click" data-placement="partner_network" href="${liveBridgeUrl}"><span>Open Reset Live Bridge</span><i>→</i></a>
+          <div class="node-label"><span>SHARED CONNECTION LAYER</span><b>RESET MAIN ARENA</b></div>
+          <h3>One Arena. Many Origins.</h3>
+          <p>Visitors arriving from Facebook, Pinterest or direct discovery can enter Reset through one public gateway. Once they opt into Discord, origin can remain attributed for analytics while the member experience stays shared rather than siloed.</p>
+          <div class="node-stat"><span><strong>OPEN</strong><small>PUBLIC ROUTING</small></span><span><strong>SHARED</strong><small>MEMBER EXPERIENCE</small></span></div>
+          <a class="button gold track soundable" data-event="arena_bridge_click" data-placement="partner_network" href="${arenaUrl}"><span>Enter Reset Main Arena</span><i>→</i></a>
         </article>
 
         <article class="network-node">
           <div class="node-label"><span>PUBLIC ENTRY</span><b>RESET INNER CIRCLE</b></div>
           <h3>Not inside Discord yet?</h3>
-          <p>New visitors enter through the public invite first. Once inside, event programming can route them to the appropriate live room while the website stays public-safe.</p>
+          <p>New visitors enter through the public invite first. Once inside, programming can route them to the Arena, Live Events, Studio and other appropriate rooms while the website stays public-safe.</p>
           <div class="node-stat"><span><strong>FREE</strong><small>COMMUNITY ENTRY</small></span><span><strong>SAFE</strong><small>BOUNDARY FIRST</small></span></div>
           <a class="text-link track soundable" data-event="network_discord_join_click" data-placement="partner_network" href="${discordInviteUrl}" target="_blank" rel="noopener">Enter Reset Inner Circle <b>↗</b></a>
         </article>
       </div>
 
-      <div class="network-spine"><i></i><span>DISCOVER → VERIFY → INVITE → ATTEND → CONNECT → CREATE → MEASURE → IMPROVE</span><i></i></div>
+      <div class="network-spine"><i></i><span>DISCOVER → ENTER → CONNECT → ATTEND → CREATE → MONETIZE → MEASURE → IMPROVE</span><i></i></div>
 
       <div class="leader-panel">
         <div class="leader-copy">
-          <p class="kicker">FOR GROUP LEADERS</p>
-          <h3>Bring your people to something worth attending.</h3>
-          <p>Partner leaders can co-promote approved events, retain visible group attribution, participate in cross-community programming and request production support. We prove the Live Events bridge first, then expand only where the data and member experience justify it.</p>
+          <p class="kicker">FOR GROUP LEADERS & COMMUNITY PARTNERS</p>
+          <h3>Bring your people to something worth joining.</h3>
+          <p>Partner leaders can co-promote approved events, retain visible group attribution, participate in cross-community programming and request production support. Pinterest and other visual discovery surfaces can feed the same public routes without importing private audience data.</p>
           <div class="leader-actions">
             <a class="button gold track soundable" data-event="group_leader_interest" data-placement="leader_panel" href="${partnerUrl}"><span>Apply for Leader Partnership</span><i>→</i></a>
             <a class="button ghost track soundable" data-event="live_bridge_click" data-placement="leader_panel" href="${liveBridgeUrl}"><span>Preview Live Events Bridge</span><i>→</i></a>
@@ -81,7 +84,7 @@
         </div>
         <div class="leader-rules">
           <span>PARTNER PRINCIPLES</span>
-          <ul><li>Leader approval before public group promotion</li><li>No scraping, member-list export or private-post ingestion</li><li>Only groups the RMS owner is actually a member of enter the candidate registry</li><li>Duplicate groups across Facebook searches are deduplicated before onboarding</li><li>Clear attribution for participating communities</li><li>Shared events must have a defined host, purpose and route</li><li>Expansion happens only after the Live Events pilot is measured</li></ul>
+          <ul><li>Leader approval before public group promotion</li><li>No scraping, member-list export or private-post ingestion</li><li>Only approved public links and non-personal attribution are used</li><li>Clear attribution for participating communities</li><li>Shared campaigns must have a defined purpose and route</li><li>Automation optimizes routing and intelligence, not artificial engagement</li></ul>
         </div>
       </div>
 
@@ -96,10 +99,10 @@
         </div>
       </div>
 
-      <div class="network-note"><strong>Privacy boundary:</strong> this gateway measures public-safe routing and campaign attribution only. It does not scrape Facebook groups, read private Discord conversations, export member lists or move protected creator data between platforms.</div>
+      <div class="network-note"><strong>Privacy boundary:</strong> this gateway measures public-safe routing and campaign attribution only. It does not scrape Facebook groups, Pinterest boards, read private Discord conversations, export member lists or move protected creator data between platforms.</div>
 
       <div class="network-registry">
-        <div><span>PARTNER DIRECTORY · APPROVAL REQUIRED</span><small>Candidate discovery can come from both Facebook cohorts, but specific group names, logos and public links appear only after dedupe + leader approval. Approved referral URLs can use non-personal tags such as <code>/live.html?source=facebook&amp;partner=group-slug&amp;campaign=live-event</code>.</small></div>
+        <div><span>DISCOVERY REGISTRY · APPROVAL REQUIRED</span><small>Approved referrals can use non-personal tags such as <code>/?source=pinterest&amp;partner=reset-pinterest&amp;campaign=creator-discovery</code> or <code>/arena.html?source=facebook&amp;partner=group-slug&amp;campaign=arena</code>.</small></div>
         <a class="button ghost track soundable" data-event="live_bridge_click" data-placement="network_registry" href="${liveBridgeUrl}"><span>Test Public Live Route</span><i>→</i></a>
       </div>
     </div>`;
