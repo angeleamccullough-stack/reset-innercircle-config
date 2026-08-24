@@ -3,8 +3,21 @@
   let soundOn = sessionStorage.getItem('resetSound') !== 'off';
   let audioCtx = null;
 
+  const cleanParam = (value) => String(value || '').replace(/[^a-zA-Z0-9._-]/g, '').slice(0, 80) || null;
+  const params = new URLSearchParams(location.search);
+  const freshAttribution = {
+    source: cleanParam(params.get('source') || params.get('utm_source')),
+    partner: cleanParam(params.get('partner') || params.get('group')),
+    campaign: cleanParam(params.get('campaign') || params.get('utm_campaign'))
+  };
+  if (freshAttribution.source || freshAttribution.partner || freshAttribution.campaign) {
+    sessionStorage.setItem('resetAttribution', JSON.stringify(freshAttribution));
+  }
+  let attribution = {};
+  try { attribution = JSON.parse(sessionStorage.getItem('resetAttribution') || '{}'); } catch { attribution = {}; }
+
   const send = (eventType, metadata = {}) => {
-    const body = JSON.stringify({ event_type: eventType, metadata });
+    const body = JSON.stringify({ event_type: eventType, metadata: { ...attribution, ...metadata } });
     if (navigator.sendBeacon) {
       navigator.sendBeacon('/api/intelligence', new Blob([body], { type: 'application/json' }));
       return;
@@ -21,11 +34,7 @@
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
       const filter = audioCtx.createBiquadFilter();
-      const map = {
-        tap: [520, 0.035, 0.025],
-        nav: [410, 0.028, 0.018],
-        primary: [610, 0.055, 0.032]
-      };
+      const map = { tap: [520, 0.035, 0.025], nav: [410, 0.028, 0.018], primary: [610, 0.055, 0.032] };
       const [freq, duration, volume] = map[kind] || map.tap;
       osc.type = 'sine';
       osc.frequency.setValueAtTime(freq, now);
@@ -62,7 +71,10 @@
     if (soundable) playTone(soundable.classList.contains('gold') ? 'primary' : soundable.closest('nav') ? 'nav' : 'tap');
 
     const tracked = event.target.closest?.('.track');
-    if (tracked) send(tracked.dataset.event || 'reset_gateway_click', { destination: tracked.getAttribute('href') });
+    if (tracked) send(tracked.dataset.event || 'reset_gateway_click', {
+      destination: tracked.getAttribute('href'),
+      placement: tracked.dataset.placement || null
+    });
   });
 
   send('reset_gateway_view', {
@@ -91,6 +103,18 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
     reveals.forEach((el) => observer.observe(el));
+  }
+
+  const seen = new WeakSet();
+  if ('IntersectionObserver' in window) {
+    const signalObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || seen.has(entry.target)) return;
+        seen.add(entry.target);
+        if (entry.target.dataset.viewEvent) send(entry.target.dataset.viewEvent, { section: entry.target.id || null });
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('[data-view-event]').forEach((el) => signalObserver.observe(el));
   }
 
   if (!prefersReduced && matchMedia('(pointer:fine)').matches) {
