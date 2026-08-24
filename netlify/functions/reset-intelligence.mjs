@@ -6,6 +6,7 @@ const allowed = new Set([
   'discord_join_click_footer',
   'studio_interest',
   'studio_discord_click',
+  'studio_service_inquiry',
   'support_checkout_started'
 ]);
 
