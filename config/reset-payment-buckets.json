@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "status": "prepared_not_activated",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "scope": "resetinnercircle",
+  "principle": "Separate voluntary support from paid products and services. Never imply a contribution purchases Discord membership or tax-deductible charity status.",
+  "buckets": {
+    "community_support": {
+      "route": "/support",
+      "environment_variable": "RESET_STRIPE_SUPPORT_URL",
+      "purpose": "Voluntary support for Reset operating infrastructure",
+      "discord_access_entitlement": false,
+      "tax_deductible_claim": false,
+      "status": "unbound_fail_closed"
+    },
+    "studio_services": {
+      "route": "/checkout/studio",
+      "environment_variable": "RESET_STRIPE_STUDIO_SERVICES_URL",
+      "purpose": "Reset Media Virtual Studio paid production services",
+      "discord_access_entitlement": false,
+      "status": "unbound_fail_closed"
+    },
+    "event_services": {
+      "route": "/checkout/events",
+      "environment_variable": "RESET_STRIPE_EVENT_SERVICES_URL",
+      "purpose": "Produced events, workshops, sponsorship-related or event production services as separately defined offers",
+      "discord_access_entitlement": false,
+      "status": "unbound_fail_closed"
+    }
+  },
+  "activation_rules": [
+    "Use Stripe-hosted Payment Links or Checkout URLs only",
+    "Bind each environment variable to the matching Stripe product or support lane only",
+    "Do not reuse one payment link across support and paid service buckets",
+    "Do not activate until public route, product language, amount, refund/cancellation terms and fulfillment path are verified",
+    "Keep payment credentials and webhook secrets server-side",
+    "Payment success must not auto-grant Discord membership unless a separate platform-compliant entitlement design is explicitly approved",
+    "Normalized AOS events may record bucket, amount class, campaign and outcome, but never raw card data or Stripe secrets"
+  ]
+}
