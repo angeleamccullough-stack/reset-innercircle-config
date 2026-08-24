@@ -57,17 +57,17 @@
     if (soundOn) playTone('primary');
   });
 
-  document.querySelectorAll('.soundable').forEach((el) => {
-    el.addEventListener('click', () => playTone(el.classList.contains('gold') ? 'primary' : el.closest('nav') ? 'nav' : 'tap'));
+  document.addEventListener('click', (event) => {
+    const soundable = event.target.closest?.('.soundable');
+    if (soundable) playTone(soundable.classList.contains('gold') ? 'primary' : soundable.closest('nav') ? 'nav' : 'tap');
+
+    const tracked = event.target.closest?.('.track');
+    if (tracked) send(tracked.dataset.event || 'reset_gateway_click', { destination: tracked.getAttribute('href') });
   });
 
   send('reset_gateway_view', {
     path: location.pathname,
     referrer_host: document.referrer ? (() => { try { return new URL(document.referrer).hostname; } catch { return null; } })() : null
-  });
-
-  document.querySelectorAll('.track').forEach((link) => {
-    link.addEventListener('click', () => send(link.dataset.event || 'reset_gateway_click', { destination: link.getAttribute('href') }));
   });
 
   const progress = document.querySelector('.progress span');
@@ -104,4 +104,14 @@
       card.addEventListener('pointerleave', () => { card.style.transform = ''; });
     });
   }
+
+  const networkCss = document.createElement('link');
+  networkCss.rel = 'stylesheet';
+  networkCss.href = '/network.css';
+  document.head.appendChild(networkCss);
+
+  const networkScript = document.createElement('script');
+  networkScript.src = '/network.js';
+  networkScript.defer = true;
+  document.body.appendChild(networkScript);
 })();
