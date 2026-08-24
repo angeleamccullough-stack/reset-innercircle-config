@@ -130,13 +130,23 @@
     });
   }
 
-  const networkCss = document.createElement('link');
-  networkCss.rel = 'stylesheet';
-  networkCss.href = '/network.css';
-  document.head.appendChild(networkCss);
+  const loadStyle = (href) => {
+    if (document.querySelector(`link[href="${href}"]`)) return;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    document.head.appendChild(link);
+  };
+  const loadScript = (src) => {
+    if (document.querySelector(`script[src="${src}"]`)) return;
+    const script = document.createElement('script');
+    script.src = src;
+    script.defer = true;
+    document.body.appendChild(script);
+  };
 
-  const networkScript = document.createElement('script');
-  networkScript.src = '/network.js';
-  networkScript.defer = true;
-  document.body.appendChild(networkScript);
+  loadStyle('/network.css');
+  loadStyle('/brand-upgrade.css');
+  loadScript('/network.js');
+  loadScript('/brand-upgrade.js');
 })();
