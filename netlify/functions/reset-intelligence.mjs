@@ -33,7 +33,12 @@ const allowed = new Set([
   'arena_join_click',
   'arena_live_events_click',
   'arena_studio_click',
-  'arena_model_rendered'
+  'arena_model_rendered',
+  'pinterest_surface_click',
+  'pinterest_referral_view',
+  'pinterest_arena_interest',
+  'pinterest_live_interest',
+  'pinterest_studio_interest'
 ]);
 
 export default async (request) => {
