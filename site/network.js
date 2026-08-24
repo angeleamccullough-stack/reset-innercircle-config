@@ -25,10 +25,7 @@
   section.innerHTML = `
     <div class="wrap">
       <div class="network-head">
-        <div>
-          <p class="kicker">RESET PARTNER NETWORK · PILOT</p>
-          <h2 id="network-title">Many communities.<br><em>One place to activate together.</em></h2>
-        </div>
+        <div><p class="kicker">RESET PARTNER NETWORK · PILOT</p><h2 id="network-title">Many communities.<br><em>One place to activate together.</em></h2></div>
         <p>Reset Inner Circle gives independent group leaders a shared live-events bridge without absorbing their brands, member lists or communities. Leaders keep their identity. Reset supplies the connection layer, production capacity and measurable event infrastructure.</p>
       </div>
 
@@ -79,13 +76,7 @@
         </div>
         <div class="leader-rules">
           <span>PARTNER PRINCIPLES</span>
-          <ul>
-            <li>Leader approval before public group promotion</li>
-            <li>No scraping, member-list export or private-post ingestion</li>
-            <li>Clear attribution for participating communities</li>
-            <li>Shared events must have a defined host, purpose and route</li>
-            <li>Expansion happens only after the pilot is measured</li>
-          </ul>
+          <ul><li>Leader approval before public group promotion</li><li>No scraping, member-list export or private-post ingestion</li><li>Clear attribution for participating communities</li><li>Shared events must have a defined host, purpose and route</li><li>Expansion happens only after the pilot is measured</li></ul>
         </div>
       </div>
 
@@ -110,14 +101,25 @@
 
   support.parentNode.insertBefore(section, support);
 
+  const trackVisible = (element, eventType) => {
+    if (!element || !window.resetTrack) return;
+    if (!('IntersectionObserver' in window)) { window.resetTrack(eventType, { section: element.id || null }); return; }
+    const observer = new IntersectionObserver((entries, obs) => {
+      if (!entries[0]?.isIntersecting) return;
+      window.resetTrack(eventType, { section: element.id || eventType });
+      obs.disconnect();
+    }, { threshold: 0.4 });
+    observer.observe(element);
+  };
+
+  trackVisible(section, 'partner_network_view');
+  trackVisible(section.querySelector('.revenue-panel'), 'network_revenue_view');
+
   requestAnimationFrame(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) section.classList.add('in');
     else {
       const observer = new IntersectionObserver((entries, obs) => {
-        if (entries[0]?.isIntersecting) {
-          section.classList.add('in');
-          obs.disconnect();
-        }
+        if (entries[0]?.isIntersecting) { section.classList.add('in'); obs.disconnect(); }
       }, { threshold: 0.08 });
       observer.observe(section);
     }
