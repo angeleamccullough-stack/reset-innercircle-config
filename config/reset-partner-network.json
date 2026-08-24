@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0.0",
+  "status": "pilot",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "network": "Reset Inner Circle Partner Network",
+  "purpose": "Connect independent creator and engagement communities into approved Reset live programming while preserving each leader's identity, audience ownership and platform boundaries.",
+  "pilot": {
+    "external_source": "facebook_groups",
+    "internal_destination": "discord_live_events",
+    "discord_server_id": "1429398855681573038",
+    "discord_channel_id": "1429398859020370096",
+    "expansion_policy": "Do not route external partner communities into additional Inner Circle rooms until the Live Events pilot is measured and approved."
+  },
+  "leader_standard": {
+    "group_identity_retained": true,
+    "leader_approval_required_for_public_promotion": true,
+    "member_list_export": false,
+    "private_post_ingestion": false,
+    "audience_scraping": false,
+    "visible_partner_attribution": true,
+    "cross_promotion_opt_in": true
+  },
+  "public_safe_attribution": {
+    "allowed_query_keys": ["source", "partner", "campaign", "utm_source", "utm_campaign"],
+    "pii_allowed": false,
+    "example": "?source=facebook&partner=group-slug&campaign=live-event"
+  },
+  "revenue_lanes": [
+    {
+      "name": "Reset Media Virtual Studio services",
+      "membership_paywall": false,
+      "status": "active_interest_capture"
+    },
+    {
+      "name": "Event sponsorship",
+      "membership_paywall": false,
+      "status": "pilot_interest_capture"
+    },
+    {
+      "name": "Approved partner spotlights and promotional features",
+      "membership_paywall": false,
+      "status": "pilot_interest_capture"
+    },
+    {
+      "name": "Produced workshops and ticketed events",
+      "membership_paywall": false,
+      "status": "pilot_interest_capture"
+    },
+    {
+      "name": "Voluntary Reset support",
+      "membership_paywall": false,
+      "status": "stripe_pending"
+    }
+  ],
+  "intelligence": {
+    "scope": "resetinnercircle",
+    "source": "netlify",
+    "normalized_metadata_only": true,
+    "private_discord_content": false,
+    "facebook_private_content": false,
+    "credential_sharing": false,
+    "rms_resend_credentials_allowed": false
+  }
+}
