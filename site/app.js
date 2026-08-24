@@ -83,6 +83,19 @@
     referrer_host: document.referrer ? (() => { try { return new URL(document.referrer).hostname; } catch { return null; } })() : null
   });
 
+  const footerBrand = document.querySelector('.footer-brand-system');
+  const footerBrandCopy = footerBrand?.querySelector('p');
+  if (footerBrandCopy) {
+    footerBrandCopy.className = 'footer-brand-main';
+    footerBrandCopy.textContent = 'Reset Society | Be You On Purpose ✨';
+    if (!footerBrand.querySelector('.footer-brand-creed')) {
+      const creed = document.createElement('p');
+      creed.className = 'footer-brand-creed';
+      creed.textContent = 'Remember · Embody · Stand · Elevate · Truth';
+      footerBrandCopy.insertAdjacentElement('afterend', creed);
+    }
+  }
+
   const createSupportColumn = Array.from(document.querySelectorAll('.directory-column')).find((column) => column.querySelector('span')?.textContent?.trim() === 'CREATE + SUPPORT');
   if (createSupportColumn && !createSupportColumn.querySelector('[data-event="footer_rs_vault_click"]')) {
     const vault = document.createElement('a');
