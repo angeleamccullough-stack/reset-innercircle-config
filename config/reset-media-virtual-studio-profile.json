@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "status": "active",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "brand": "Reset Media Virtual Studio™",
+  "community": "Reset Inner Circle",
+  "discord_entry": "https://discord.gg/hE5TarQsut",
+  "production_stack": [
+    "Discord",
+    "OBS Studio",
+    "Elgato Wave Link",
+    "Elgato Camera Hub",
+    "MPC Beats DAW"
+  ],
+  "capabilities": [
+    "remote guest capture",
+    "live interview production",
+    "artist performance capture",
+    "multisource audio routing",
+    "live recording",
+    "creator education sessions",
+    "listening sessions",
+    "virtual event production"
+  ],
+  "commercial_model": {
+    "membership_required": false,
+    "services_may_be_paid": true,
+    "service_checkout_separate_from_discord_membership": true,
+    "pricing_authority": "Founder-approved evidence-based pricing only",
+    "no_fake_booking_or_revenue_evidence": true
+  },
+  "production_safety": {
+    "recording_notice_required": true,
+    "participant_consent_required": true,
+    "private_creator_audio_not_public_by_default": true,
+    "separate_audio_tracks_when_practical": true,
+    "avoid_feedback_and_double_monitoring": true
+  },
+  "intelligence": {
+    "allowed": [
+      "studio_interest",
+      "studio_discord_click",
+      "session_inquiry_started",
+      "session_checkout_started",
+      "session_purchase_completed"
+    ],
+    "forbidden": [
+      "private Discord audio",
+      "private Discord messages",
+      "raw payment credentials",
+      "creator rights documents",
+      "unreleased masters"
+    ]
+  }
+}
