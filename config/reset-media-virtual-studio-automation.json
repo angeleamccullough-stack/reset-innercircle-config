@@ -1,0 +1,154 @@
+{
+  "version": "2026-08-24",
+  "status": "planned_safe",
+  "system": "Reset Media Virtual Studio",
+  "purpose": "Turn the verified Reset Discord studio channel into a controlled remote production entry point for a dedicated OBS scene and Community DAW workflow without changing live routing until tested.",
+  "discord": {
+    "guild_id": "1429398855681573038",
+    "studio_channel_id": "1468103128279941272",
+    "channel_role": "virtual_studio_session_entry",
+    "webhook_status": "not_created",
+    "webhook_rule": "Create only for approved outbound studio automation. Never expose webhook URLs in browser code or public config."
+  },
+  "production_stack": {
+    "obs": {
+      "observed_version": "32.2.2",
+      "current_profile": "RESET Broadcast",
+      "current_scene_collection": "Luxury INNER Circle",
+      "future_scene": "Reset Inner Circle Community DAW - Virtual Studio",
+      "restream": {
+        "present": true,
+        "observed_state": "account_access_expired",
+        "rule": "Do not reconnect or broadcast automatically. Re-authentication is an owner action and must occur only during a supervised production test."
+      }
+    },
+    "wave_link": {
+      "status": "already_connected_needs_future_adjustment",
+      "role": "audio_bus_and_monitoring_control"
+    },
+    "community_daw": {
+      "project_name": "Reset Inner Circle Community DAW - Discord.xpj",
+      "role": "music_creation_and_session_capture_source"
+    }
+  },
+  "target_signal_flow": [
+    "Discord studio channel / guest session",
+    "Wave Link isolated guest/host/DAW buses",
+    "Community DAW source",
+    "Dedicated OBS Virtual Studio scene",
+    "Local multitrack-safe recording",
+    "Optional supervised live broadcast through approved Restream destinations",
+    "Post-session archive / approved repurposing"
+  ],
+  "required_scene_sources": [
+    "host camera",
+    "guest capture/window",
+    "host microphone",
+    "Discord guest audio bus",
+    "DAW/music bus",
+    "session title / guest lower third",
+    "Reset Inner Circle branding",
+    "recording/live status indicator",
+    "consent status indicator",
+    "BRB / technical hold fallback"
+  ],
+  "safety_controls": {
+    "recording_requires_explicit_session_consent": true,
+    "streaming_requires_explicit_session_consent": true,
+    "no_silent_recording": true,
+    "no_automatic_restream_start": true,
+    "no_webhook_secret_in_client": true,
+    "monitoring_and_recording_audio_must_be_separated": true,
+    "prevent_feedback_and_double_routing": true,
+    "test_locally_before_any_public_broadcast": true,
+    "retain_private_creator_conversation_outside_aos": true,
+    "aos_receives_normalized_session_metadata_only": true
+  },
+  "automation_events": [
+    "studio_session_requested",
+    "studio_session_approved",
+    "studio_session_scheduled",
+    "studio_consent_complete",
+    "studio_preflight_passed",
+    "studio_recording_started",
+    "studio_recording_completed",
+    "studio_live_started",
+    "studio_live_completed",
+    "studio_asset_archived"
+  ],
+  "worker_assignment": {
+    "ROWAN": "orchestration, dependency order, safety gates, Founder escalation",
+    "FORGE": "OBS scene engineering, source validation, recording reliability, rollback profile",
+    "SIGNAL": "approved live-event packaging, promotion routing, audience/discovery activation",
+    "CARE": "participant onboarding, consent clarity, guest experience, support recovery",
+    "PULSE": "service/revenue attribution only after approved paid studio offers are active; never count sessions as revenue before payment",
+    "ATLAS": "education/workshop use cases and creator training documentation",
+    "LEDGER": "rights/provenance guard when recorded music, stems, performances, or licensed material enter a session"
+  },
+  "execution_phases": [
+    {
+      "phase": 1,
+      "name": "Inventory and backup",
+      "steps": [
+        "Export/backup current OBS profile and Luxury INNER Circle scene collection",
+        "Record current Wave Link routing and monitoring state",
+        "Do not modify existing working broadcast scenes"
+      ]
+    },
+    {
+      "phase": 2,
+      "name": "Dedicated scene build",
+      "steps": [
+        "Create Reset Inner Circle Community DAW - Virtual Studio scene",
+        "Add isolated host, guest, DAW and branding sources",
+        "Create technical hold / BRB fallback",
+        "Keep Restream disconnected during engineering"
+      ]
+    },
+    {
+      "phase": 3,
+      "name": "Audio isolation",
+      "steps": [
+        "Separate Discord guest, host mic, DAW and monitor buses in Wave Link",
+        "Prevent monitor echo and Discord feedback",
+        "Verify OBS receives intended buses exactly once"
+      ]
+    },
+    {
+      "phase": 4,
+      "name": "Consent and scheduling automation",
+      "steps": [
+        "Use Discord studio channel as the session entry point",
+        "Add approved session request / consent / preflight workflow",
+        "Send normalized session-state metadata to AOS only after CreatorHub ingress certification"
+      ]
+    },
+    {
+      "phase": 5,
+      "name": "Local QA",
+      "steps": [
+        "Run private two-person Discord test",
+        "Record locally without streaming",
+        "Verify lip sync, audio isolation, DAW capture, no feedback, fallback scene, and file integrity"
+      ]
+    },
+    {
+      "phase": 6,
+      "name": "Supervised broadcast certification",
+      "steps": [
+        "Owner reconnects Restream if desired",
+        "Test one approved destination first",
+        "Verify destination health before multi-platform expansion",
+        "Never auto-start a broadcast"
+      ]
+    }
+  ],
+  "dependencies": [
+    "CreatorHub communications/intelligence ingress certification before AOS session relay",
+    "verified Discord permissions for studio channel",
+    "participant consent workflow",
+    "stable Wave Link routing",
+    "successful local OBS recording QA",
+    "Founder-approved Restream reconnection before any live broadcast"
+  ]
+}
