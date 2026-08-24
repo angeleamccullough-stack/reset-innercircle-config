@@ -1,18 +1,19 @@
 {
-  "schema_version": "1.1.0",
-  "status": "active_pilot",
+  "schema_version": "1.2.0",
+  "status": "active_beta_two_rooms",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "network": "Reset Inner Circle Partner Network",
   "purpose": "Connect independent creator and engagement communities into approved Reset programming while preserving each leader's identity, audience ownership and platform boundaries.",
   "pilot": {
     "external_sources": ["facebook_groups", "pinterest"],
     "primary_internal_destination": "reset_main_arena",
-    "proven_first_lane": "discord_live_events",
     "discord_server_id": "1429398855681573038",
-    "live_events_channel_id": "1429398859020370096",
-    "main_arena_channel_id": null,
-    "main_arena_binding_status": "pending_verified_channel_url",
-    "expansion_policy": "Additional Discord rooms may receive automated sparks only when the room has an approved purpose, verified channel binding, moderation owner and activity template. No blanket cross-posting."
+    "main_arena_channel_id": "1429398859020370096",
+    "main_arena_binding_status": "verified",
+    "soul_flow_lounge_channel_id": "1430445705230553230",
+    "soul_flow_lounge_binding_status": "verified",
+    "beta_room_count": 2,
+    "expansion_policy": "Only Reset Main Arena and Soul Flow Lounge participate in the first room-spark beta. Additional Discord rooms remain inactive until the beta is reviewed and explicitly approved."
   },
   "leader_standard": {
     "group_identity_retained": true,
@@ -23,9 +24,16 @@
     "visible_partner_attribution": true,
     "cross_promotion_opt_in": true
   },
+  "external_group_assignment": {
+    "policy": "one_external_group_one_beta_room",
+    "duplicate_group_assignment_across_discord_channels": false,
+    "dedupe_key": "normalized_public_group_url_or_approved_partner_slug",
+    "assignment_status": "awaiting_approved_group_roster",
+    "rule": "A Facebook group may seed only one beta Discord room during the test. If the same group appears in multiple discovery cohorts, deduplicate it before assignment."
+  },
   "engagement_engine": {
-    "mode": "platform_compliant_automation",
-    "goal": "Seed useful activity inside Reset rooms so members have meaningful reasons to return, collaborate and participate.",
+    "mode": "platform_compliant_automation_beta",
+    "goal": "Seed useful activity inside the two verified Reset beta rooms so members have meaningful reasons to return, collaborate and participate.",
     "allowed_automation": [
       "scheduled room prompts",
       "solo creator missions",
@@ -33,7 +41,7 @@
       "event reminders",
       "creator spotlights",
       "workshop and live-session prompts",
-      "cross-room opportunity routing",
+      "cross-room opportunity routing without duplicate group assignment",
       "verified participation recognition",
       "recap prompts",
       "public-safe campaign attribution"
@@ -44,7 +52,8 @@
       "private Facebook member scraping",
       "private group post ingestion",
       "mass posting without leader approval",
-      "unapproved cross-room spam"
+      "unapproved cross-room spam",
+      "assigning the same external group to both beta rooms"
     ],
     "spark_cadence": {
       "default": "bounded_and_room_specific",
@@ -53,20 +62,38 @@
       "event_day_exception": "approved event reminders may exceed routine cadence when directly tied to the event schedule"
     },
     "activity_templates": {
-      "solo": [
-        "Creator check-in: share one concrete move you are making today",
-        "Platform mission: complete one monetization-aligned task and report the result",
-        "Portfolio spark: share one current work-in-progress for constructive feedback",
-        "Discovery spark: introduce one skill, offer or collaboration need"
-      ],
-      "group": [
-        "Cross-community collaboration call",
-        "Live event discussion thread",
-        "Creator support circle with defined prompt",
-        "Clip or content challenge tied to platform-native monetization rules",
-        "Listening or feedback session",
-        "Co-creation sprint with clear start, finish and recap"
-      ]
+      "main_arena": {
+        "channel_id": "1429398859020370096",
+        "purpose": "cross-community creator connection, live activity, collaboration discovery and event routing",
+        "solo": [
+          "Creator check-in: share one concrete move you are making today",
+          "Platform mission: complete one monetization-aligned task and report the result",
+          "Portfolio spark: share one current work-in-progress for constructive feedback",
+          "Discovery spark: introduce one skill, offer or collaboration need"
+        ],
+        "group": [
+          "Cross-community collaboration call",
+          "Live event discussion thread",
+          "Clip or content challenge tied to platform-native monetization rules",
+          "Co-creation sprint with clear start, finish and recap"
+        ]
+      },
+      "soul_flow_lounge": {
+        "channel_id": "1430445705230553230",
+        "purpose": "reflective creator connection, authentic conversation, creative grounding, listening and lower-pressure community participation",
+        "solo": [
+          "Soul Flow check-in: what are you creating, carrying or clearing today?",
+          "Creative reset: share one thing helping you reconnect with your voice",
+          "Quiet progress: name one small move you completed that deserves recognition",
+          "Listening prompt: share one song, idea or creative influence shaping your current work"
+        ],
+        "group": [
+          "Soul Sync conversation with a defined prompt",
+          "Listening and feedback circle",
+          "Creative grounding session",
+          "Low-pressure collaboration or accountability circle"
+        ]
+      }
     },
     "automation_owners": {
       "carl_bot": ["admission gates", "self roles", "moderation", "event entry gates"],
@@ -78,7 +105,11 @@
   },
   "room_binding_contract": {
     "required_fields": ["channel_id", "room_purpose", "moderation_owner", "allowed_activity_templates", "notification_role_if_any"],
-    "activation_rule": "Do not activate automated sparks for a room until all required fields are verified.",
+    "verified_beta_rooms": [
+      {"name": "Reset Main Arena", "channel_id": "1429398859020370096"},
+      {"name": "Soul Flow Lounge", "channel_id": "1430445705230553230"}
+    ],
+    "activation_rule": "Do not activate routine automated sparks beyond the two verified beta rooms until the first beta is measured and approved.",
     "fallback": "If an automation dependency fails, the room remains usable and routine automation pauses rather than flooding or blocking the community."
   },
   "public_safe_attribution": {
