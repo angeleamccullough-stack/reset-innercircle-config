@@ -25,7 +25,8 @@ const allowed = new Set([
   'live_bridge_click',
   'live_bridge_view',
   'partner_onboarding_view',
-  'partner_application_submit'
+  'partner_application_submit',
+  'partner_thanks_view'
 ]);
 
 export default async (request) => {
