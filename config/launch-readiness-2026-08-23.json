@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "recorded_at": "2026-08-23",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "system": "Reset Inner Circle Gateway",
+  "status": "frontend_and_routing_ready_provider_bindings_pending",
+  "ready_now": [
+    "GitHub-backed Netlify deployment authority",
+    "official Reset branding across main and secondary public pages",
+    "premium responsive gateway UX",
+    "shared ecosystem directory footer",
+    "Main Arena public route",
+    "Live Events public route",
+    "Partner Network intake",
+    "Reset Media Virtual Studio positioning",
+    "production-services interest capture",
+    "Facebook and Pinterest attribution architecture",
+    "normalized Netlify intelligence relay with fail-closed behavior",
+    "separate support, studio-service and event-service payment lanes",
+    "platform-compliant cross-community engagement-engine contract"
+  ],
+  "intentional_blockers": {
+    "vercel": {
+      "state": "hobby_build_rate_limit",
+      "impact": "RMS communications ingress certification and downstream Reset intelligence relay activation remain pending",
+      "cost_policy": "Do not upgrade Vercel or incur paid hosting cost to bypass the limit",
+      "existing_watch": "CreatorHub Comms Build Watch"
+    },
+    "main_arena_channel": {
+      "state": "verified_channel_url_required",
+      "impact": "Arena public route opens the Reset server rather than guessing a specific channel ID",
+      "safety_rule": "Never invent a Discord channel ID"
+    },
+    "stripe": {
+      "state": "deliberately_unbound",
+      "buckets": [
+        "Community Support",
+        "Reset Media Virtual Studio services",
+        "Produced Events / Workshops / Event Services"
+      ],
+      "activation_rule": "Bind only approved Stripe-hosted checkout URLs after offer language, pricing, fulfillment and refund/cancellation terms are approved",
+      "support_labeling": "Use Support Reset Society / Community Support unless charitable status is separately established"
+    },
+    "facebook_and_pinterest_direct_automation": {
+      "state": "no_direct_connector_in_current_session",
+      "impact": "No direct publishing, private group ingestion or account-level automation is claimed",
+      "allowed_now": "tracked discovery links, approved partner attribution, internal Discord activity seeding and public-safe intelligence"
+    }
+  },
+  "engagement_engine": {
+    "goal": "Create useful reasons for members to return to each activated Discord room without artificial engagement.",
+    "default_limit": "2 routine automated sparks per activated room per day",
+    "room_activation_requires": [
+      "verified channel ID",
+      "approved room purpose",
+      "moderation owner",
+      "approved activity templates",
+      "notification role when applicable"
+    ],
+    "supported_sparks": [
+      "solo creator prompts",
+      "group collaboration challenges",
+      "event reminders",
+      "creator spotlights",
+      "platform missions",
+      "workshop/live-session prompts",
+      "listening and feedback sessions",
+      "cross-room opportunity routing",
+      "recaps and verified recognition"
+    ],
+    "prohibited": [
+      "fake engagement",
+      "automated likes/comments on behalf of users",
+      "member scraping",
+      "private Facebook post ingestion",
+      "unapproved mass posting",
+      "room flooding"
+    ]
+  },
+  "production_truth": {
+    "gateway_ready": true,
+    "discord_server_usable": true,
+    "live_events_binding_verified": true,
+    "main_arena_channel_binding_verified": false,
+    "stripe_live": false,
+    "rms_intelligence_ingress_live": false,
+    "netlify_relay_fail_closed": true
+  }
+}
