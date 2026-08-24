@@ -1,15 +1,18 @@
 {
-  "schema_version": "1.0.0",
-  "status": "pilot",
+  "schema_version": "1.1.0",
+  "status": "active_pilot",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "network": "Reset Inner Circle Partner Network",
-  "purpose": "Connect independent creator and engagement communities into approved Reset live programming while preserving each leader's identity, audience ownership and platform boundaries.",
+  "purpose": "Connect independent creator and engagement communities into approved Reset programming while preserving each leader's identity, audience ownership and platform boundaries.",
   "pilot": {
-    "external_source": "facebook_groups",
-    "internal_destination": "discord_live_events",
+    "external_sources": ["facebook_groups", "pinterest"],
+    "primary_internal_destination": "reset_main_arena",
+    "proven_first_lane": "discord_live_events",
     "discord_server_id": "1429398855681573038",
-    "discord_channel_id": "1429398859020370096",
-    "expansion_policy": "Do not route external partner communities into additional Inner Circle rooms until the Live Events pilot is measured and approved."
+    "live_events_channel_id": "1429398859020370096",
+    "main_arena_channel_id": null,
+    "main_arena_binding_status": "pending_verified_channel_url",
+    "expansion_policy": "Additional Discord rooms may receive automated sparks only when the room has an approved purpose, verified channel binding, moderation owner and activity template. No blanket cross-posting."
   },
   "leader_standard": {
     "group_identity_retained": true,
@@ -20,37 +23,75 @@
     "visible_partner_attribution": true,
     "cross_promotion_opt_in": true
   },
+  "engagement_engine": {
+    "mode": "platform_compliant_automation",
+    "goal": "Seed useful activity inside Reset rooms so members have meaningful reasons to return, collaborate and participate.",
+    "allowed_automation": [
+      "scheduled room prompts",
+      "solo creator missions",
+      "group collaboration challenges",
+      "event reminders",
+      "creator spotlights",
+      "workshop and live-session prompts",
+      "cross-room opportunity routing",
+      "verified participation recognition",
+      "recap prompts",
+      "public-safe campaign attribution"
+    ],
+    "prohibited_automation": [
+      "fake engagement",
+      "automated likes or comments on behalf of members",
+      "private Facebook member scraping",
+      "private group post ingestion",
+      "mass posting without leader approval",
+      "unapproved cross-room spam"
+    ],
+    "spark_cadence": {
+      "default": "bounded_and_room_specific",
+      "max_routine_sparks_per_room_per_day": 2,
+      "quiet_if_no_active_programming": true,
+      "event_day_exception": "approved event reminders may exceed routine cadence when directly tied to the event schedule"
+    },
+    "activity_templates": {
+      "solo": [
+        "Creator check-in: share one concrete move you are making today",
+        "Platform mission: complete one monetization-aligned task and report the result",
+        "Portfolio spark: share one current work-in-progress for constructive feedback",
+        "Discovery spark: introduce one skill, offer or collaboration need"
+      ],
+      "group": [
+        "Cross-community collaboration call",
+        "Live event discussion thread",
+        "Creator support circle with defined prompt",
+        "Clip or content challenge tied to platform-native monetization rules",
+        "Listening or feedback session",
+        "Co-creation sprint with clear start, finish and recap"
+      ]
+    },
+    "automation_owners": {
+      "carl_bot": ["admission gates", "self roles", "moderation", "event entry gates"],
+      "rms_creatorhub": ["public-safe routing", "normalized intelligence", "opportunity lookup", "status routing"],
+      "zapier": ["approved schedule triggers", "room announcements", "reminders", "live-now signals", "recaps", "private failure alerts"],
+      "tatsu": ["verified participation recognition", "positive engagement rewards"],
+      "statbot": ["room health", "participation trend reporting"]
+    }
+  },
+  "room_binding_contract": {
+    "required_fields": ["channel_id", "room_purpose", "moderation_owner", "allowed_activity_templates", "notification_role_if_any"],
+    "activation_rule": "Do not activate automated sparks for a room until all required fields are verified.",
+    "fallback": "If an automation dependency fails, the room remains usable and routine automation pauses rather than flooding or blocking the community."
+  },
   "public_safe_attribution": {
     "allowed_query_keys": ["source", "partner", "campaign", "utm_source", "utm_campaign"],
     "pii_allowed": false,
-    "example": "?source=facebook&partner=group-slug&campaign=live-event"
+    "example": "?source=facebook&partner=group-slug&campaign=arena-spark"
   },
   "revenue_lanes": [
-    {
-      "name": "Reset Media Virtual Studio services",
-      "membership_paywall": false,
-      "status": "active_interest_capture"
-    },
-    {
-      "name": "Event sponsorship",
-      "membership_paywall": false,
-      "status": "pilot_interest_capture"
-    },
-    {
-      "name": "Approved partner spotlights and promotional features",
-      "membership_paywall": false,
-      "status": "pilot_interest_capture"
-    },
-    {
-      "name": "Produced workshops and ticketed events",
-      "membership_paywall": false,
-      "status": "pilot_interest_capture"
-    },
-    {
-      "name": "Voluntary Reset support",
-      "membership_paywall": false,
-      "status": "stripe_pending"
-    }
+    {"name": "Reset Media Virtual Studio services", "membership_paywall": false, "status": "active_interest_capture"},
+    {"name": "Event sponsorship", "membership_paywall": false, "status": "pilot_interest_capture"},
+    {"name": "Approved partner spotlights and promotional features", "membership_paywall": false, "status": "pilot_interest_capture"},
+    {"name": "Produced workshops and ticketed events", "membership_paywall": false, "status": "pilot_interest_capture"},
+    {"name": "Voluntary Reset support", "membership_paywall": false, "status": "stripe_pending"}
   ],
   "intelligence": {
     "scope": "resetinnercircle",
