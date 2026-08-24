@@ -1,20 +1,20 @@
 {
-  "schema_version": "1.0.0",
-  "status": "active_pending_channel_binding",
+  "schema_version": "1.1.0",
+  "status": "active_verified_binding",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "server_id": "1429398855681573038",
   "public_gateway": "https://resetinnercircle.com/arena.html",
   "discord_invite": "https://discord.gg/hE5TarQsut",
-  "canonical_channel_url": null,
-  "canonical_channel_id": null,
-  "channel_binding_policy": "Do not infer or guess the Main Arena channel. Bind only after the owner verifies the canonical Discord channel URL.",
-  "purpose": "One shared cross-community social layer for opt-in Reset members regardless of external source group.",
+  "canonical_channel_url": "https://discord.com/channels/1429398855681573038/1429398859020370096",
+  "canonical_channel_id": "1429398859020370096",
+  "channel_binding_policy": "Canonical channel verified by the owner. Future changes require an explicitly verified Discord channel URL; never infer channel IDs.",
+  "purpose": "One shared cross-community social layer for opt-in Reset members regardless of external source group, also serving as the current Live Events beta lane.",
   "member_model": {
     "facebook_or_external_origin": "attribution_only",
     "member_silo_by_origin": false,
     "shared_visibility_after_onboarding": true,
     "common_access_role": "RESET Arena Member",
-    "common_access_role_status": "proposed_for_discord_binding",
+    "common_access_role_status": "discord_side_verification_pending",
     "private_group_membership_import": false,
     "automatic_member_import": false
   },
@@ -23,13 +23,13 @@
     "arena.html public gateway",
     "Discord opt-in join if not already a server member",
     "existing Code of Law / onboarding gate",
-    "shared Arena access after Discord-side role/channel binding",
-    "downstream Live Events, Platform Missions, collaboration, Studio and opportunities"
+    "Reset Main Arena channel 1429398859020370096",
+    "downstream Platform Missions, collaboration, Soul Flow Lounge, Studio and opportunities"
   ],
   "automation_ownership": {
     "carl_bot": ["Code of Law gate", "shared access role", "self roles", "moderation"],
     "rms_creatorhub": ["public-safe routing", "normalized attribution", "opportunity routing"],
-    "zapier": ["approved announcements", "event reminders", "live-now signals", "recaps"],
+    "zapier": ["approved announcements", "event reminders", "live-now signals", "recaps", "room spark scheduling after beta activation"],
     "tatsu": ["verified participation recognition"],
     "statbot": ["aggregate community health"]
   },
@@ -39,7 +39,8 @@
   },
   "revenue_priority": ["paid service or licensing action", "checkout", "qualified reply", "event attendance", "click", "view"],
   "downstream_routes": {
-    "live_events": "https://resetinnercircle.com/live.html",
+    "live_events": "https://discord.com/channels/1429398855681573038/1429398859020370096",
+    "soul_flow_lounge": "https://discord.com/channels/1429398855681573038/1430445705230553230",
     "virtual_studio": "https://resetinnercircle.com/#studio",
     "services": "https://resetinnercircle.com/#services",
     "support": "https://resetinnercircle.com/#support"
