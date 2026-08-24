@@ -26,7 +26,14 @@ const allowed = new Set([
   'live_bridge_view',
   'partner_onboarding_view',
   'partner_application_submit',
-  'partner_thanks_view'
+  'partner_thanks_view',
+  'arena_gateway_view',
+  'arena_bridge_click',
+  'arena_discord_open_click',
+  'arena_join_click',
+  'arena_live_events_click',
+  'arena_studio_click',
+  'arena_model_rendered'
 ]);
 
 export default async (request) => {
