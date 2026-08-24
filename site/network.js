@@ -1,6 +1,8 @@
 (() => {
-  const facebookNetworkUrl = 'https://www.facebook.com/groups/search/groups?q=Engagement&filters=eyJteV9ncm91cHM6MCI6IntcIm5hbWVcIjpcIm15X2dyb3Vwc1wiLFwiYXJnc1wiOlwiXCJ9In0%3D';
-  const discordLiveEventsUrl = 'https://discord.com/channels/1429398855681573038/1429398859020370096';
+  const facebookNetworkPrimary = 'https://www.facebook.com/groups/search/groups?q=Engagement&filters=eyJteV9ncm91cHM6MCI6IntcIm5hbWVcIjpcIm15X2dyb3Vwc1wiLFwiYXJnc1wiOlwiXCJ9In0%3D';
+  const facebookNetworkSecondary = 'https://www.facebook.com/groups/search/groups?q=engagment&filters=eyJteV9ncm91cHM6MCI6IntcIm5hbWVcIjpcIm15X2dyb3Vwc1wiLFwiYXJnc1wiOlwiXCJ9In0%3D';
+  const liveBridgeUrl = '/live.html';
+  const partnerUrl = '/partner.html';
   const discordInviteUrl = 'https://discord.gg/hE5TarQsut';
   const studioAnchor = '#studio';
   const supportAnchor = '#support';
@@ -39,18 +41,21 @@
       <div class="network-map">
         <article class="network-node">
           <div class="node-label"><span>DISCOVERY LAYER</span><b>FACEBOOK</b></div>
-          <h3>Independent Group Communities</h3>
-          <p>Creator and engagement groups keep operating where their members already gather. Reset provides an optional shared route into coordinated live experiences and deeper creator collaboration.</p>
-          <div class="node-stat"><span><strong>20+</strong><small>GROUP OPPORTUNITY</small></span><span><strong>OPT-IN</strong><small>LEADER CONTROL</small></span></div>
-          <a class="text-link track soundable" data-event="facebook_network_click" data-placement="partner_network" href="${facebookNetworkUrl}" target="_blank" rel="noopener">Explore the Facebook group landscape <b>↗</b></a>
+          <h3>Your Engagement Group Cohorts</h3>
+          <p>Both account-scoped Facebook searches are now registered as discovery cohorts. They are intentionally treated as overlapping candidate sets until individual groups are deduplicated and the relevant leader approves public participation.</p>
+          <div class="node-stat"><span><strong>2</strong><small>DISCOVERY COHORTS</small></span><span><strong>VERIFY</strong><small>BEFORE ACTIVATION</small></span></div>
+          <div class="leader-actions">
+            <a class="text-link track soundable" data-event="facebook_network_click" data-placement="partner_network_primary" href="${facebookNetworkPrimary}" target="_blank" rel="noopener">Open primary group cohort <b>↗</b></a>
+            <a class="text-link track soundable" data-event="facebook_network_click" data-placement="partner_network_secondary" href="${facebookNetworkSecondary}" target="_blank" rel="noopener">Open additional group cohort <b>↗</b></a>
+          </div>
         </article>
 
         <article class="network-node center">
-          <div class="node-label"><span>CONTROLLED TEST LANE</span><b>LIVE EVENTS</b></div>
-          <h3>Reset Live Events Hub</h3>
-          <p>We are testing the external-to-internal bridge here first. Approved Facebook communities can send members toward shared live programming without opening unrelated Inner Circle rooms or exposing private server activity.</p>
-          <div class="node-stat"><span><strong>LIVE</strong><small>EVENT ROUTING</small></span><span><strong>PILOT</strong><small>MEASURE FIRST</small></span></div>
-          <a class="button gold track soundable" data-event="discord_live_events_click" data-placement="partner_network" href="${discordLiveEventsUrl}" target="_blank" rel="noopener"><span>Open Live Events Hub</span><i>↗</i></a>
+          <div class="node-label"><span>CONTROLLED TEST LANE</span><b>RESET LIVE</b></div>
+          <h3>Public Live Events Bridge</h3>
+          <p>External group traffic now lands on the public Reset Live bridge first. Existing Discord members can open Live Events directly; new visitors join Reset first; leaders can enter the partnership intake without exposing unrelated server rooms.</p>
+          <div class="node-stat"><span><strong>LIVE</strong><small>PUBLIC ROUTING</small></span><span><strong>PILOT</strong><small>MEASURE FIRST</small></span></div>
+          <a class="button gold track soundable" data-event="live_bridge_click" data-placement="partner_network" href="${liveBridgeUrl}"><span>Open Reset Live Bridge</span><i>→</i></a>
         </article>
 
         <article class="network-node">
@@ -62,7 +67,7 @@
         </article>
       </div>
 
-      <div class="network-spine"><i></i><span>DISCOVER → INVITE → ATTEND → CONNECT → CREATE → MEASURE → IMPROVE</span><i></i></div>
+      <div class="network-spine"><i></i><span>DISCOVER → VERIFY → INVITE → ATTEND → CONNECT → CREATE → MEASURE → IMPROVE</span><i></i></div>
 
       <div class="leader-panel">
         <div class="leader-copy">
@@ -70,13 +75,13 @@
           <h3>Bring your people to something worth attending.</h3>
           <p>Partner leaders can co-promote approved events, retain visible group attribution, participate in cross-community programming and request production support. We prove the Live Events bridge first, then expand only where the data and member experience justify it.</p>
           <div class="leader-actions">
-            <a class="button gold track soundable" data-event="group_leader_interest" data-placement="leader_panel" href="${discordLiveEventsUrl}" target="_blank" rel="noopener"><span>Explore Leader Partnership</span><i>↗</i></a>
-            <a class="button ghost track soundable" data-event="facebook_network_directory_click" data-placement="leader_panel" href="${facebookNetworkUrl}" target="_blank" rel="noopener"><span>View Group Network</span><i>↗</i></a>
+            <a class="button gold track soundable" data-event="group_leader_interest" data-placement="leader_panel" href="${partnerUrl}"><span>Apply for Leader Partnership</span><i>→</i></a>
+            <a class="button ghost track soundable" data-event="live_bridge_click" data-placement="leader_panel" href="${liveBridgeUrl}"><span>Preview Live Events Bridge</span><i>→</i></a>
           </div>
         </div>
         <div class="leader-rules">
           <span>PARTNER PRINCIPLES</span>
-          <ul><li>Leader approval before public group promotion</li><li>No scraping, member-list export or private-post ingestion</li><li>Clear attribution for participating communities</li><li>Shared events must have a defined host, purpose and route</li><li>Expansion happens only after the pilot is measured</li></ul>
+          <ul><li>Leader approval before public group promotion</li><li>No scraping, member-list export or private-post ingestion</li><li>Only groups the RMS owner is actually a member of enter the candidate registry</li><li>Duplicate groups across Facebook searches are deduplicated before onboarding</li><li>Clear attribution for participating communities</li><li>Shared events must have a defined host, purpose and route</li><li>Expansion happens only after the Live Events pilot is measured</li></ul>
         </div>
       </div>
 
@@ -84,9 +89,9 @@
         <div class="revenue-intro"><p class="kicker">SUSTAIN THE NETWORK</p><h3>Community access can stay open while the infrastructure earns.</h3><p>Revenue is attached to real value around the community, not a paywall on Discord membership.</p></div>
         <div class="revenue-grid">
           <a class="revenue-card track soundable" data-event="studio_service_inquiry" data-placement="network_revenue" href="${studioAnchor}"><span>01</span><strong>Virtual Studio Services</strong><small>Remote production, interviews, creator sessions and performance capture.</small></a>
-          <a class="revenue-card track soundable" data-event="event_sponsor_interest" data-placement="network_revenue" href="${discordLiveEventsUrl}" target="_blank" rel="noopener"><span>02</span><strong>Event Sponsorship</strong><small>Brand-supported or partner-supported programming with clear disclosure.</small></a>
-          <a class="revenue-card track soundable" data-event="group_feature_interest" data-placement="network_revenue" href="${discordLiveEventsUrl}" target="_blank" rel="noopener"><span>03</span><strong>Partner Spotlights</strong><small>Approved promotional features for leaders, creators and community initiatives.</small></a>
-          <a class="revenue-card track soundable" data-event="workshop_event_interest" data-placement="network_revenue" href="${discordLiveEventsUrl}" target="_blank" rel="noopener"><span>04</span><strong>Workshops & Produced Events</strong><small>Paid production or ticketed experiences sold outside Discord membership.</small></a>
+          <a class="revenue-card track soundable" data-event="event_sponsor_interest" data-placement="network_revenue" href="${partnerUrl}"><span>02</span><strong>Event Sponsorship</strong><small>Brand-supported or partner-supported programming with clear disclosure.</small></a>
+          <a class="revenue-card track soundable" data-event="group_feature_interest" data-placement="network_revenue" href="${partnerUrl}"><span>03</span><strong>Partner Spotlights</strong><small>Approved promotional features for leaders, creators and community initiatives.</small></a>
+          <a class="revenue-card track soundable" data-event="workshop_event_interest" data-placement="network_revenue" href="${partnerUrl}"><span>04</span><strong>Workshops & Produced Events</strong><small>Paid production or ticketed experiences sold outside Discord membership.</small></a>
           <a class="revenue-card track soundable" data-event="support_checkout_started" data-placement="network_revenue" href="${supportAnchor}"><span>05</span><strong>Voluntary Support</strong><small>Support the operating costs without purchasing community access.</small></a>
         </div>
       </div>
@@ -94,8 +99,8 @@
       <div class="network-note"><strong>Privacy boundary:</strong> this gateway measures public-safe routing and campaign attribution only. It does not scrape Facebook groups, read private Discord conversations, export member lists or move protected creator data between platforms.</div>
 
       <div class="network-registry">
-        <div><span>PARTNER DIRECTORY · APPROVAL REQUIRED</span><small>Specific Facebook group names, logos and public links will be added only after the relevant leader approves participation. Referral URLs can use non-personal tags such as <code>?source=facebook&amp;partner=group-slug&amp;campaign=live-event</code> for privacy-safe attribution.</small></div>
-        <a class="button ghost track soundable" data-event="discord_live_events_click" data-placement="network_registry" href="${discordLiveEventsUrl}" target="_blank" rel="noopener"><span>Test Live Events Route</span><i>↗</i></a>
+        <div><span>PARTNER DIRECTORY · APPROVAL REQUIRED</span><small>Candidate discovery can come from both Facebook cohorts, but specific group names, logos and public links appear only after dedupe + leader approval. Approved referral URLs can use non-personal tags such as <code>/live.html?source=facebook&amp;partner=group-slug&amp;campaign=live-event</code>.</small></div>
+        <a class="button ghost track soundable" data-event="live_bridge_click" data-placement="network_registry" href="${liveBridgeUrl}"><span>Test Public Live Route</span><i>→</i></a>
       </div>
     </div>`;
 
