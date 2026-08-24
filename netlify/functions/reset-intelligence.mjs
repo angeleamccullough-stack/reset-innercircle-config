@@ -7,7 +7,11 @@ const allowed = new Set([
   'studio_interest',
   'studio_discord_click',
   'studio_service_inquiry',
-  'support_checkout_started'
+  'support_checkout_started',
+  'facebook_network_click',
+  'facebook_network_directory_click',
+  'discord_engagement_hub_click',
+  'network_discord_join_click'
 ]);
 
 export default async (request) => {
