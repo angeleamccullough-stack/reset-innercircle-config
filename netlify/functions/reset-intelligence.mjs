@@ -18,7 +18,10 @@ const allowed = new Set([
   'group_leader_interest',
   'event_sponsor_interest',
   'group_feature_interest',
-  'workshop_event_interest'
+  'workshop_event_interest',
+  'footer_network_click',
+  'footer_studio_click',
+  'footer_services_click'
 ]);
 
 export default async (request) => {
