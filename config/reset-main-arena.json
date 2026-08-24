@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "status": "active_pending_channel_binding",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "server_id": "1429398855681573038",
+  "public_gateway": "https://resetinnercircle.com/arena.html",
+  "discord_invite": "https://discord.gg/hE5TarQsut",
+  "canonical_channel_url": null,
+  "canonical_channel_id": null,
+  "channel_binding_policy": "Do not infer or guess the Main Arena channel. Bind only after the owner verifies the canonical Discord channel URL.",
+  "purpose": "One shared cross-community social layer for opt-in Reset members regardless of external source group.",
+  "member_model": {
+    "facebook_or_external_origin": "attribution_only",
+    "member_silo_by_origin": false,
+    "shared_visibility_after_onboarding": true,
+    "common_access_role": "RESET Arena Member",
+    "common_access_role_status": "proposed_for_discord_binding",
+    "private_group_membership_import": false,
+    "automatic_member_import": false
+  },
+  "onboarding_flow": [
+    "external partner link or resetinnercircle.com",
+    "arena.html public gateway",
+    "Discord opt-in join if not already a server member",
+    "existing Code of Law / onboarding gate",
+    "shared Arena access after Discord-side role/channel binding",
+    "downstream Live Events, Platform Missions, collaboration, Studio and opportunities"
+  ],
+  "automation_ownership": {
+    "carl_bot": ["Code of Law gate", "shared access role", "self roles", "moderation"],
+    "rms_creatorhub": ["public-safe routing", "normalized attribution", "opportunity routing"],
+    "zapier": ["approved announcements", "event reminders", "live-now signals", "recaps"],
+    "tatsu": ["verified participation recognition"],
+    "statbot": ["aggregate community health"]
+  },
+  "privacy": {
+    "allowed_attribution": ["source", "partner", "campaign", "public route", "event type"],
+    "prohibited": ["Facebook member scraping", "private post ingestion", "member list export", "private Discord message ingestion", "credential sharing"]
+  },
+  "revenue_priority": ["paid service or licensing action", "checkout", "qualified reply", "event attendance", "click", "view"],
+  "downstream_routes": {
+    "live_events": "https://resetinnercircle.com/live.html",
+    "virtual_studio": "https://resetinnercircle.com/#studio",
+    "services": "https://resetinnercircle.com/#services",
+    "support": "https://resetinnercircle.com/#support"
+  }
+}
