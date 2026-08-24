@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "status": "pre_stripe_certified_with_explicit_bindings_pending",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "gateway": "https://resetinnercircle.com/",
+  "verified_architecture": {
+    "canonical_gateway": true,
+    "github_to_netlify_deploy_model": true,
+    "official_logo_directly_wired_to_public_pages": true,
+    "footer_shortcuts_connected": ["network", "studio", "services"],
+    "public_live_bridge": "/live.html",
+    "partner_intake": "/partner.html",
+    "partner_confirmation": "/partner-thanks.html",
+    "netlify_partner_form_fail_safe": true,
+    "public_safe_campaign_attribution": true,
+    "normalized_intelligence_allowlist": true,
+    "private_member_scraping": false,
+    "facebook_private_post_ingestion": false,
+    "discord_private_message_ingestion": false,
+    "rms_resend_credentials_exposed_to_reset": false,
+    "payment_routes_fail_closed_until_bound": true
+  },
+  "discord_model": {
+    "server_id": "1429398855681573038",
+    "public_invite": "https://discord.gg/hE5TarQsut",
+    "live_events_channel_id": "1429398859020370096",
+    "shared_main_arena": "architecture_ready_channel_binding_pending",
+    "rule": "Participating external-community members must voluntarily join Discord and complete Reset onboarding before shared Arena access. Origin community may be attributed for analytics and leader credit, but members are not siloed by source after onboarding."
+  },
+  "payment_model": {
+    "community_support": "prepared_unbound_fail_closed",
+    "studio_services": "prepared_unbound_fail_closed",
+    "event_services": "prepared_unbound_fail_closed",
+    "rule": "Support and paid service payment links must remain separate Stripe buckets with separate fulfillment language."
+  },
+  "remaining_explicit_bindings": [
+    "Owner supplies/approves canonical Reset Main Arena Discord channel URL before shared Arena routing is activated.",
+    "Owner/provider supplies final Stripe-hosted URLs for community support, studio services and event services after offer language, fulfillment and refund/cancellation terms are approved.",
+    "RMS/CreatorHub secure communications ingress must be production-certified before RESET_INTELLIGENCE_INGRESS_URL and RESET_INTELLIGENCE_INGRESS_SECRET are activated in Netlify."
+  ],
+  "do_not_do": [
+    "Do not auto-enroll Facebook group members into Discord.",
+    "Do not scrape Facebook member lists or private posts.",
+    "Do not create artificial engagement or engagement-for-engagement automation that risks platform enforcement.",
+    "Do not use one Stripe payment link for both voluntary support and paid services.",
+    "Do not expose Stripe, Resend, Zoho, Google, Supabase or communications secrets in browser code."
+  ]
+}
