@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "status": "active-design",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "system": "Reset Inner Circle Cross-Community Arena",
+  "purpose": "Provide one shared Discord engagement space where members from approved external communities can interact after opting into Reset Inner Circle.",
+  "access_model": {
+    "external_platform_membership_is_not_imported": true,
+    "member_action_required": "Each participant must voluntarily join Reset Inner Circle through Discord.",
+    "shared_access_role": "RESET Arena Member",
+    "role_grant_owner": "Carl-bot / Discord onboarding",
+    "group_origin_does_not_create_silos": true,
+    "optional_origin_attribution": "Stored as public-safe campaign metadata for analytics and leader credit, not as private member data."
+  },
+  "arena": {
+    "channel_binding_status": "pending_owner_channel_url",
+    "channel_id": null,
+    "channel_name": "RESET Main Arena",
+    "visibility": "shared-member-space",
+    "default_capabilities": ["view", "send", "reply", "react", "threads-when-enabled"],
+    "not_for": ["private creator rights data", "payment records", "credentials", "private contracts", "unreleased masters"]
+  },
+  "onboarding_flow": [
+    "Facebook or other approved community referral reaches resetinnercircle.com",
+    "Referral source and partner slug are stored only as non-personal session attribution",
+    "Visitor joins Reset Inner Circle via Discord if not already a member",
+    "Code of Law / onboarding gate is completed",
+    "RESET Arena Member access is granted",
+    "Member enters the shared Main Arena regardless of originating community",
+    "Events, missions, collaboration calls, studio opportunities and creator resources branch outward from the Arena"
+  ],
+  "automation_ownership": {
+    "carl_bot": ["Code of Law gate", "self-role or approved role grant", "static Arena embeds", "moderation"],
+    "rms_creatorhub_app": ["public-safe routing", "slash commands", "opportunity and event lookup", "normalized intelligence events"],
+    "zapier": ["approved event announcements", "reminders", "recaps", "cross-platform routing"],
+    "tatsu": ["positive engagement recognition", "verified participation rewards"],
+    "statbot": ["server health and participation analytics"]
+  },
+  "measurement": {
+    "priority": ["paid revenue/licensing action", "checkout", "qualified reply", "event participation", "cross-community collaboration", "click", "view"],
+    "allowed_attribution_fields": ["source", "partner", "campaign", "event_type", "timestamp", "public_destination"],
+    "forbidden": ["Facebook member lists", "private posts", "private messages", "Discord private conversations", "email addresses without explicit intake", "tokens", "passwords"]
+  },
+  "expansion_rule": "Do not create separate partner silos by default. The Arena is the common room; partner-specific rooms are exceptions requiring a demonstrated operational need."
+}
