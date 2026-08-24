@@ -15,6 +15,16 @@
   to = "/.netlify/functions/support"
   status = 302
 
+[[redirects]]
+  from = "/checkout/studio"
+  to = "/.netlify/functions/service-checkout?bucket=studio"
+  status = 200
+
+[[redirects]]
+  from = "/checkout/events"
+  to = "/.netlify/functions/service-checkout?bucket=events"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]
