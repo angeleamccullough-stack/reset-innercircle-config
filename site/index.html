@@ -28,6 +28,7 @@
         <img class="official-brand-logo" src="/reset-inner-circle-logo.svg" alt="Reset Inner Circle — Be You On Purpose" width="240" height="127">
       </a>
       <nav aria-label="Primary navigation">
+        <a class="soundable track" data-event="nav_arena_click" data-placement="header" href="/arena.html">Arena</a>
         <a class="soundable" href="#studio">Studio</a>
         <a class="soundable" href="#services">Services</a>
         <a class="soundable" href="#support">Support</a>
@@ -45,8 +46,9 @@
         <p class="lead">A creator-first space for connection, collaboration, live experiences and meaningful community. Bring your real work, your real voice and your next move.</p>
         <div class="actions">
           <a class="button gold track soundable" data-event="discord_join_click" href="https://discord.gg/hE5TarQsut" target="_blank" rel="noopener"><span>Enter the Inner Circle</span><i>↗</i></a>
-          <a class="button ghost track soundable" data-event="studio_interest" href="#studio"><span>Explore the Virtual Studio</span><i>↓</i></a>
+          <a class="button ghost track soundable" data-event="arena_bridge_click" data-placement="hero" href="/arena.html"><span>Explore the Main Arena</span><i>→</i></a>
         </div>
+        <div class="hero-proof" aria-label="Reset platform highlights"><span><b>GLOBAL</b> creator access</span><span><b>LIVE</b> production ready</span><span><b>OPEN</b> community entry</span></div>
       </div>
 
       <aside class="hero-console reveal" aria-label="Reset signal console">
@@ -124,14 +126,46 @@
       <div class="support-card tilt-card"><span>COMMUNITY SUPPORT</span><div class="support-rings"><i></i><i></i><b>R</b></div><h3>Help keep Reset running.</h3><p>Every contribution helps offset the real cost of keeping the infrastructure online.</p><a class="button gold track soundable" data-event="support_checkout_started" href="/support"><span>Support Reset Society</span><i>→</i></a><small>Secure Stripe checkout activates only after the approved support link is configured.</small></div>
     </section>
 
-    <section id="enter" class="enter wrap reveal"><p class="kicker">YOUR NEXT STEP</p><h2>The door is <em>open.</em></h2><p>You do not have to fit a mold to belong here. Come build, learn, connect and move on purpose.</p><a class="button gold track soundable" data-event="discord_join_click_footer" href="https://discord.gg/hE5TarQsut" target="_blank" rel="noopener"><span>Join Reset Inner Circle</span><i>↗</i></a></section>
+    <section id="enter" class="enter wrap reveal"><p class="kicker">YOUR NEXT STEP</p><h2>The door is <em>open.</em></h2><p>You do not have to fit a mold to belong here. Come build, learn, connect and move on purpose.</p><div class="actions"><a class="button gold track soundable" data-event="discord_join_click_footer" href="https://discord.gg/hE5TarQsut" target="_blank" rel="noopener"><span>Join Reset Inner Circle</span><i>↗</i></a><a class="button ghost track soundable" data-event="arena_bridge_click" data-placement="final_cta" href="/arena.html"><span>Enter the Main Arena</span><i>→</i></a></div></section>
   </main>
 
-  <footer>
-    <div class="wrap footer">
-      <div class="footer-brand-system"><a href="#top" class="footer-logo soundable" aria-label="Reset Inner Circle home"><img src="/reset-inner-circle-logo.svg" alt="Reset Inner Circle — Be You On Purpose" width="240" height="127"></a><p>Reset Society | Be You On Purpose ✨ Remember · Embody · Stand · Elevate · Truth.</p></div>
-      <nav class="footer-links" aria-label="Footer shortcuts"><a class="soundable track" data-event="footer_network_click" data-placement="footer" href="#network">Network</a><a class="soundable track" data-event="footer_studio_click" data-placement="footer" href="#studio">Studio</a><a class="soundable track" data-event="footer_services_click" data-placement="footer" href="#services">Services</a></nav>
-      <div class="owner">Stewarded by<br><strong>Angelea McCullough, Founder of RMS Global Publishing</strong></div>
+  <footer class="ecosystem-footer">
+    <div class="wrap ecosystem-directory">
+      <div class="footer-brand-system">
+        <a href="#top" class="footer-logo soundable" aria-label="Reset Inner Circle home"><img src="/reset-inner-circle-logo.svg" alt="Reset Inner Circle — Be You On Purpose" width="240" height="127"></a>
+        <p>Reset Society | Be You On Purpose ✨ Remember · Embody · Stand · Elevate · Truth.</p>
+        <div class="signal-status"><i></i><span>RESET SIGNAL ONLINE</span></div>
+      </div>
+
+      <nav class="directory-column" aria-label="Reset community directory">
+        <span>RESET COMMUNITY</span>
+        <a class="track soundable" data-event="footer_arena_click" data-placement="ecosystem_footer" href="/arena.html">Main Arena <b>→</b></a>
+        <a class="track soundable" data-event="footer_live_click" data-placement="ecosystem_footer" href="/live.html">Live Events <b>→</b></a>
+        <a class="track soundable" data-event="footer_partner_click" data-placement="ecosystem_footer" href="/partner.html">Partner Network <b>→</b></a>
+        <a class="track soundable" data-event="footer_discord_click" data-placement="ecosystem_footer" href="https://discord.gg/hE5TarQsut" target="_blank" rel="noopener">Discord Campus <b>↗</b></a>
+      </nav>
+
+      <nav class="directory-column" aria-label="Reset create and support directory">
+        <span>CREATE + SUPPORT</span>
+        <a class="track soundable" data-event="footer_studio_click" data-placement="ecosystem_footer" href="#studio">Virtual Studio™ <b>→</b></a>
+        <a class="track soundable" data-event="footer_services_click" data-placement="ecosystem_footer" href="#services">Production Services <b>→</b></a>
+        <a class="track soundable" data-event="footer_support_click" data-placement="ecosystem_footer" href="#support">Support Reset <b>→</b></a>
+        <a class="track soundable" data-event="footer_network_click" data-placement="ecosystem_footer" href="#network">Partner Discovery <b>→</b></a>
+      </nav>
+
+      <nav class="directory-column" aria-label="RMS ecosystem directory">
+        <span>RMS GLOBAL ECOSYSTEM</span>
+        <a class="track soundable" data-event="footer_rms_click" data-placement="ecosystem_footer" href="https://www.rmsglobalpublishing.com/" target="_blank" rel="noopener">RMS Global Publishing <b>↗</b></a>
+        <a class="track soundable" data-event="footer_creator_portal_click" data-placement="ecosystem_footer" href="https://creators.rmsglobalpublishing.com/" target="_blank" rel="noopener">Creator Portal <b>↗</b></a>
+        <a class="track soundable" data-event="footer_academy_click" data-placement="ecosystem_footer" href="https://academy.rmsglobalpublishing.com/" target="_blank" rel="noopener">RMS Academy <b>↗</b></a>
+        <a class="track soundable" data-event="footer_steadiora_click" data-placement="ecosystem_footer" href="https://steadiora.rmsglobalpublishing.com/" target="_blank" rel="noopener">Steadiora™ <b>↗</b></a>
+      </nav>
+    </div>
+
+    <div class="wrap footer-bottom">
+      <span>RESETINNER​CIRCLE.COM · THE CREATOR CAMPUS</span>
+      <span class="owner">Stewarded by <strong>Angelea McCullough, Founder of RMS Global Publishing</strong></span>
+      <span>© 2026 Reset Society · RMS Global Publishing</span>
     </div>
   </footer>
 
