@@ -42,6 +42,7 @@ const allowed = new Set([
   'arena_discord_open_click',
   'arena_join_click',
   'arena_live_events_click',
+  'arena_soul_flow_click',
   'arena_studio_click',
   'arena_model_rendered',
   'pinterest_surface_click',
