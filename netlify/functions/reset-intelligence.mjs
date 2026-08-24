@@ -31,6 +31,7 @@ const allowed = new Set([
   'footer_creator_portal_click',
   'footer_academy_click',
   'footer_steadiora_click',
+  'footer_rs_vault_click',
   'nav_arena_click',
   'live_bridge_click',
   'live_bridge_view',
