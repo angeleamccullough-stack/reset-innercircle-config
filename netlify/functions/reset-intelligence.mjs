@@ -11,7 +11,14 @@ const allowed = new Set([
   'facebook_network_click',
   'facebook_network_directory_click',
   'discord_engagement_hub_click',
-  'network_discord_join_click'
+  'discord_live_events_click',
+  'network_discord_join_click',
+  'partner_network_view',
+  'network_revenue_view',
+  'group_leader_interest',
+  'event_sponsor_interest',
+  'group_feature_interest',
+  'workshop_event_interest'
 ]);
 
 export default async (request) => {
