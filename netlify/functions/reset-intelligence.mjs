@@ -21,7 +21,11 @@ const allowed = new Set([
   'workshop_event_interest',
   'footer_network_click',
   'footer_studio_click',
-  'footer_services_click'
+  'footer_services_click',
+  'live_bridge_click',
+  'live_bridge_view',
+  'partner_onboarding_view',
+  'partner_application_submit'
 ]);
 
 export default async (request) => {
