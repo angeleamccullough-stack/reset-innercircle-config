@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "status": "active-discovery-only",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "platform": "Pinterest",
+  "surface_url": "https://www.pinterest.com/?tabId=1127166681679282275",
+  "surface_identity_status": "exact-public-board-name-not-yet-verified",
+  "purpose": [
+    "visual discovery",
+    "evergreen creator traffic",
+    "Reset Inner Circle gateway referrals",
+    "Reset Main Arena referrals",
+    "Reset Live event discovery",
+    "Reset Media Virtual Studio interest",
+    "support and service conversion attribution"
+  ],
+  "routing": {
+    "default_destination": "https://resetinnercircle.com/",
+    "arena_destination": "https://resetinnercircle.com/arena.html",
+    "live_destination": "https://resetinnercircle.com/live.html",
+    "partner_destination": "https://resetinnercircle.com/partner.html"
+  },
+  "recommended_referral_pattern": "https://resetinnercircle.com/?source=pinterest&partner=reset-pinterest&campaign=<campaign-slug>",
+  "intelligence": {
+    "normalized_only": true,
+    "allowed_attribution_fields": ["source", "partner", "campaign", "placement", "destination"],
+    "events": ["pinterest_surface_click", "pinterest_referral_view", "pinterest_arena_interest", "pinterest_live_interest", "pinterest_studio_interest"],
+    "member_identity_collection": false,
+    "private_board_data_ingestion": false
+  },
+  "automation_boundary": {
+    "direct_pinterest_connector_available": false,
+    "automated_pin_creation_or_posting_enabled": false,
+    "scraping_enabled": false,
+    "note": "Until an approved Pinterest API or connector is available, Reset automates destination routing, campaign attribution and downstream intelligence only. Publishing to Pinterest remains an explicit owner-approved platform action."
+  }
+}
