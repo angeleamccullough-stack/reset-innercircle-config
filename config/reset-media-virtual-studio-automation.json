@@ -1,8 +1,100 @@
 {
-  "version": "2026-08-24",
+  "version": "2026-08-24-founder-frame-v2",
   "status": "planned_safe",
   "system": "Reset Media Virtual Studio",
-  "purpose": "Turn the verified Reset Discord studio channel into a controlled remote production entry point for a dedicated OBS scene and Community DAW workflow without changing live routing until tested.",
+  "founder_frame": {
+    "name": "Timeless From the Gate",
+    "directive": "Build every future capability inside a durable frame that protects customer value, fair-market economics, rights, trust, reliability, ownership, auditability and long-term RMS catalog/IP value before scale.",
+    "decision_order": [
+      "customer value and satisfaction",
+      "rights, consent, safety and trust",
+      "fair-market pricing and transparent scope",
+      "verified fulfillment reliability",
+      "sustainable contribution margin",
+      "ownership and reusable IP value",
+      "measured conversion, retention, repeat and referral evidence",
+      "automation and scale only after evidence"
+    ],
+    "non_negotiables": {
+      "customer_value_before_monetization": true,
+      "fair_market_pricing_applies_to_rms_and_all_customers": true,
+      "no_premium_markup_without_evidence": true,
+      "no_loss_leader_without_explicit_budget_and_cap": true,
+      "no_hidden_fees_or_ambiguous_deliverables": true,
+      "no_revenue_recognition_before_verified_payment_and_fulfillment": true,
+      "no_scaling_while_customer_experience_or_payment_integrity_is_degraded": true,
+      "no_rights_assumptions": true,
+      "no_recording_or_streaming_without_explicit_consent": true,
+      "no_external_platform_spam_or_fake_engagement": true,
+      "no_credential_or_provider_identity crossover": true,
+      "no_single_vendor_dependency_without_fallback_or rollback": true,
+      "preserve_modularity_and_future portability": true
+    },
+    "financial_growth_model": {
+      "primary_goal": "maximize long-term risk-adjusted return on RMS-owned infrastructure, catalog, brand, audience and production capability while delivering measurable customer outcomes",
+      "revenue_priority": [
+        "paid licensing or contracted revenue",
+        "completed checkout",
+        "qualified service booking",
+        "qualified reply or application",
+        "high-intent click",
+        "engaged session",
+        "open or impression"
+      ],
+      "unit_economics_required": [
+        "market price band",
+        "customer outcome",
+        "included deliverables",
+        "labor/time requirement",
+        "direct platform/payment costs",
+        "fulfillment cost",
+        "contribution margin",
+        "refund/cancellation exposure",
+        "repeat/referral potential",
+        "cross-sell relevance",
+        "IP/catalog value created"
+      ],
+      "optimization_rule": "Optimize contribution margin and customer satisfaction/retention together. Never optimize revenue by degrading fulfillment, trust or creator outcomes.",
+      "fair_market_rule": "Use verified comparable-market evidence to establish floor, target band and ceiling. RMS-owned offers are subject to the same test as external-facing offers. Price changes require evidence, documented scope changes, cost changes or sustained demand/conversion signals."
+    },
+    "customer_success_model": {
+      "lifecycle": [
+        "discover",
+        "understand",
+        "inquire",
+        "book",
+        "consent_and_preflight",
+        "pay_if_applicable",
+        "receive_service",
+        "confirm_delivery",
+        "satisfaction_check",
+        "repeat_or_referral",
+        "approved_repurpose_or_next_opportunity"
+      ],
+      "success_metrics": [
+        "time to first useful outcome",
+        "booking completion rate",
+        "preflight pass rate",
+        "delivery on-time rate",
+        "technical defect rate",
+        "refund/cancellation rate",
+        "satisfaction score",
+        "repeat booking rate",
+        "referral rate",
+        "qualified cross-ecosystem conversion"
+      ],
+      "service_recovery_rule": "Technical or fulfillment defects route to CARE/FORGE before additional monetization. Customer remediation is treated as retention protection, not an optional courtesy."
+    },
+    "future_proofing": {
+      "architecture": "modular event-driven components with provider separation and normalized metadata contracts",
+      "automation": "human-governed for irreversible actions; fail-closed on missing credentials, consent, rights, payment or destination health",
+      "data": "collect minimum necessary metadata; keep private creator content outside normalized intelligence unless explicitly authorized",
+      "portability": "do not embed business-critical logic exclusively in Discord, OBS, Restream, Stripe, Meta, Pinterest or any single provider",
+      "measurement": "every revenue or growth feature must emit auditable stage events so interest cannot be confused with revenue",
+      "expansion_gate": "new rooms, offers, external groups, platforms or automations require verified owner, purpose, moderation/fulfillment capacity, success metric and rollback path"
+    }
+  },
+  "purpose": "Turn the verified Reset Discord studio channel into a controlled remote production entry point for a dedicated OBS scene and Community DAW workflow while building a customer-first, fair-market, measurable revenue engine that compounds RMS ecosystem and IP value.",
   "discord": {
     "guild_id": "1429398855681573038",
     "studio_channel_id": "1468103128279941272",
@@ -38,7 +130,8 @@
     "Dedicated OBS Virtual Studio scene",
     "Local multitrack-safe recording",
     "Optional supervised live broadcast through approved Restream destinations",
-    "Post-session archive / approved repurposing"
+    "Post-session archive / approved repurposing",
+    "Normalized session/fulfillment/revenue stage metadata to AOS after ingress certification"
   ],
   "required_scene_sources": [
     "host camera",
@@ -62,7 +155,10 @@
     "prevent_feedback_and_double_routing": true,
     "test_locally_before_any_public_broadcast": true,
     "retain_private_creator_conversation_outside_aos": true,
-    "aos_receives_normalized_session_metadata_only": true
+    "aos_receives_normalized_session_metadata_only": true,
+    "payment_activation_requires_healthy_payment_integrity": true,
+    "pricing_activation_requires_fair_market_review": true,
+    "offer_activation_requires_defined_fulfillment_and_customer_support": true
   },
   "automation_events": [
     "studio_session_requested",
@@ -70,22 +166,43 @@
     "studio_session_scheduled",
     "studio_consent_complete",
     "studio_preflight_passed",
+    "studio_booking_created",
+    "studio_payment_verified",
     "studio_recording_started",
     "studio_recording_completed",
     "studio_live_started",
     "studio_live_completed",
-    "studio_asset_archived"
+    "studio_delivery_completed",
+    "studio_satisfaction_recorded",
+    "studio_repeat_booking",
+    "studio_referral_recorded",
+    "studio_asset_archived",
+    "studio_repurpose_approved",
+    "studio_revenue_recognized"
   ],
   "worker_assignment": {
-    "ROWAN": "orchestration, dependency order, safety gates, Founder escalation",
-    "FORGE": "OBS scene engineering, source validation, recording reliability, rollback profile",
-    "SIGNAL": "approved live-event packaging, promotion routing, audience/discovery activation",
-    "CARE": "participant onboarding, consent clarity, guest experience, support recovery",
-    "PULSE": "service/revenue attribution only after approved paid studio offers are active; never count sessions as revenue before payment",
-    "ATLAS": "education/workshop use cases and creator training documentation",
-    "LEDGER": "rights/provenance guard when recorded music, stems, performances, or licensed material enter a session"
+    "ROWAN": "orchestration, Founder Frame enforcement, dependency order, safety/economic gates, cross-system audit and Founder escalation",
+    "FORGE": "OBS scene engineering, source validation, audio/recording reliability, rollback profile, fulfillment reliability and technical defect reduction",
+    "SIGNAL": "approved live-event packaging, promotion routing, audience/discovery activation and qualified demand generation",
+    "CARE": "participant onboarding, consent clarity, guest experience, service recovery, satisfaction measurement and repeat/referral protection",
+    "PULSE": "fair-market pricing, unit economics, payment/revenue attribution, profitability scorecards and margin optimization; never count interest as revenue",
+    "ATLAS": "education/workshop use cases, creator training documentation and reusable curriculum/IP packaging",
+    "LEDGER": "rights/provenance guard for recorded music, stems, performances, third-party material, splits, licenses and approved repurposing",
+    "CAPITAL": "identify non-dilutive funding, sponsorship or grant opportunities that improve studio capability without forcing customer overpricing",
+    "STAGE": "artist-facing session/release readiness when DAION, Auralyn or future RMS artist brands use the studio"
   },
   "execution_phases": [
+    {
+      "phase": 0,
+      "name": "Founder Frame gate",
+      "steps": [
+        "Define customer outcome, target user and reason to exist",
+        "Verify rights/consent and provider boundaries",
+        "Define fair-market price band or explicit free/community value",
+        "Define fulfillment owner, support path, success metric and rollback",
+        "Do not proceed when any mandatory gate is unresolved"
+      ]
+    },
     {
       "phase": 1,
       "name": "Inventory and backup",
@@ -116,24 +233,37 @@
     },
     {
       "phase": 4,
-      "name": "Consent and scheduling automation",
+      "name": "Consent, scheduling and customer workflow",
       "steps": [
         "Use Discord studio channel as the session entry point",
         "Add approved session request / consent / preflight workflow",
+        "Define customer expectation, deliverables, timing, support and cancellation rules",
         "Send normalized session-state metadata to AOS only after CreatorHub ingress certification"
       ]
     },
     {
       "phase": 5,
-      "name": "Local QA",
+      "name": "Local QA and fulfillment proof",
       "steps": [
         "Run private two-person Discord test",
         "Record locally without streaming",
-        "Verify lip sync, audio isolation, DAW capture, no feedback, fallback scene, and file integrity"
+        "Verify lip sync, audio isolation, DAW capture, no feedback, fallback scene and file integrity",
+        "Verify delivery workflow and customer-facing handoff before charging"
       ]
     },
     {
       "phase": 6,
+      "name": "Fair-market offer certification",
+      "steps": [
+        "Benchmark comparable remote studio, livestream, interview, workshop and production offers",
+        "Establish market floor, target band and ceiling",
+        "Calculate direct cost, labor, platform fees, support allowance and contribution margin",
+        "Define included deliverables and optional add-ons",
+        "Require customer-value justification and Founder approval before Stripe binding"
+      ]
+    },
+    {
+      "phase": 7,
       "name": "Supervised broadcast certification",
       "steps": [
         "Owner reconnects Restream if desired",
@@ -141,14 +271,57 @@
         "Verify destination health before multi-platform expansion",
         "Never auto-start a broadcast"
       ]
+    },
+    {
+      "phase": 8,
+      "name": "Measured launch and growth",
+      "steps": [
+        "Launch a bounded beta with explicit capacity",
+        "Measure satisfaction, defects, completion, repeat/referral and contribution margin",
+        "Improve the offer before increasing volume",
+        "Expand external groups, rooms, platforms, sponsorships or paid promotion only when evidence supports it"
+      ]
     }
+  ],
+  "revenue_lanes": {
+    "community_support": "voluntary support only; never represented as paid membership access unless platform policy and legal structure permit it",
+    "virtual_studio_services": "paid remote production, recording, interview, livestream, listening-session and creator-session services with explicit scope and fulfillment",
+    "produced_events_workshops": "paid produced events, workshops, creator labs and group experiences",
+    "sponsorship": "brand-supported programming only when audience fit, disclosure, customer experience and rights are protected",
+    "education": "reusable workshops, training modules and Academy-aligned curriculum where valuable",
+    "licensing_and_catalog": "rights-clean session outcomes may enter RMS licensing/catalog workflows only through explicit agreements and LEDGER verification",
+    "creator_gear": "RS Vault gear as an optional identity/community revenue lane, not a forced bundle",
+    "repurposed_media": "clips, recaps, interviews and promotional assets only after explicit participant approval and rights clearance"
+  },
+  "investment_return_metrics": [
+    "studio utilization rate",
+    "qualified inquiry to booking conversion",
+    "booking to paid conversion",
+    "paid to delivered conversion",
+    "average contribution margin per session",
+    "technical defect cost per session",
+    "refund/cancellation rate",
+    "customer satisfaction",
+    "repeat booking rate",
+    "referral rate",
+    "sponsorship revenue per produced event",
+    "education/workshop revenue per production hour",
+    "qualified RMS service cross-sell rate",
+    "qualified licensing opportunity creation",
+    "approved reusable content/IP assets created",
+    "customer acquisition cost when paid promotion is eventually used",
+    "lifetime value by customer/creator segment"
   ],
   "dependencies": [
     "CreatorHub communications/intelligence ingress certification before AOS session relay",
+    "healthy payment integrity before any new payment activation",
+    "fair-market pricing certification before paid studio offer activation",
     "verified Discord permissions for studio channel",
     "participant consent workflow",
     "stable Wave Link routing",
     "successful local OBS recording QA",
-    "Founder-approved Restream reconnection before any live broadcast"
+    "defined fulfillment and customer support workflow",
+    "Founder-approved Restream reconnection before any live broadcast",
+    "separate approved Stripe buckets before payment launch"
   ]
 }
