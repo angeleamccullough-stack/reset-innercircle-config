@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0.0",
+  "status": "active",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "brand": "Reset Society",
+  "gateway": {
+    "domain": "https://resetinnercircle.com",
+    "netlify_project": "resetinnercircle",
+    "repository": "angeleamccullough-stack/reset-innercircle-config",
+    "branch": "main",
+    "publish_directory": "site",
+    "functions_directory": "netlify/functions",
+    "deployment_model": "git-to-netlify"
+  },
+  "purpose": [
+    "Reset Inner Circle community gateway",
+    "Discord entry",
+    "Reset Media Virtual Studio discovery",
+    "voluntary community support routing",
+    "privacy-safe normalized intelligence events"
+  ],
+  "provider_boundaries": {
+    "reset_human_email": "Zoho",
+    "reset_web_hosting": "Netlify",
+    "rms_human_email": "Google Workspace",
+    "rms_transactional_email": "Resend",
+    "intelligence": "normalized metadata only",
+    "forbidden": [
+      "RMS Resend API keys in Netlify",
+      "Google Workspace credentials in Reset systems",
+      "Zoho credentials in RMS systems",
+      "Discord private conversations in AOS",
+      "private creator rights data in Discord"
+    ]
+  },
+  "monetization": {
+    "community_support": {
+      "type": "voluntary support",
+      "membership_entitlement": false,
+      "tax_deductible_claim": false,
+      "processor": "Stripe",
+      "netlify_env": "RESET_STRIPE_SUPPORT_URL"
+    },
+    "studio": {
+      "brand": "Reset Media Virtual Studio™",
+      "commercial_services": [
+        "remote interviews",
+        "artist sessions",
+        "live production",
+        "creator education",
+        "performance capture",
+        "listening sessions"
+      ]
+    }
+  },
+  "intelligence": {
+    "scope": "resetinnercircle",
+    "source": "netlify",
+    "server_function": "reset-intelligence",
+    "endpoint_env": "RESET_INTELLIGENCE_INGRESS_URL",
+    "secret_env": "RESET_INTELLIGENCE_INGRESS_SECRET",
+    "credential_rule": "server-side only"
+  }
+}
