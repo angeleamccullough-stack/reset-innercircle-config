@@ -53,6 +53,8 @@ const allowed = new Set([
   'pinterest_studio_interest'
 ]);
 
+const DEFAULT_CREATORHUB_INGRESS = 'https://creators.rmsglobalpublishing.com/api/internal/communications/ingest';
+
 export default async (request) => {
   if (request.method !== 'POST') return new Response('Method Not Allowed', { status: 405 });
   try {
@@ -60,9 +62,9 @@ export default async (request) => {
     const eventType = String(input?.event_type || '').slice(0, 120);
     if (!allowed.has(eventType)) return Response.json({ ok: false }, { status: 400 });
 
-    const endpoint = process.env.RESET_INTELLIGENCE_INGRESS_URL || '';
+    const endpoint = process.env.RESET_INTELLIGENCE_INGRESS_URL || DEFAULT_CREATORHUB_INGRESS;
     const secret = process.env.RESET_INTELLIGENCE_INGRESS_SECRET || '';
-    if (!endpoint || !secret) return Response.json({ ok: true, relayed: false }, { status: 202 });
+    if (!secret) return Response.json({ ok: true, relayed: false }, { status: 202 });
 
     const metadata = input?.metadata && typeof input.metadata === 'object' ? input.metadata : {};
     const safe = Object.fromEntries(Object.entries(metadata).filter(([k]) => !/email|name|phone|token|secret|password|cookie|authorization|key/i.test(k)).slice(0, 20));
@@ -77,7 +79,10 @@ export default async (request) => {
 
     const upstream = await fetch(endpoint, {
       method: 'POST',
-      headers: { 'content-type': 'application/json', 'x-rms-communications-ingress-secret': secret },
+      headers: {
+        'content-type': 'application/json',
+        'x-rms-communications-ingress-secret': secret
+      },
       body: JSON.stringify(payload)
     });
     return Response.json({ ok: true, relayed: upstream.ok }, { status: upstream.ok ? 202 : 502 });
