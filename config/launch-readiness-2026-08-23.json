@@ -1,15 +1,18 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "recorded_at": "2026-08-23",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "system": "Reset Inner Circle Gateway",
-  "status": "frontend_and_routing_ready_provider_bindings_pending",
+  "status": "frontend_routing_and_beta_room_bindings_ready_provider_bindings_pending",
   "ready_now": [
     "GitHub-backed Netlify deployment authority",
     "official Reset branding across main and secondary public pages",
     "premium responsive gateway UX",
     "shared ecosystem directory footer",
     "Main Arena public route",
+    "verified Reset Main Arena Discord binding 1429398859020370096",
+    "verified Soul Flow Lounge Discord binding 1430445705230553230",
+    "two-room cross-community automation beta contract",
     "Live Events public route",
     "Partner Network intake",
     "Reset Media Virtual Studio positioning",
@@ -26,11 +29,6 @@
       "cost_policy": "Do not upgrade Vercel or incur paid hosting cost to bypass the limit",
       "existing_watch": "CreatorHub Comms Build Watch"
     },
-    "main_arena_channel": {
-      "state": "verified_channel_url_required",
-      "impact": "Arena public route opens the Reset server rather than guessing a specific channel ID",
-      "safety_rule": "Never invent a Discord channel ID"
-    },
     "stripe": {
       "state": "deliberately_unbound",
       "buckets": [
@@ -45,11 +43,21 @@
       "state": "no_direct_connector_in_current_session",
       "impact": "No direct publishing, private group ingestion or account-level automation is claimed",
       "allowed_now": "tracked discovery links, approved partner attribution, internal Discord activity seeding and public-safe intelligence"
+    },
+    "beta_external_group_roster": {
+      "state": "approved_group_roster_not_yet_materialized",
+      "impact": "No Facebook group is auto-assigned to a beta Discord room until its public group identity is verified and deduplicated",
+      "rule": "The same external group cannot be assigned to both Reset Main Arena and Soul Flow Lounge during beta"
     }
   },
   "engagement_engine": {
     "goal": "Create useful reasons for members to return to each activated Discord room without artificial engagement.",
+    "beta_rooms": [
+      {"name":"Reset Main Arena","channel_id":"1429398859020370096","binding_verified":true},
+      {"name":"Soul Flow Lounge","channel_id":"1430445705230553230","binding_verified":true}
+    ],
     "default_limit": "2 routine automated sparks per activated room per day",
+    "external_group_assignment_policy": "one verified external group may seed only one beta room; dedupe before assignment",
     "room_activation_requires": [
       "verified channel ID",
       "approved room purpose",
@@ -74,14 +82,26 @@
       "member scraping",
       "private Facebook post ingestion",
       "unapproved mass posting",
-      "room flooding"
+      "room flooding",
+      "duplicate external-group assignment across beta rooms"
     ]
   },
+  "post_vercel_sequence": [
+    "certify CreatorHub communications ingress",
+    "connect Netlify Reset intelligence relay using dedicated ingress endpoint and secret",
+    "verify signed/fail-closed normalized event delivery",
+    "bind Community Support Stripe bucket",
+    "bind Reset Media Virtual Studio services Stripe bucket",
+    "bind Produced Events / Workshops Stripe bucket",
+    "activate routine room sparks only for the two verified beta rooms",
+    "measure participation quality, moderation load, repeat visits, qualified service interest and revenue outcomes before expansion"
+  ],
   "production_truth": {
     "gateway_ready": true,
     "discord_server_usable": true,
-    "live_events_binding_verified": true,
-    "main_arena_channel_binding_verified": false,
+    "main_arena_channel_binding_verified": true,
+    "soul_flow_lounge_channel_binding_verified": true,
+    "beta_room_count": 2,
     "stripe_live": false,
     "rms_intelligence_ingress_live": false,
     "netlify_relay_fail_closed": true
