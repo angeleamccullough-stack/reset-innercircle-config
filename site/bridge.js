@@ -17,7 +17,13 @@
   };
 
   const path = location.pathname;
-  const viewEvent = path.includes('partner-thanks') ? 'partner_thanks_view' : path.includes('partner') ? 'partner_onboarding_view' : 'live_bridge_view';
+  const viewEvent = path.includes('partner-thanks')
+    ? 'partner_thanks_view'
+    : path.includes('partner')
+      ? 'partner_onboarding_view'
+      : path.includes('arena')
+        ? 'arena_gateway_view'
+        : 'live_bridge_view';
   send(viewEvent, { path });
 
   let audioCtx = null;
