@@ -83,6 +83,19 @@
     referrer_host: document.referrer ? (() => { try { return new URL(document.referrer).hostname; } catch { return null; } })() : null
   });
 
+  const createSupportColumn = Array.from(document.querySelectorAll('.directory-column')).find((column) => column.querySelector('span')?.textContent?.trim() === 'CREATE + SUPPORT');
+  if (createSupportColumn && !createSupportColumn.querySelector('[data-event="footer_rs_vault_click"]')) {
+    const vault = document.createElement('a');
+    vault.className = 'track soundable';
+    vault.dataset.event = 'footer_rs_vault_click';
+    vault.dataset.placement = 'ecosystem_footer';
+    vault.href = 'https://rsvault.rmsglobalpublishing.com/';
+    vault.target = '_blank';
+    vault.rel = 'noopener';
+    vault.innerHTML = 'Creator Gear · RS Vault <b>↗</b>';
+    createSupportColumn.appendChild(vault);
+  }
+
   const progress = document.querySelector('.progress span');
   const updateProgress = () => {
     const max = document.documentElement.scrollHeight - innerHeight;
