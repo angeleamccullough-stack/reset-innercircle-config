@@ -8,6 +8,8 @@ export const commandBuilders = [
   new SlashCommandBuilder().setName('rights').setDescription('View RMS Rights & Metadata Intelligence guidance.'),
   new SlashCommandBuilder().setName('events').setDescription('View current RESET LIVE programming.'),
   new SlashCommandBuilder().setName('missions').setDescription('View current Platform Missions.'),
+  new SlashCommandBuilder().setName('leadership').setDescription('View the RESET leadership pathway and expectations.'),
+  new SlashCommandBuilder().setName('safety').setDescription('View RESET cross-platform engagement safety standards.'),
   new SlashCommandBuilder().setName('support').setDescription('Open the private RMS support route.'),
 ];
 
@@ -20,8 +22,9 @@ function env(name, fallback = '') {
 const creatorHubUrl = () => env('CREATORHUB_URL', 'https://rms-creator-portal.vercel.app/');
 const marketplaceUrl = () => env('RMS_MARKETPLACE_URL', `${creatorHubUrl().replace(/\/$/, '')}/marketplace`);
 const resetUrl = () => env('RESET_INNER_CIRCLE_URL', 'https://resetinnercircle.com/');
+const networkUrl = () => `${resetUrl().replace(/\/$/, '')}/#network`;
 
-const footer = 'RMS Global Publishing · CreatorHub™ · Ownership First';
+const footer = 'RMS Global Publishing · RESET Inner Circle · Ownership First';
 
 const baseEmbed = (title, description) => ({
   color: 0xC8A24A,
@@ -82,9 +85,25 @@ export function buildCommandResponse(commandName) {
       const route = channelId ? `<#${channelId}>` : 'Platform Missions';
       return {
         ephemeral: false,
-        embeds: [baseEmbed('Platform Missions', `Find current cross-platform creator activations in ${route}. Participation must remain authentic and platform-safe.`)],
+        embeds: [baseEmbed('Platform Missions', `Find current cross-platform creator activations in ${route}. Participation must remain authentic and platform-safe. No forced reciprocity, scripted comments, artificial views, or engagement loops.`)],
       };
     }
+    case 'leadership':
+      return {
+        ephemeral: false,
+        embeds: [baseEmbed(
+          'RESET Leadership Pathway',
+          `**Entry → Activation → Contribution → Visibility → Advancement**\n\nLeadership seats are voluntary community roles, not paid employment or contract labor. Leaders model healthy participation, protect dignity and privacy, support creator collaboration, and follow platform-safe engagement standards.\n\n**Code of Honor:** protect dignity · respect ownership · choose truth over hype · keep private things private · elevate the room.\n\n${networkUrl()}`,
+        )],
+      };
+    case 'safety':
+      return {
+        ephemeral: false,
+        embeds: [baseEmbed(
+          'RESET Cross-Platform Safety',
+          `RESET never requires or rewards actions that violate platform policies. Automation may route, remind, organize, and recognize. It does not impersonate members or manufacture engagement.\n\n**Facebook:** no mass tagging, repetitive comments, or forced reciprocity.\n**Instagram:** no rapid-fire automation or duplicate flooding.\n**TikTok:** no follow/unfollow cycles or artificial engagement.\n**YouTube:** no scripted comments, artificial views, or watch-time loops.\n**Twitch:** safe moderation, no automated spam, and proper music rights.\n\nPlatform systems can change, so RESET does not promise “shadowban-proof” outcomes.\n\n${networkUrl()}`,
+        )],
+      };
     case 'support': {
       const channelId = env('SUPPORT_CHANNEL_ID');
       const route = channelId ? `<#${channelId}>` : 'the private RMS support pathway';
