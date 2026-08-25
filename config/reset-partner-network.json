@@ -1,11 +1,22 @@
 {
-  "schema_version": "1.2.0",
+  "schema_version": "2.0.0",
   "status": "active_beta_two_rooms",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
-  "network": "Reset Inner Circle Partner Network",
-  "purpose": "Connect independent creator and engagement communities into approved Reset programming while preserving each leader's identity, audience ownership and platform boundaries.",
+  "network": "Reset Inner Circle Network",
+  "purpose": "Connect independent creators, leaders and communities into approved Reset programming while preserving identity, audience ownership, dignity, privacy and platform boundaries.",
+  "leadership_program": {
+    "position_type": "voluntary_leadership_seat",
+    "employment_relationship": false,
+    "compensated_duties": false,
+    "guaranteed_income": false,
+    "reward_model": ["visibility", "access", "recognition", "community_influence", "advancement_opportunity"],
+    "pathway": ["entry", "activation", "contribution", "visibility", "advancement"],
+    "entry_requirements": ["accept leadership code of honor", "complete orientation", "review platform safety standards", "understand privacy and ownership boundaries"],
+    "expectations": ["community presence", "engagement stewardship", "culture protection", "collaboration and activation", "clear voluntary-role boundaries"],
+    "prohibited_representation": ["paid employment", "contract labor", "guaranteed growth", "guaranteed monetization", "guaranteed platform reach"]
+  },
   "pilot": {
-    "external_sources": ["facebook_groups", "pinterest"],
+    "external_sources": ["facebook_groups", "instagram", "tiktok", "youtube", "twitch", "pinterest"],
     "primary_internal_destination": "reset_main_arena",
     "discord_server_id": "1429398855681573038",
     "main_arena_channel_id": "1429398859020370096",
@@ -22,39 +33,48 @@
     "private_post_ingestion": false,
     "audience_scraping": false,
     "visible_partner_attribution": true,
-    "cross_promotion_opt_in": true
+    "cross_promotion_opt_in": true,
+    "dignity_first": true,
+    "ownership_respected": true,
+    "privacy_protected": true,
+    "truth_over_hype": true
   },
+  "leadership_code_of_honor": [
+    "Protect dignity; never embarrass, exploit or pressure people for participation.",
+    "Respect ownership; credit creators, communities and ideas appropriately.",
+    "Choose truth over hype; no fabricated results, fake urgency or misleading promises.",
+    "Keep private things private; do not export or reuse protected community information.",
+    "Elevate the room with solutions, encouragement, accountability and useful energy."
+  ],
+  "community_energy_promise": "Warm, alive, supportive, purposeful and creator-first. RESET protects room for fun, depth, honesty, ambition and belonging without turning people into metrics.",
   "external_group_assignment": {
     "policy": "one_external_group_one_beta_room",
     "duplicate_group_assignment_across_discord_channels": false,
     "dedupe_key": "normalized_public_group_url_or_approved_partner_slug",
     "assignment_status": "awaiting_approved_group_roster",
-    "rule": "A Facebook group may seed only one beta Discord room during the test. If the same group appears in multiple discovery cohorts, deduplicate it before assignment."
+    "rule": "An external community may seed only one beta Discord room during the test. Deduplicate before assignment."
+  },
+  "platform_safety": {
+    "universal_rule": "RESET never requires or rewards actions that violate platform policies. Automation may route, remind, organize and recognize; it does not impersonate members or manufacture engagement.",
+    "shadowban_guarantee": false,
+    "facebook": ["no mass tagging", "no repetitive comment patterns", "no forced reciprocal engagement", "no coordinated spam"],
+    "instagram": ["no rapid-fire engagement automation", "no duplicate caption flooding", "use properly licensed audio", "maintain natural human participation"],
+    "tiktok": ["no follow-unfollow cycles", "no identical repost flooding", "no artificial engagement", "use original or properly licensed audio"],
+    "youtube": ["no comment scripts", "no artificial views or watch-time loops", "no misleading metadata"],
+    "twitch": ["safe chat moderation", "no automated spam", "platform-compliant co-streaming", "proper music rights"]
   },
   "engagement_engine": {
     "mode": "platform_compliant_automation_beta",
-    "goal": "Seed useful activity inside the two verified Reset beta rooms so members have meaningful reasons to return, collaborate and participate.",
-    "allowed_automation": [
-      "scheduled room prompts",
-      "solo creator missions",
-      "group collaboration challenges",
-      "event reminders",
-      "creator spotlights",
-      "workshop and live-session prompts",
-      "cross-room opportunity routing without duplicate group assignment",
-      "verified participation recognition",
-      "recap prompts",
-      "public-safe campaign attribution"
-    ],
-    "prohibited_automation": [
-      "fake engagement",
-      "automated likes or comments on behalf of members",
-      "private Facebook member scraping",
-      "private group post ingestion",
-      "mass posting without leader approval",
-      "unapproved cross-room spam",
-      "assigning the same external group to both beta rooms"
-    ],
+    "goal": "Seed useful activity inside verified Reset beta rooms so members have meaningful reasons to return, collaborate and participate.",
+    "allowed_automation": ["scheduled room prompts", "solo creator missions", "group collaboration challenges", "event reminders", "creator spotlights", "workshop and live-session prompts", "cross-room opportunity routing without duplicate group assignment", "verified participation recognition", "recap prompts", "public-safe campaign attribution", "new-member orientation prompts", "platform-safety briefing reminders"],
+    "prohibited_automation": ["fake engagement", "automated likes or comments on behalf of members", "private platform member scraping", "private group post ingestion", "mass posting without leader approval", "unapproved cross-room spam", "forced reciprocal actions", "artificial watch-time or view loops", "assigning the same external group to both beta rooms"],
+    "cadence": {
+      "daily": ["conversation starters", "creator highlights", "wellness check-ins", "industry insights"],
+      "weekly": ["safe creator missions", "platform-native growth actions", "collaboration challenges"],
+      "monthly": ["leadership spotlights", "contribution recognition", "community trust highlights"],
+      "events": ["voice lounges", "cross-platform creator pushes", "live programming", "recaps"],
+      "on_entry": ["orientation", "leadership code", "platform safety", "room guidance", "starter actions"]
+    },
     "spark_cadence": {
       "default": "bounded_and_room_specific",
       "max_routine_sparks_per_room_per_day": 2,
@@ -65,34 +85,14 @@
       "main_arena": {
         "channel_id": "1429398859020370096",
         "purpose": "cross-community creator connection, live activity, collaboration discovery and event routing",
-        "solo": [
-          "Creator check-in: share one concrete move you are making today",
-          "Platform mission: complete one monetization-aligned task and report the result",
-          "Portfolio spark: share one current work-in-progress for constructive feedback",
-          "Discovery spark: introduce one skill, offer or collaboration need"
-        ],
-        "group": [
-          "Cross-community collaboration call",
-          "Live event discussion thread",
-          "Clip or content challenge tied to platform-native monetization rules",
-          "Co-creation sprint with clear start, finish and recap"
-        ]
+        "solo": ["Creator check-in: share one concrete move you are making today", "Platform mission: complete one monetization-aligned task and report the result", "Portfolio spark: share one current work-in-progress for constructive feedback", "Discovery spark: introduce one skill, offer or collaboration need"],
+        "group": ["Cross-community collaboration call", "Live event discussion thread", "Clip or content challenge tied to platform-native rules", "Co-creation sprint with clear start, finish and recap"]
       },
       "soul_flow_lounge": {
         "channel_id": "1430445705230553230",
         "purpose": "reflective creator connection, authentic conversation, creative grounding, listening and lower-pressure community participation",
-        "solo": [
-          "Soul Flow check-in: what are you creating, carrying or clearing today?",
-          "Creative reset: share one thing helping you reconnect with your voice",
-          "Quiet progress: name one small move you completed that deserves recognition",
-          "Listening prompt: share one song, idea or creative influence shaping your current work"
-        ],
-        "group": [
-          "Soul Sync conversation with a defined prompt",
-          "Listening and feedback circle",
-          "Creative grounding session",
-          "Low-pressure collaboration or accountability circle"
-        ]
+        "solo": ["Soul Flow check-in: what are you creating, carrying or clearing today?", "Creative reset: share one thing helping you reconnect with your voice", "Quiet progress: name one small move you completed that deserves recognition", "Listening prompt: share one song, idea or creative influence shaping your current work"],
+        "group": ["Soul Sync conversation with a defined prompt", "Listening and feedback circle", "Creative grounding session", "Low-pressure collaboration or accountability circle"]
       }
     },
     "automation_owners": {
@@ -105,10 +105,7 @@
   },
   "room_binding_contract": {
     "required_fields": ["channel_id", "room_purpose", "moderation_owner", "allowed_activity_templates", "notification_role_if_any"],
-    "verified_beta_rooms": [
-      {"name": "Reset Main Arena", "channel_id": "1429398859020370096"},
-      {"name": "Soul Flow Lounge", "channel_id": "1430445705230553230"}
-    ],
+    "verified_beta_rooms": [{"name": "Reset Main Arena", "channel_id": "1429398859020370096"}, {"name": "Soul Flow Lounge", "channel_id": "1430445705230553230"}],
     "activation_rule": "Do not activate routine automated sparks beyond the two verified beta rooms until the first beta is measured and approved.",
     "fallback": "If an automation dependency fails, the room remains usable and routine automation pauses rather than flooding or blocking the community."
   },
