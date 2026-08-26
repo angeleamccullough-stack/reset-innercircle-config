@@ -174,6 +174,7 @@
   loadStyle('/network.css');
   loadStyle('/brand-upgrade.css');
   loadScript('/network.js');
+  loadScript('/studio-upgrade.js');
   loadScript('/arena-upgrade.js');
   loadScript('/brand-upgrade.js');
 })();
