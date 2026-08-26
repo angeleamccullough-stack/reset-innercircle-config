@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "status": "prepared_not_activated",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "provider_boundary": "Zoho for RESET messages; Ticket Tool for private Discord support; CreatorHub for protected creator and rights records",
+  "default_route": "reset_human_review",
+  "automation_rules": [
+    {"intent": "community_access", "keywords": ["join", "discord", "community"], "route": "public_gateway", "auto_reply": "allowed"},
+    {"intent": "studio_services", "keywords": ["studio", "recording", "mixing", "mastering", "production"], "route": "studio_intake", "auto_reply": "acknowledgment_only"},
+    {"intent": "event_access", "keywords": ["event", "workshop", "ticket", "registration"], "route": "event_support", "auto_reply": "acknowledgment_only"},
+    {"intent": "payment_support", "keywords": ["payment", "charged", "refund", "renewal", "receipt"], "route": "billing_human_review", "auto_reply": "acknowledgment_only"},
+    {"intent": "rights_or_licensing", "keywords": ["rights", "license", "publishing", "royalty", "copyright"], "route": "creatorhub_secure_intake", "auto_reply": "no_substantive_advice"},
+    {"intent": "safety_or_legal", "keywords": ["threat", "harassment", "subpoena", "legal notice", "fraud"], "route": "founder_priority_review", "auto_reply": "acknowledgment_only"},
+    {"intent": "credential_or_card_data", "keywords": ["password", "api key", "card number", "cvv", "security code"], "route": "security_review", "auto_reply": "redact_and_warn"}
+  ],
+  "fail_closed_rules": [
+    "Never promise a refund, license, entitlement, placement or service completion automatically.",
+    "Never treat voluntary support as a membership purchase or charitable donation.",
+    "Never send payment links except the lane-specific approved Stripe URL.",
+    "Never ingest private Discord messages into RMS Intelligence.",
+    "Never provide substantive legal, tax, safety or rights advice automatically."
+  ]
+}

@@ -108,7 +108,7 @@
         <article><span>CATALOG</span><strong>$149+</strong><h4>Metadata + Sync Prep</h4><small>Readiness review and organization. No placement guarantee.</small></article>
         <article><span>PUBLISHING</span><strong>AGREEMENT</strong><h4>Administration</h4><small>Available only under a written administration agreement.</small></article>
       </div>
-      <div class="studio-menu-actions"><a class="button gold track soundable" data-event="studio_service_checkout_click" data-placement="studio_pricing" href="/.netlify/functions/service-checkout?bucket=studio"><span>Open Secure Studio Checkout</span><i>→</i></a><a class="button ghost track soundable" data-event="studio_main_arena_click" data-placement="studio_pricing" href="${mainArenaUrl}" target="_blank" rel="noopener"><span>Enter Main Arena</span><i>↗</i></a></div>
+      <div class="studio-menu-actions"><a class="button gold track soundable" data-event="studio_service_checkout_click" data-placement="studio_pricing" href="/checkout/studio"><span>Open Secure Studio Checkout</span><i>→</i></a><a class="button ghost track soundable" data-event="studio_main_arena_click" data-placement="studio_pricing" href="${mainArenaUrl}" target="_blank" rel="noopener"><span>Enter Main Arena</span><i>↗</i></a></div>
       <p class="studio-checkout-note">Checkout activates only when the approved RESET Studio Stripe service link is connected. If it is not active, no payment is initiated.</p>
     </section>
 

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "status": "prepared_not_activated",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "provider": "Zoho",
+  "brand": "Reset Society | Be You On Purpose",
+  "activation_gate": "Founder-approved internal TEST recipient and authenticated Zoho automation verification",
+  "rules": {
+    "never_include": ["passwords", "payment card data", "private creator rights data", "Discord private conversations"],
+    "required_footer": "Reset Society | Be You On Purpose — Remember · Embody · Stand · Elevate · Truth",
+    "reply_to": "the configured RESET support mailbox",
+    "transactional_payment_source": "verified Stripe event only"
+  },
+  "templates": {
+    "intro": {
+      "subject": "Welcome to Reset Society",
+      "body": "Welcome to Reset Society — a creator-first space for connection, collaboration and purposeful work. Start with the public gateway, then join Discord voluntarily when you are ready."
+    },
+    "welcome": {
+      "subject": "Your Reset Society starting point",
+      "body": "You are in. Review the community expectations, choose the spaces that fit your work and keep private rights, payment and account information out of public channels."
+    },
+    "purchase_confirmation": {
+      "subject": "Your RESET service payment is confirmed",
+      "body": "Stripe confirmed your payment for {{offer_name}}. Reference: {{order_reference}}. RESET will provide the documented fulfillment steps and timing for this specific service. Discord membership is not included unless an approved offer explicitly says otherwise."
+    },
+    "renewal_notice": {
+      "subject": "Upcoming RESET renewal",
+      "body": "Your {{offer_name}} renewal is scheduled for {{renewal_date}} at {{amount}}. Use the secure billing link in your account or contact RESET support before the renewal date if you need help."
+    },
+    "failed_payment": {
+      "subject": "Action needed for your RESET payment",
+      "body": "Stripe could not complete the payment for {{offer_name}}. No card details are handled by RESET. Use the secure Stripe billing or checkout link to review your payment method."
+    },
+    "inquiry_acknowledgment": {
+      "subject": "RESET received your inquiry",
+      "body": "We received your message and routed it to {{routing_team}}. Reference: {{inquiry_reference}}. Please do not reply with passwords, card information or confidential creator-rights documents."
+    },
+    "support_acknowledgment": {
+      "subject": "RESET support request received",
+      "body": "Your support request is logged as {{support_reference}} with priority {{priority}}. We will respond through the official RESET support channel."
+    },
+    "event_confirmation": {
+      "subject": "Your RESET event registration is confirmed",
+      "body": "Your registration for {{event_name}} on {{event_date}} is confirmed. Access instructions: {{access_instructions}}. Recording occurs only when clearly disclosed for that event."
+    }
+  }
+}

@@ -93,5 +93,9 @@ We move with purpose.
 
 **Angelea McCullough, Founder of RMS Global Publishing**
 
+**RoWAN — RMS Owned Worldwide Automated Network**
+
+Operational verification, routing and automation assistant for the RMS ecosystem. RoWAN supports Founder-governed operations and does not hold legal ownership, signing authority or independent spending authority.
+
 **Reset Society | Be You On Purpose**  
 Remember • Embody • Stand • Elevate • Truth
