@@ -18,6 +18,12 @@ export const commandBuilders = [
   new SlashCommandBuilder().setName('savesession').setDescription('View the RMS Studio version and filename standard.'),
   new SlashCommandBuilder().setName('exportstems').setDescription('View the RMS stem-export checklist.'),
   new SlashCommandBuilder().setName('requestmix').setDescription('Open the RESET Studio mix/master service path.'),
+  new SlashCommandBuilder().setName('myprojects').setDescription('Open your authenticated CreatorHub project area.'),
+  new SlashCommandBuilder().setName('myaccess').setDescription('Open your authenticated Studio access area.'),
+  new SlashCommandBuilder().setName('newthisweek').setDescription('View the cleared RMS Studio New This Week feed.'),
+  new SlashCommandBuilder().setName('licensing').setDescription('Open RMS licensing and rights-readiness guidance.'),
+  new SlashCommandBuilder().setName('studioservices').setDescription('View RMS Studio services and starting rates.'),
+  new SlashCommandBuilder().setName('helpstudio').setDescription('View RESET Studio commands and privacy-safe help.'),
   new SlashCommandBuilder().setName('support').setDescription('Open the private RMS support route.'),
 ];
 
@@ -61,7 +67,8 @@ export function buildCommandResponse(commandName) {
     case 'marketplace':
       return { ephemeral: false, embeds: [baseEmbed('RMS Marketplace', `Explore approved public creator offerings and marketplace activity.\n\n${marketplaceUrl()}`)] };
     case 'sync':
-      return { ephemeral: false, embeds: [baseEmbed('Licensing Readiness', `Prepare ownership, metadata, versions, clearances, and delivery assets through RMS CreatorHub™. Licensing readiness does not guarantee placement.\n\n${creatorHubUrl()}`)] };
+    case 'licensing':
+      return { ephemeral: false, embeds: [baseEmbed('Licensing Readiness', `Prepare ownership, metadata, versions, clearances, and delivery assets through RMS CreatorHub™. Licensing readiness does not guarantee placement or income.\n\n${creatorHubUrl()}`)] };
     case 'rights':
       return { ephemeral: false, embeds: [baseEmbed('Rights & Metadata Intelligence', `Use CreatorHub™ to prepare and maintain authoritative ownership and metadata records. Keep confidential rights information out of public Discord channels.\n\n${creatorHubUrl()}`)] };
     case 'events': {
@@ -86,14 +93,23 @@ export function buildCommandResponse(commandName) {
       return { ephemeral: false, embeds: [baseEmbed('RESET Game Room', `Use the Game Room for community play, low-latency conversation, creator gaming sessions and game-stream collaboration.\n\n${gameRoomUrl}`)] };
     case 'startsession': {
       const sessionId = makeSessionId();
-      return { ephemeral: true, embeds: [baseEmbed('RMS Studio Session', `**Session reference:** \`${sessionId}\`\n\nUse this reference in filenames, notes and service requests. This creates a tracking reference only; it does not upload your DAW project or stems automatically.\n\n**Studio:** ${studioUrl()}`)] };
+      return { ephemeral: true, embeds: [baseEmbed('RMS Studio Session', `**Session reference:** \`${sessionId}\`\n\nUse this reference in filenames, notes and service requests. This Discord command creates a privacy-safe tracking reference only. Until secure Discord-to-CreatorHub identity binding is enabled, persistent private session records are created through the authenticated CreatorHub Studio workflow rather than stored in Discord.\n\n**Studio:** ${studioUrl()}\n**CreatorHub:** ${creatorHubUrl()}`)] };
     }
     case 'savesession':
       return { ephemeral: true, embeds: [baseEmbed('RMS Version Standard', `Save your working version in the DAW, then label exports consistently.\n\n**Recommended:** \`RMS-[SESSION]-[CREATOR]-[TITLE]-[VERSION]-[ASSETTYPE]-YYYYMMDD.ext\`\n\nThis command does not claim to save third-party DAW files for you.`)] };
     case 'exportstems':
       return { ephemeral: true, embeds: [baseEmbed('RMS Stem Export Checklist', `Export from a common start point where practical. Keep sample rate and bit depth consistent. Name each stem clearly. Include instrumental, vocal, FX and alternate versions only when they are part of the agreed delivery scope.\n\nDo not post confidential or unreleased source files in public Discord channels.`)] };
     case 'requestmix':
-      return { ephemeral: true, embeds: [baseEmbed('RESET Studio Mix / Master', `Open the Studio menu for current starting rates and the secure service path. Project complexity, revision scope and delivery requirements are confirmed before work begins.\n\n${studioUrl()}`)] };
+    case 'studioservices':
+      return { ephemeral: true, embeds: [baseEmbed('RESET Studio Services', `Current starting rates and service scope live on the Studio floor. Rights, complexity, revision scope and delivery requirements are confirmed before work begins. Membership pricing remains Founder-approval gated and Stripe is intentionally last.\n\n${studioUrl()}`)] };
+    case 'myprojects':
+      return { ephemeral: true, embeds: [baseEmbed('My RMS Projects', `Private project information stays out of Discord. Sign in to CreatorHub™ to view your authenticated creator records and project workflows.\n\n${creatorHubUrl()}`)] };
+    case 'myaccess':
+      return { ephemeral: true, embeds: [baseEmbed('My Studio Access', `Membership and entitlement details are private. Use your authenticated CreatorHub account for access status. Discord does not expose private payment, rights, or entitlement records.\n\n${creatorHubUrl()}`)] };
+    case 'newthisweek':
+      return { ephemeral: false, embeds: [baseEmbed('RMS Studio · New This Week', `Only rights-cleared, commercially cleared Studio assets are eligible for the New This Week feed. Internal masters and review-required material never surface here. The first cleared asset batch will populate the live feed without placeholder tracks or fake activity.\n\n${studioUrl()}`)] };
+    case 'helpstudio':
+      return { ephemeral: true, embeds: [baseEmbed('RESET Studio Help', `**Create:** /studio · /startsession · /savesession · /exportstems\n**Services:** /studioservices · /requestmix · /licensing\n**Private routes:** /myprojects · /myaccess · /support\n**Rooms:** /stage · /game\n\nNever post unreleased masters, private contracts, splits, passwords, banking information or confidential CreatorHub records into public channels.`)] };
     case 'support': {
       const channelId = env('SUPPORT_CHANNEL_ID');
       const route = channelId ? `<#${channelId}>` : 'the private RMS support pathway';
