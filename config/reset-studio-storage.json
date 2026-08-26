@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "status": "pre_stripe_storage_ready",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "provider": "google_drive",
+  "local_policy": {
+    "staging_folder": "RMS_Studio_Staging",
+    "review_folder": "RMS_Studio_Staging/Review_Required",
+    "operation": "copy_not_move",
+    "approved_extensions": [".xpj", ".mpcproject", ".flp", ".als", ".logicx", ".mid", ".midi", ".wav", ".aif", ".aiff", ".mp3"],
+    "hard_exclusions_case_insensitive": ["DAION", "AURALYN"],
+    "excluded_content_classes": ["personal_documents", "contracts", "photos", "pdfs", "founder_personal_data"],
+    "questionable_files": "review_required"
+  },
+  "drive": {
+    "master": {
+      "name": "RMS_Studio_Master",
+      "folder_id": "1eYw99x8SNNgGPNM4DFjSmFHBIDxqW3cl",
+      "canonical_asset_rule": "Store one authoritative binary copy per asset. Mood, tempo and genre are catalog metadata/indexes, not duplicate binary copies.",
+      "folders": {
+        "beats_by_mood": "1yERI9mOpxu2GyS3LEwOpAFa65wuMws_d",
+        "beats_by_tempo": "1o9wH9ZyihxmG3W-MZ7lar1-t9inMYWiV",
+        "instrumentals_by_genre": "1D1YOZcyUnxK3gPVahxDg2ZzSh_L7ilQ5",
+        "daw_project_files": "1OkUTUTWnxMxifii_pGIKZ-EOEzeqHNNS",
+        "sample_packs": "1eJcmfAT3aRusz5RxOgh6vWf5DLpcGp1h",
+        "review_required": "1VjY9ONAhOALAyvWc5AYuKLauu5qoYkl7"
+      }
+    },
+    "member_library": {
+      "name": "RMS_Member_Library",
+      "folder_id": "14gacKq-377cP5EagSKGw_8ZvX1z_03TO",
+      "paid_access_policy": "identity_bound_only",
+      "public_link_policy": "free_preview_only",
+      "folders": {
+        "tier_1": "1k_Ta3T_6V9ZqQ8dBDY5qk97uAh4DnuMg",
+        "tier_2": "1bo1O-aodtpOwpqs63ZkVF96SKd4SsvT1",
+        "tier_3": "1FhRgLzA3uqAZmE_NJkTkXYrazFc3Cv0h",
+        "free_preview": "1Qsii_6iIQF-8lZYSDYgM2b1U3oFt6c_O"
+      }
+    }
+  },
+  "naming": {
+    "asset_pattern": "RMS_[Category]_[Descriptor]_[Version]",
+    "recommended_audio_pattern": "RMS_[Category]_[Descriptor]_[BPM]BPM_[Version].[ext]",
+    "example": "RMS_Beat_DarkTrap_140BPM_v1.wav",
+    "project_pattern": "RMS_Project_[CreatorOrClient]_[Title]_[Version]"
+  },
+  "catalog_fields": [
+    "asset_id",
+    "file_name",
+    "drive_file_id",
+    "canonical_folder",
+    "asset_type",
+    "genre",
+    "mood",
+    "bpm",
+    "musical_key",
+    "version",
+    "membership_tier",
+    "public_preview_allowed",
+    "commercial_use_status",
+    "third_party_content_status",
+    "rights_review_status",
+    "checksum",
+    "created_at",
+    "updated_at"
+  ],
+  "pi_events": {
+    "membership_activated": ["assign_tier", "grant_identity_bound_access", "issue_secure_access_reference", "send_onboarding", "audit"],
+    "membership_upgraded": ["revoke_previous_tier", "grant_new_tier", "notify", "audit"],
+    "membership_canceled": ["revoke_member_library_access", "archive_entitlement", "notify", "audit"],
+    "new_content_added": ["validate_asset", "update_new_this_week", "prepare_discord_announcement", "audit"]
+  },
+  "stripe_boundary": {
+    "status": "intentionally_not_wired",
+    "rule": "Stripe native events will be translated into RMS PI membership events after storage/access tests pass.",
+    "do_not_create_fake_stripe_event_names": true
+  }
+}
