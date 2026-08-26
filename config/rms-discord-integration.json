@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
   "status": "active",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "system": "RMS Fully Automated Intelligence System",
@@ -33,7 +33,7 @@
     "discovery": {
       "interaction_model": "slash-commands",
       "message_content_intent_required": false,
-      "commands_registered": ["portal", "submit", "marketplace", "sync", "rights", "events", "missions", "leadership", "safety", "studio", "stage", "game", "support"],
+      "commands_registered": ["portal", "submit", "marketplace", "sync", "rights", "events", "missions", "leadership", "safety", "studio", "stage", "game", "startsession", "savesession", "exportstems", "requestmix", "support"],
       "status_note": "If Discovery Status remains yellow after commands are registered and executable, do not broaden permissions or enable Message Content solely to satisfy the badge; allow Discord metadata to reconcile and verify Discovery Settings independently."
     },
     "brand": {
@@ -47,7 +47,7 @@
     "low_priority_platforms": ["X"]
   },
   "automation_ownership": {
-    "rms_creatorhub_app": ["RMS slash commands", "CreatorHub routing", "public-safe RMS intelligence events", "Marketplace routing", "opportunity lookup", "RMS event status", "Studio/Stage/Game room routing"],
+    "rms_creatorhub_app": ["RMS slash commands", "CreatorHub routing", "public-safe RMS intelligence events", "Marketplace routing", "opportunity lookup", "RMS event status", "Studio/Stage/Game room routing", "privacy-safe Studio session references", "Studio workflow guidance"],
     "carl_bot": ["Code of Law gate", "CHOOSE YOUR SIGNALS self roles", "reaction roles", "static embeds and tags", "moderation", "event entry gates"],
     "zapier": ["schedule triggers", "calendar and sheet automation", "approved announcements", "reminders", "live-now signals", "recaps", "cross-platform routing", "private failure alerts"],
     "tatsu": ["community recognition", "verified participation rewards", "positive engagement"],
@@ -69,6 +69,10 @@
     "studio": {"visibility": "public", "purpose": "Virtual Studio and flagship production-room routing"},
     "stage": {"visibility": "public", "purpose": "Claim Your Stage routing for cleared multidisciplinary creators"},
     "game": {"visibility": "public", "purpose": "RESET Game Room routing"},
+    "startsession": {"visibility": "private-preferred", "purpose": "generate privacy-safe RMS Studio session reference"},
+    "savesession": {"visibility": "private-preferred", "purpose": "version and filename standard; does not claim remote DAW save"},
+    "exportstems": {"visibility": "private-preferred", "purpose": "stem-export and labeling checklist"},
+    "requestmix": {"visibility": "private-preferred", "purpose": "route creator to Studio mix/master service menu"},
     "support": {"visibility": "private-preferred", "purpose": "private support routing"}
   },
   "event_contract": {
