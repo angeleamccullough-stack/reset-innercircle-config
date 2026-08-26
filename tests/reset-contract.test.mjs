@@ -9,6 +9,9 @@ const templates = JSON.parse(read('config/reset-communication-templates.json'));
 const routing = JSON.parse(read('config/reset-smart-response.json'));
 const payments = JSON.parse(read('config/reset-payment-buckets.json'));
 const studio = read('site/studio-upgrade.js');
+const discordCommands = read('rms-discord-bridge/src/commands.js');
+const discordInteractions = read('rms-discord-bridge/api/interactions.js');
+const discordEnvExample = read('rms-discord-bridge/.env.example');
 
 test('RESET communication pack contains every governed lifecycle template', () => {
   const required = ['intro', 'welcome', 'purchase_confirmation', 'renewal_notice', 'failed_payment', 'inquiry_acknowledgment', 'support_acknowledgment', 'event_confirmation'];
@@ -67,4 +70,13 @@ test('RESET payment functions fail closed and reject mutation methods while unbo
     if (saved.studio === undefined) delete process.env.RESET_STRIPE_STUDIO_SERVICES_URL; else process.env.RESET_STRIPE_STUDIO_SERVICES_URL = saved.studio;
     if (saved.events === undefined) delete process.env.RESET_STRIPE_EVENT_SERVICES_URL; else process.env.RESET_STRIPE_EVENT_SERVICES_URL = saved.events;
   }
+});
+
+test('RMS Discord bridge is guild-bound and routes customers through canonical domains', () => {
+  assert.match(discordInteractions, /interaction\.guild_id !== guildId/);
+  assert.match(discordInteractions, /DISCORD_GUILD_ID is not configured/);
+  assert.ok(discordInteractions.indexOf('verifyKey') < discordInteractions.indexOf('interaction.guild_id !== guildId'));
+  assert.match(discordCommands, /https:\/\/creators\.rmsglobalpublishing\.com\//);
+  assert.match(discordCommands, /randomUUID\(\)/);
+  assert.doesNotMatch(discordEnvExample, /rms-creator-portal\.vercel\.app/);
 });

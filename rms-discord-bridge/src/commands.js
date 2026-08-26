@@ -1,4 +1,5 @@
 import { SlashCommandBuilder } from 'discord.js';
+import { randomUUID } from 'node:crypto';
 
 export const commandBuilders = [
   new SlashCommandBuilder().setName('portal').setDescription('Open RMS CreatorHub and creator onboarding.'),
@@ -26,7 +27,7 @@ function env(name, fallback = '') {
   return process.env[name] || fallback;
 }
 
-const creatorHubUrl = () => env('CREATORHUB_URL', 'https://rms-creator-portal.vercel.app/');
+const creatorHubUrl = () => env('CREATORHUB_URL', 'https://creators.rmsglobalpublishing.com/');
 const marketplaceUrl = () => env('RMS_MARKETPLACE_URL', `${creatorHubUrl().replace(/\/$/, '')}/marketplace`);
 const resetUrl = () => env('RESET_INNER_CIRCLE_URL', 'https://resetinnercircle.com/');
 const networkUrl = () => `${resetUrl().replace(/\/$/, '')}/#network`;
@@ -47,7 +48,7 @@ const baseEmbed = (title, description) => ({
 
 const makeSessionId = () => {
   const date = new Date().toISOString().slice(0, 10).replace(/-/g, '');
-  const rand = Math.random().toString(36).slice(2, 10).toUpperCase();
+  const rand = randomUUID().replace(/-/g, '').slice(0, 8).toUpperCase();
   return `RST-${date}-${rand}`;
 };
 

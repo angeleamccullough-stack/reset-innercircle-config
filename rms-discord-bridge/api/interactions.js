@@ -71,6 +71,21 @@ export default async function handler(req, res) {
     });
   }
 
+  const guildId = process.env.DISCORD_GUILD_ID;
+  if (!guildId) {
+    console.error('DISCORD_GUILD_ID is not configured.');
+    return sendJson(res, 500, { error: 'Discord guild verification is not configured.' });
+  }
+  if (interaction.guild_id !== guildId) {
+    return sendJson(res, 200, {
+      type: CHANNEL_MESSAGE_WITH_SOURCE,
+      data: {
+        content: 'This RMS command is available only inside Reset Inner Circle.',
+        flags: EPHEMERAL_FLAG,
+      },
+    });
+  }
+
   const commandName = interaction.data?.name;
   const commandResponse = buildCommandResponse(commandName);
   const data = {};
