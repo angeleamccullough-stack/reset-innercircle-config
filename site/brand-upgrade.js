@@ -21,4 +21,11 @@
       </nav>
       <div class="owner">Stewarded by<br><strong>Angelea McCullough, Founder of RMS Global Publishing</strong></div>`;
   }
+
+  if (!document.querySelector('script[src="/studio-upgrade.js"]')) {
+    const script = document.createElement('script');
+    script.src = '/studio-upgrade.js';
+    script.defer = true;
+    document.body.appendChild(script);
+  }
 })();
