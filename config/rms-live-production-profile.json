@@ -1,67 +1,185 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "2.0.0",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
-  "purpose": "Non-destructive baseline for Discord live rooms used with OBS Studio, Elgato Wave Link, and Elgato Camera Hub.",
+  "purpose": "Canonical non-destructive production blueprint for RESET creative voice rooms using Discord, MPC Beats, OBS Studio, Elgato Wave Link, and Elgato Camera Hub.",
+  "blueprint_status": "flagship_room_ready_for_manual_device_validation",
+  "reference_room": {
+    "server_id": "1429398855681573038",
+    "main_arena_channel_id": "1429398859020370096",
+    "claim_your_stage_channel_id": "1468103128279941272",
+    "claim_your_stage_invite": "https://discord.gg/YsxvcQBBqH",
+    "game_room_channel_id": "1429398859020370100",
+    "website_studio_route": "https://resetinnercircle.com/#studio",
+    "room_model": "multipurpose_creator_room",
+    "eligible_members": "cleared members with a creative spark; not music-only"
+  },
   "principles": [
-    "Discord remains functional if OBS, Wave Link, Camera Hub, or the RMS Discord bridge is unavailable.",
+    "Discord remains functional if OBS, Wave Link, Camera Hub, MPC Beats, or the RMS Discord bridge is unavailable.",
     "Do not change global Windows audio devices solely for one Discord room.",
     "Use dedicated monitor and stream mixes to prevent echo and double monitoring.",
+    "Discord receives a clean microphone feed, never the full Stream Mix.",
+    "OBS receives the Stream Mix or isolated Wave Link sources, never duplicate copies of the same signal.",
     "Do not route confidential creator audio into public rooms without explicit consent.",
-    "Record only when the room and event explicitly disclose recording status."
+    "Record only when the room and event explicitly disclose recording status.",
+    "Creative room invitations are multidisciplinary: music, podcasting, spoken word, visual art, education, gaming, interviews, storytelling, production, and collaboration are all valid uses."
   ],
+  "verified_device_names_from_founder_workstation": {
+    "microphone_hardware": "Elgato Wave:3",
+    "camera": "Elgato Facecam MK.2",
+    "camera_format_observed": "1080p60 (NV12 raw)",
+    "discord_current_input_observed": "System Default - Stream Mix (Elgato Virtual Audio)",
+    "discord_current_output_observed": "System (Elgato Virtual Audio)",
+    "wave_link_sources_observed": [
+      "Elgato Wave:3",
+      "System",
+      "Discord",
+      "Microsoft Edge",
+      "Windows Media Player",
+      "MPC (64-bit)",
+      "Google Chrome",
+      "ChatGPT Classic",
+      "Elgato HD60 X"
+    ],
+    "obs_profile_observed": "RESET Broadcast",
+    "obs_scene_collection_observed": "Luxury INNER Circle",
+    "obs_version_observed": "32.2.2",
+    "mpc_observed_bpm": 85
+  },
+  "canonical_signal_flow": {
+    "voice_to_discord": "Elgato Wave:3 -> Wave Link microphone processing -> Mic In / MicrophoneFX clean mic bus -> Discord microphone input",
+    "discord_guests_to_host": "Discord output -> Wave Link Discord app channel -> Personal Mix -> host headphones",
+    "discord_guests_to_obs": "Discord output -> Wave Link Discord app channel -> Stream Mix -> OBS",
+    "mpc_to_host": "MPC Beats -> Wave Link MPC app channel -> Personal Mix -> host headphones",
+    "mpc_to_obs": "MPC Beats -> Wave Link MPC app channel -> Stream Mix -> OBS",
+    "mpc_to_discord": "Do not send MPC into the Discord microphone bus by default. Use Discord screen/application stream audio or an explicitly enabled performance mix only for a declared performance session.",
+    "camera_to_obs": "Elgato Facecam MK.2 -> OBS Video Capture Device",
+    "camera_hub_control": "Camera Hub may configure the Facecam while OBS owns the active preview. 'Video preview occupied' is expected when OBS has the device open.",
+    "obs_program": "Clean mic + Discord guests + approved music/app/game sources -> OBS -> recording / stream / virtual camera as required",
+    "monitor": "Approved Personal Mix -> Headphones (Elgato Wave:3)"
+  },
   "discord": {
-    "input_device": "Wave Link MicrophoneFX or the approved clean microphone mix",
-    "output_device": "Wave Link Game or approved monitoring mix",
-    "echo_cancellation": "evaluate per room; keep enabled for open-speaker sessions, disable only in controlled headphone-based studio routing if verified",
-    "noise_suppression": "light or disabled when Wave Link processing already provides clean gating/noise control",
-    "automatic_gain_control": "disable for controlled studio sessions; use only for general community voice rooms if needed",
+    "preferred_input_device": "Mic In (Elgato Wave:3) or Wave Link MicrophoneFX clean microphone bus",
+    "never_use_as_microphone_input": [
+      "Stream Mix (Elgato Virtual Audio)",
+      "Personal Mix (Elgato Virtual Audio)",
+      "Chat Mix (Elgato Virtual Audio) unless explicitly engineered as a clean microphone-only bus"
+    ],
+    "preferred_output_device": "Wave Link routed Discord playback bus / approved Elgato virtual output feeding the Discord application channel",
+    "speaker_monitoring_destination": "Personal Mix -> Headphones (Elgato Wave:3)",
+    "echo_cancellation": "enabled for general/open voice use; may be disabled only after headphone-only controlled studio testing confirms no loop",
+    "noise_suppression": "light or disabled when Wave Link processing already supplies gating/noise control",
+    "automatic_gain_control": "disabled for controlled production sessions",
     "attenuation": "0 percent for production rooms unless host intentionally uses ducking",
-    "recording_notice_required": true
+    "recording_notice_required": true,
+    "critical_rule": "Discord output must never return into the same bus used as Discord microphone input."
   },
   "wave_link": {
-    "microphone_path": "Mic -> Wave Link processing -> MicrophoneFX -> Discord",
-    "stream_path": "Mic + approved sources -> Stream Mix -> OBS",
-    "monitor_path": "Monitor Mix -> headphones",
+    "microphone_path": "Wave:3 -> processing -> clean mic bus -> Discord",
+    "stream_path": "Wave:3 + Discord + MPC + approved app/game/media sources -> Stream Mix -> OBS",
+    "monitor_path": "Personal Mix -> Wave:3 headphones",
+    "recommended_stream_mix": {
+      "Elgato Wave:3": "ON",
+      "Discord": "ON",
+      "MPC (64-bit)": "ON when used",
+      "System": "ON only when program requires it",
+      "Microsoft Edge": "OFF unless explicitly needed",
+      "Google Chrome": "OFF unless explicitly needed",
+      "Windows Media Player": "ON only for approved playback",
+      "Elgato HD60 X": "ON for console/game capture sessions"
+    },
+    "recommended_personal_mix": {
+      "Elgato Wave:3": "ON at comfortable sidetone level",
+      "Discord": "ON",
+      "MPC (64-bit)": "ON when used",
+      "System": "ON as needed",
+      "Elgato HD60 X": "ON for gaming sessions"
+    },
     "avoid": [
       "feeding Discord output back into Discord input",
       "monitoring the microphone twice",
-      "routing OBS monitoring back into the Discord microphone bus"
+      "routing OBS monitoring back into the Discord microphone bus",
+      "capturing both Stream Mix and the same sources again in OBS without intentional isolated-track design"
     ]
   },
   "obs": {
-    "capture_strategy": "Capture Discord audio, microphone, game/app audio, and music/media as discrete sources where practical.",
-    "audio_monitoring": "Monitor only the sources required by the host. Avoid Monitor and Output on a source that is already returned through Wave Link unless the signal path is verified.",
+    "preferred_primary_audio_strategy": "Use one Wave Link Stream Mix as the program bus for simplicity, then add isolated sources only when separate recording tracks are required.",
+    "simple_blueprint": {
+      "desktop_audio": "Disabled",
+      "mic_aux": "Stream Mix (Elgato Virtual Audio) OR one Audio Input Capture using Stream Mix, but not both",
+      "camera_source": "Elgato Facecam MK.2 through Video Capture Device",
+      "camera_format": "1080p60 if stable",
+      "duplicate_audio_rule": "Each audible source appears exactly once in the program mix"
+    },
+    "advanced_multitrack_blueprint": {
+      "track_1": "Full program mix",
+      "track_2": "Host microphone isolated",
+      "track_3": "Discord guests isolated",
+      "track_4": "MPC / music / DAW isolated",
+      "track_5": "Game / HD60 X isolated when used",
+      "rule": "Isolated tracks are for recording/post only unless explicitly mapped to the stream program."
+    },
+    "audio_monitoring": "Monitor only sources required by the host. Avoid Monitor and Output on sources already returned through Wave Link.",
     "scene_guidance": [
-      "RESET Sound Stage",
+      "Lounge Events | Showcase",
+      "Reset Virtual Sound Lab",
+      "Gaming Live Feed",
+      "Reset Theater",
+      "Be Right Back",
+      "Stream Ending",
+      "Camera",
+      "Social Media",
+      "Claim Your Stage",
       "Creator Interview",
-      "Arena Live",
-      "Game Room",
-      "Creator Education",
-      "Claim Your Stage"
+      "Creator Education"
     ],
     "recording": "Use separate audio tracks for microphone, Discord guests, and program audio when the production requires post-production flexibility."
   },
   "camera_hub": {
     "camera_role": "Primary host camera for OBS and approved video sessions.",
-    "exposure": "Lock exposure and white balance for live sessions after lighting is set to prevent visible pumping.",
-    "resolution": "Use the highest stable camera mode that matches the OBS canvas and available USB bandwidth.",
-    "background_apps": "Avoid simultaneous camera access by multiple apps unless the camera/virtual-camera workflow explicitly supports it."
+    "observed_camera": "Elgato Facecam MK.2",
+    "observed_format": "1080p60 (NV12 raw)",
+    "observed_face_tracking": true,
+    "observed_zoom_percent": 113,
+    "exposure": "Lock exposure and white balance after lighting is set for flagship sessions to prevent visible pumping.",
+    "picture": "Founder-observed contrast/saturation/sharpness settings may remain as the starting preset; validate skin tone and highlights on the actual OBS program feed.",
+    "background_apps": "OBS should be the device owner during production. Camera Hub showing 'Video preview occupied' while OBS uses the camera is expected.",
+    "virtual_camera": "Use OBS Virtual Camera for apps that need the fully produced scene rather than competing directly for the Facecam."
+  },
+  "mpc_beats": {
+    "role": "DAW / performance / production source",
+    "routing": "MPC Beats main output -> Wave Link MPC (64-bit) application channel",
+    "monitoring": "MPC channel -> Personal Mix",
+    "broadcast": "MPC channel -> Stream Mix -> OBS",
+    "discord_performance": "For Claim Your Stage or collaborative sessions, prefer Discord application/screen-share audio where practical. If a dedicated performance-return bus is engineered later, it must exclude Discord return audio to prevent feedback.",
+    "sample_rate_rule": "Use one consistent production sample rate across Wave Link, OBS, and MPC. Prefer 48 kHz for video/live production unless a verified music workflow requires otherwise."
   },
   "room_profiles": {
-    "RESET Sound Stage": {
-      "priority": "audio fidelity",
-      "headphones_required_for_hosts": true,
-      "recording_default": "off unless announced"
+    "Reset Main Arena": {
+      "channel_id": "1429398859020370096",
+      "priority": "multipurpose community activation and creator connection",
+      "headphones_recommended": true,
+      "recording_default": "off unless announced",
+      "invite_claim_your_stage": true
     },
     "Claim Your Stage": {
-      "priority": "performance and audience interaction",
+      "channel_id": "1468103128279941272",
+      "invite": "https://discord.gg/YsxvcQBBqH",
+      "priority": "performance, presentation, demo, storytelling, education, interviews, visual-share, creator showcases, and audience interaction",
+      "eligibility": "cleared members with a creative spark",
+      "music_only": false,
       "headphones_recommended": true,
       "recording_default": "off unless announced"
     },
     "Game Room": {
-      "priority": "low-latency conversation and game audio balance",
+      "channel_id": "1429398859020370100",
+      "priority": "low-latency conversation, gaming, community play, creator social connection, and game-stream collaboration",
       "headphones_recommended": true,
       "recording_default": "off"
+    },
+    "RESET Sound Stage": {
+      "priority": "audio fidelity",
+      "headphones_required_for_hosts": true,
+      "recording_default": "off unless announced"
     },
     "Creator Education": {
       "priority": "speech intelligibility and screen-share clarity",
@@ -69,12 +187,32 @@
       "recording_default": "event-specific"
     }
   },
+  "voice_room_blueprint": {
+    "copy_to_other_rooms": [
+      "clean Discord microphone input",
+      "Wave Link Discord return isolation",
+      "single OBS program-bus rule",
+      "headphone monitoring",
+      "recording disclosure",
+      "room-specific source enablement",
+      "30-second local preflight recording"
+    ],
+    "do_not_copy_blindly": [
+      "per-room volume faders",
+      "noise suppression strength",
+      "camera framing",
+      "music/game source enablement",
+      "recording defaults"
+    ]
+  },
   "preflight": [
-    "Confirm Discord input and output devices.",
-    "Confirm Wave Link Monitor Mix and Stream Mix are not cross-fed.",
+    "Set Discord microphone to Mic In (Elgato Wave:3) or the clean Wave Link microphone-only bus. Do not use Stream Mix as Discord microphone input.",
+    "Route Discord playback into the Wave Link Discord application channel and hear it in Personal Mix.",
+    "Confirm Wave:3, Discord, and intended MPC/game/app channels are ON in Stream Mix for OBS.",
+    "In OBS, capture Stream Mix exactly once and disable any duplicate global/device audio source.",
     "Confirm OBS meters show one clean instance of each intended source.",
-    "Confirm Camera Hub framing and exposure.",
+    "Confirm Facecam MK.2 is owned by OBS and Camera Hub controls remain available even when its preview is occupied.",
     "Confirm recording status and participant consent.",
-    "Run a 30-second local recording and playback check before flagship events."
+    "Run a 30-second local recording with host voice + Discord guest + MPC or test media, then playback for echo, clipping, and balance before flagship events."
   ]
 }
