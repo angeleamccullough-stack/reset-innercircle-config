@@ -12,10 +12,27 @@ if (!token || !clientId || !guildId) {
 
 const rest = new REST({ version: '10' }).setToken(token);
 
+const commandShape = (command) => ({
+  name: command.name,
+  description: command.description,
+  options: command.options || [],
+});
+
+const normalized = (commands) => commands
+  .map(commandShape)
+  .sort((left, right) => left.name.localeCompare(right.name));
+
 try {
-  console.log(`Registering ${commandData.length} RMS commands for guild ${guildId}...`);
+  const route = Routes.applicationGuildCommands(clientId, guildId);
+  const existing = await rest.get(route);
+  if (JSON.stringify(normalized(existing)) === JSON.stringify(normalized(commandData))) {
+    console.log(`${commandData.length} RMS guild commands are already current; no Discord write needed.`);
+    process.exit(0);
+  }
+
+  console.log(`Updating ${commandData.length} RMS commands for guild ${guildId}...`);
   const result = await rest.put(
-    Routes.applicationGuildCommands(clientId, guildId),
+    route,
     { body: commandData },
   );
   console.log(`Registered ${result.length} guild commands.`);

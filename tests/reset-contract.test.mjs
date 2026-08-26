@@ -12,6 +12,7 @@ const studio = read('site/studio-upgrade.js');
 const discordCommands = read('rms-discord-bridge/src/commands.js');
 const discordInteractions = read('rms-discord-bridge/api/interactions.js');
 const discordEnvExample = read('rms-discord-bridge/.env.example');
+const discordRegistration = read('rms-discord-bridge/src/register-commands.js');
 
 test('RESET communication pack contains every governed lifecycle template', () => {
   const required = ['intro', 'welcome', 'purchase_confirmation', 'renewal_notice', 'failed_payment', 'inquiry_acknowledgment', 'support_acknowledgment', 'event_confirmation'];
@@ -79,4 +80,6 @@ test('RMS Discord bridge is guild-bound and routes customers through canonical d
   assert.match(discordCommands, /https:\/\/creators\.rmsglobalpublishing\.com\//);
   assert.match(discordCommands, /randomUUID\(\)/);
   assert.doesNotMatch(discordEnvExample, /rms-creator-portal\.vercel\.app/);
+  assert.ok(discordRegistration.indexOf('rest.get(route)') < discordRegistration.indexOf('rest.put('));
+  assert.match(discordRegistration, /already current; no Discord write needed/);
 });
