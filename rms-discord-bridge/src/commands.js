@@ -13,6 +13,10 @@ export const commandBuilders = [
   new SlashCommandBuilder().setName('studio').setDescription('Open the RESET Virtual Studio and Main Arena production path.'),
   new SlashCommandBuilder().setName('stage').setDescription('Open Claim Your Stage for cleared multidisciplinary creators.'),
   new SlashCommandBuilder().setName('game').setDescription('Open the RESET Game Room.'),
+  new SlashCommandBuilder().setName('startsession').setDescription('Create an RMS Studio session reference.'),
+  new SlashCommandBuilder().setName('savesession').setDescription('View the RMS Studio version and filename standard.'),
+  new SlashCommandBuilder().setName('exportstems').setDescription('View the RMS stem-export checklist.'),
+  new SlashCommandBuilder().setName('requestmix').setDescription('Open the RESET Studio mix/master service path.'),
   new SlashCommandBuilder().setName('support').setDescription('Open the private RMS support route.'),
 ];
 
@@ -41,6 +45,12 @@ const baseEmbed = (title, description) => ({
   footer: { text: footer },
 });
 
+const makeSessionId = () => {
+  const date = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+  const rand = Math.random().toString(36).slice(2, 10).toUpperCase();
+  return `RST-${date}-${rand}`;
+};
+
 export function buildCommandResponse(commandName) {
   switch (commandName) {
     case 'portal':
@@ -66,13 +76,23 @@ export function buildCommandResponse(commandName) {
     case 'leadership':
       return { ephemeral: false, embeds: [baseEmbed('RESET Leadership Pathway', `**Entry → Activation → Contribution → Visibility → Advancement**\n\nLeadership seats are voluntary community roles, not paid employment or contract labor. Leaders model healthy participation, protect dignity and privacy, support creator collaboration, and follow platform-safe engagement standards.\n\n**Code of Honor:** protect dignity · respect ownership · choose truth over hype · keep private things private · elevate the room.\n\n${networkUrl()}`)] };
     case 'safety':
-      return { ephemeral: false, embeds: [baseEmbed('RESET Cross-Platform Safety', `RESET never requires or rewards actions that violate platform policies. Automation may route, remind, organize, and recognize. It does not impersonate members or manufacture engagement.\n\n**Facebook:** no mass tagging, repetitive comments, or forced reciprocity.\n**Instagram:** no rapid-fire automation or duplicate flooding.\n**TikTok:** no follow/unfollow cycles or artificial engagement.\n**YouTube:** no scripted comments, artificial views, or watch-time loops.\n**Twitch:** safe moderation, no automated spam, and proper music rights.\n\nPlatform systems can change, so RESET does not promise “shadowban-proof” outcomes.\n\n${networkUrl()}`)] };
+      return { ephemeral: false, embeds: [baseEmbed('RESET Cross-Platform Safety', `RESET never requires or rewards actions that violate platform policies. Automation may route, remind, organize, and recognize. It does not impersonate members or manufacture engagement.\n\n**Facebook:** no mass tagging, repetitive comments, or forced reciprocity.\n**Instagram:** no rapid-fire automation or duplicate flooding.\n**TikTok:** no follow/unfollow cycles or artificial engagement.\n**YouTube:** no scripted comments, artificial views, or watch-time loops.\n**Twitch:** safe moderation, no automated spam, and proper music rights.\n\n${networkUrl()}`)] };
     case 'studio':
       return { ephemeral: false, embeds: [baseEmbed('RESET Virtual Studio™', `The flagship RESET creative-room blueprint is multipurpose, not music-only. Use it for interviews, podcasts, performances, education, gaming, storytelling, visual sharing, live production and collaboration.\n\n**Studio:** ${studioUrl()}\n**Main Arena:** ${mainArenaUrl}\n\nProduction path: **Create → Wave Link → OBS → Discord / Live / Record**.`)] };
     case 'stage':
       return { ephemeral: false, embeds: [baseEmbed('Claim Your Stage', `Available to cleared members with a creative spark. This room is for musicians **and** podcasters, educators, visual creators, storytellers, spoken-word artists, gamers, interviewers, presenters and collaborative experiments.\n\n**Room:** ${claimStageUrl}\n**Invite:** ${claimStageInvite}\n\nRecording is off unless the session clearly announces otherwise.`)] };
     case 'game':
       return { ephemeral: false, embeds: [baseEmbed('RESET Game Room', `Use the Game Room for community play, low-latency conversation, creator gaming sessions and game-stream collaboration.\n\n${gameRoomUrl}`)] };
+    case 'startsession': {
+      const sessionId = makeSessionId();
+      return { ephemeral: true, embeds: [baseEmbed('RMS Studio Session', `**Session reference:** \`${sessionId}\`\n\nUse this reference in filenames, notes and service requests. This creates a tracking reference only; it does not upload your DAW project or stems automatically.\n\n**Studio:** ${studioUrl()}`)] };
+    }
+    case 'savesession':
+      return { ephemeral: true, embeds: [baseEmbed('RMS Version Standard', `Save your working version in the DAW, then label exports consistently.\n\n**Recommended:** \`RMS-[SESSION]-[CREATOR]-[TITLE]-[VERSION]-[ASSETTYPE]-YYYYMMDD.ext\`\n\nThis command does not claim to save third-party DAW files for you.`)] };
+    case 'exportstems':
+      return { ephemeral: true, embeds: [baseEmbed('RMS Stem Export Checklist', `Export from a common start point where practical. Keep sample rate and bit depth consistent. Name each stem clearly. Include instrumental, vocal, FX and alternate versions only when they are part of the agreed delivery scope.\n\nDo not post confidential or unreleased source files in public Discord channels.`)] };
+    case 'requestmix':
+      return { ephemeral: true, embeds: [baseEmbed('RESET Studio Mix / Master', `Open the Studio menu for current starting rates and the secure service path. Project complexity, revision scope and delivery requirements are confirmed before work begins.\n\n${studioUrl()}`)] };
     case 'support': {
       const channelId = env('SUPPORT_CHANNEL_ID');
       const route = channelId ? `<#${channelId}>` : 'the private RMS support pathway';
