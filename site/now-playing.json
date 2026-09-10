@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-09-10T00:00:00Z",
+  "default_state": "offline",
+  "discord_invite_url": "https://discord.gg/Qu8QwjsvXJ",
+  "fallback": {
+    "title": "RESET Inner Circle",
+    "subtitle": "Community is open. Live programming appears here when confirmed.",
+    "state": "offline",
+    "primary_url": "https://discord.gg/Qu8QwjsvXJ",
+    "primary_label": "Join RESET Inner Circle on Discord"
+  },
+  "programs": [
+    {
+      "id": "omnilink-power-hour",
+      "title": "OmniLink Power Hour",
+      "type": "RESET LIVE",
+      "state": "offline",
+      "scheduled_start": null,
+      "scheduled_end": null,
+      "live_url": "https://discord.gg/Qu8QwjsvXJ",
+      "replay_url": null,
+      "notification_role": "OmniLink Power Hour"
+    },
+    {
+      "id": "reset-sound-stage",
+      "title": "RESET Sound Stage",
+      "type": "Live Performance",
+      "state": "offline",
+      "scheduled_start": null,
+      "scheduled_end": null,
+      "live_url": "https://discord.gg/Qu8QwjsvXJ",
+      "replay_url": null,
+      "notification_role": "Live Events"
+    },
+    {
+      "id": "creator-showcase",
+      "title": "Creator Showcase",
+      "type": "Creator Spotlight",
+      "state": "offline",
+      "scheduled_start": null,
+      "scheduled_end": null,
+      "live_url": "https://discord.gg/Qu8QwjsvXJ",
+      "replay_url": null,
+      "notification_role": "Live Events"
+    },
+    {
+      "id": "reset-media-studios",
+      "title": "Reset Media Studios",
+      "type": "Production Session",
+      "state": "offline",
+      "scheduled_start": null,
+      "scheduled_end": null,
+      "live_url": "https://discord.gg/Qu8QwjsvXJ",
+      "replay_url": null,
+      "notification_role": "Collaboration Calls"
+    }
+  ]
+}
