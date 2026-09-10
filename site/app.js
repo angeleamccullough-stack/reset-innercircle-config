@@ -74,7 +74,9 @@
     const tracked = event.target.closest?.('.track');
     if (tracked) send(tracked.dataset.event || 'reset_gateway_click', {
       destination: tracked.getAttribute('href'),
-      placement: tracked.dataset.placement || null
+      placement: tracked.dataset.placement || null,
+      program: tracked.dataset.program || null,
+      state: tracked.dataset.state || null
     });
   });
 
@@ -173,9 +175,11 @@
 
   loadStyle('/network.css');
   loadStyle('/brand-upgrade.css');
+  loadStyle('/now-playing.css');
   loadScript('/network.js');
   loadScript('/studio-upgrade.js');
   loadScript('/studio-final-upgrade.js');
   loadScript('/arena-upgrade.js');
   loadScript('/brand-upgrade.js');
+  loadScript('/now-playing.js');
 })();
