@@ -1,11 +1,12 @@
 {
-  "schema_version": "1.5.0",
+  "schema_version": "1.6.0",
   "status": "active",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "system": "RMS Fully Automated Intelligence System",
   "discord": {
     "server_name": "Reset Inner Circle",
     "server_id": "1429398855681573038",
+    "invite_url": "https://discord.gg/Qu8QwjsvXJ",
     "application_name": "RMS CreatorHub",
     "application_id": "1540169303213609023",
     "managed_role_id": "1540522466420465726",
@@ -54,6 +55,16 @@
     "ticket_tool": ["private support", "privacy-sensitive escalation"],
     "voicemaster": ["temporary collaboration rooms"],
     "statbot": ["community analytics", "server health reporting"]
+  },
+  "now_playing": {
+    "public_surface": "https://resetinnercircle.com/",
+    "public_config": "/now-playing.json",
+    "states": ["live", "soon", "replay", "offline"],
+    "discord_fallback_url": "https://discord.gg/Qu8QwjsvXJ",
+    "truth_policy": "Never infer Discord voice/stage presence unless an approved live source explicitly confirms it. Schedule/config state may announce STARTING SOON and NEXT UP; LIVE NOW requires explicit live state or an active bounded event window.",
+    "supported_programs": ["OmniLink Power Hour", "RESET Sound Stage", "Creator Showcase", "Reset Media Studios"],
+    "analytics_events": ["now_playing_signal_view", "now_playing_signal_loaded", "now_playing_primary_click", "now_playing_discord_join_click", "now_playing_program_click"],
+    "rights_boundary": "RESET Now Playing is a community routing signal only. It does not grant publishing, licensing, distribution, payment, or rights authority."
   },
   "notification_roles": ["Live Events", "OmniLink Power Hour", "RESET Arena Games", "Platform Missions", "Creator Education", "Collaboration Calls"],
   "commands": {
