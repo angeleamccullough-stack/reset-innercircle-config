@@ -14,6 +14,12 @@ const discordInteractions = read('rms-discord-bridge/api/interactions.js');
 const discordEnvExample = read('rms-discord-bridge/.env.example');
 const discordRegistration = read('rms-discord-bridge/src/register-commands.js');
 
+const EXPECTED_PAYMENT_LINKS = {
+  community_support: 'https://donate.rmsglobalpublishing.com/b/5kQbJ26YgeF41fa4E5grS00',
+  studio_services: 'https://donate.rmsglobalpublishing.com/b/8x23cw82kaoO6zufiJgrS01',
+  event_services: 'https://donate.rmsglobalpublishing.com/b/4gM9AUgyQdB08HC3A1grS02'
+};
+
 test('RESET communication pack contains every governed lifecycle template', () => {
   const required = ['intro', 'welcome', 'purchase_confirmation', 'renewal_notice', 'failed_payment', 'inquiry_acknowledgment', 'support_acknowledgment', 'event_confirmation'];
   assert.deepEqual(Object.keys(templates.templates), required);
@@ -34,17 +40,23 @@ test('RESET smart routing is fail-closed for sensitive and financial inquiries',
   assert.match(routing.provider_boundary, /CreatorHub/);
 });
 
-test('RESET payment lanes remain separated and public Studio uses the canonical route', () => {
+test('RESET payment lanes are active, distinct, entitlement-safe and pinned to verified Stripe links', () => {
+  assert.equal(payments.status, 'active_verified');
   const buckets = payments.buckets;
   assert.notEqual(buckets.community_support.environment_variable, buckets.studio_services.environment_variable);
   assert.notEqual(buckets.studio_services.environment_variable, buckets.event_services.environment_variable);
-  assert.equal(buckets.community_support.discord_access_entitlement, false);
-  assert.equal(buckets.studio_services.discord_access_entitlement, false);
+  for (const [key, bucket] of Object.entries(buckets)) {
+    assert.equal(bucket.status, 'active_verified');
+    assert.equal(bucket.discord_access_entitlement, false);
+    assert.equal(bucket.checkout_url, EXPECTED_PAYMENT_LINKS[key]);
+    assert.match(bucket.checkout_url, /^https:\/\/donate\.rmsglobalpublishing\.com\/b\//);
+  }
+  assert.equal(buckets.community_support.tax_deductible_claim, false);
   assert.match(studio, /href="\/checkout\/studio"/);
   assert.doesNotMatch(studio, /href="\/\.netlify\/functions\/service-checkout\?bucket=studio"/);
 });
 
-test('RESET payment functions fail closed and reject mutation methods while unbound', async () => {
+test('RESET payment functions fail closed when unbound and redirect only to verified branded Stripe URLs when bound', async () => {
   const saved = {
     support: process.env.RESET_STRIPE_SUPPORT_URL,
     studio: process.env.RESET_STRIPE_STUDIO_SERVICES_URL,
@@ -66,6 +78,19 @@ test('RESET payment functions fail closed and reject mutation methods while unbo
     const rejected = await serviceCheckout(new Request('https://resetinnercircle.com/checkout/studio?bucket=studio', { method: 'POST' }));
     assert.equal(rejected.status, 405);
     assert.equal(rejected.headers.get('allow'), 'GET, HEAD');
+
+    process.env.RESET_STRIPE_SUPPORT_URL = EXPECTED_PAYMENT_LINKS.community_support;
+    process.env.RESET_STRIPE_STUDIO_SERVICES_URL = EXPECTED_PAYMENT_LINKS.studio_services;
+    process.env.RESET_STRIPE_EVENT_SERVICES_URL = EXPECTED_PAYMENT_LINKS.event_services;
+    const supportBound = await support(new Request('https://resetinnercircle.com/support'));
+    assert.equal(supportBound.status, 302);
+    assert.equal(supportBound.headers.get('location'), EXPECTED_PAYMENT_LINKS.community_support);
+    for (const [bucket, expected] of [['studio', EXPECTED_PAYMENT_LINKS.studio_services], ['events', EXPECTED_PAYMENT_LINKS.event_services]]) {
+      const response = await serviceCheckout(new Request(`https://resetinnercircle.com/checkout/${bucket}?bucket=${bucket}`));
+      assert.equal(response.status, 302);
+      assert.equal(response.headers.get('location'), expected);
+      assert.equal(response.headers.get('cache-control'), 'no-store');
+    }
   } finally {
     if (saved.support === undefined) delete process.env.RESET_STRIPE_SUPPORT_URL; else process.env.RESET_STRIPE_SUPPORT_URL = saved.support;
     if (saved.studio === undefined) delete process.env.RESET_STRIPE_STUDIO_SERVICES_URL; else process.env.RESET_STRIPE_STUDIO_SERVICES_URL = saved.studio;
