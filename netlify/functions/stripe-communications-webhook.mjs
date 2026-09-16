@@ -44,9 +44,10 @@ export default async (request) => {
   }
 
   const webhookSecret = process.env.RESET_STRIPE_COMMUNICATIONS_WEBHOOK_SECRET || '';
+  const ingressSecret = process.env.RESET_CREATORHUB_COMMUNICATIONS_INGRESS_SECRET || '';
   const supabaseUrl = (process.env.RMS_CREATORHUB_SUPABASE_URL || '').replace(/\/$/, '');
-  const serviceRoleKey = process.env.RMS_CREATORHUB_SUPABASE_SERVICE_ROLE_KEY || '';
-  if (!webhookSecret || !supabaseUrl || !serviceRoleKey) {
+  const supabasePublishableKey = process.env.RMS_CREATORHUB_SUPABASE_PUBLISHABLE_KEY || '';
+  if (!webhookSecret || !ingressSecret || !supabaseUrl || !supabasePublishableKey) {
     return Response.json({ error: 'Webhook is not configured.' }, { status: 500, headers: { 'cache-control': 'no-store' } });
   }
 
@@ -100,21 +101,18 @@ export default async (request) => {
     scope: 'resetinnercircle'
   };
 
-  const rpcResponse = await fetch(`${supabaseUrl}/rest/v1/rpc/rms_record_communications_ingress`, {
+  const rpcResponse = await fetch(`${supabaseUrl}/rest/v1/rpc/rms_record_reset_stripe_ingress`, {
     method: 'POST',
     headers: {
-      apikey: serviceRoleKey,
-      authorization: `Bearer ${serviceRoleKey}`,
+      apikey: supabasePublishableKey,
       'content-type': 'application/json',
       accept: 'application/json'
     },
     body: JSON.stringify({
-      p_scope: 'resetinnercircle',
-      p_source: 'stripe',
+      p_secret: ingressSecret,
       p_external_event_id: event.id,
       p_event_type: event.type,
       p_sender_email: customerEmail,
-      p_recipient_email: null,
       p_subject: binding.subject,
       p_body_excerpt: bodyExcerpt,
       p_payload: payload
