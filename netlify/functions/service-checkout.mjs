@@ -1,4 +1,17 @@
-const STRIPE_URL = /^https:\/\/(buy|checkout)\.stripe\.com\//i;
+const ALLOWED_STRIPE_CHECKOUT_HOSTS = new Set([
+  'buy.stripe.com',
+  'checkout.stripe.com',
+  'donate.rmsglobalpublishing.com'
+]);
+
+function isAllowedStripeCheckoutUrl(value = '') {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && ALLOWED_STRIPE_CHECKOUT_HOSTS.has(url.hostname.toLowerCase());
+  } catch {
+    return false;
+  }
+}
 
 const buckets = {
   studio: 'RESET_STRIPE_STUDIO_SERVICES_URL',
@@ -14,7 +27,7 @@ export default async (request) => {
   const envName = buckets[bucket];
   const checkoutUrl = envName ? (process.env[envName] || '') : '';
 
-  if (!envName || !checkoutUrl || !STRIPE_URL.test(checkoutUrl)) {
+  if (!envName || !checkoutUrl || !isAllowedStripeCheckoutUrl(checkoutUrl)) {
     const body = request.method === 'HEAD' ? null : `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Reset Services Checkout</title><style>body{background:#08090b;color:#f4efe4;font-family:Arial;display:grid;place-items:center;min-height:100vh;margin:0}main{max-width:680px;padding:40px;text-align:center}h1{font-family:Georgia,serif;font-size:48px;font-weight:400;color:#e4c875}a{color:#c8a24a}</style></head><body><main><h1>Secure checkout is being connected.</h1><p>This Reset service payment lane is not active yet. No payment has been initiated.</p><p><a href="/">Return to Reset Inner Circle</a></p></main></body></html>`;
     return new Response(body, { status: 503, headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' } });
   }
