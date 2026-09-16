@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.0.0",
-  "status": "prepared_not_activated",
+  "schema_version": "1.1.0",
+  "status": "active_verified",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "scope": "resetinnercircle",
   "principle": "Separate voluntary support from paid products and services. Never imply a contribution purchases Discord membership or tax-deductible charity status.",
@@ -8,24 +8,30 @@
     "community_support": {
       "route": "/support",
       "environment_variable": "RESET_STRIPE_SUPPORT_URL",
+      "payment_link_id": "plink_1UG7sdLlKcswOpj9H69f92AA",
+      "checkout_url": "https://donate.rmsglobalpublishing.com/b/5kQbJ26YgeF41fa4E5grS00",
       "purpose": "Voluntary support for Reset operating infrastructure",
       "discord_access_entitlement": false,
       "tax_deductible_claim": false,
-      "status": "unbound_fail_closed"
+      "status": "active_verified"
     },
     "studio_services": {
       "route": "/checkout/studio",
       "environment_variable": "RESET_STRIPE_STUDIO_SERVICES_URL",
-      "purpose": "Reset Media Virtual Studio paid production services",
+      "payment_link_id": "plink_1UG8HHLlKcswOpj9aJJoRmGd",
+      "checkout_url": "https://donate.rmsglobalpublishing.com/b/8x23cw82kaoO6zufiJgrS01",
+      "purpose": "Reset Media Studios paid production services",
       "discord_access_entitlement": false,
-      "status": "unbound_fail_closed"
+      "status": "active_verified"
     },
     "event_services": {
       "route": "/checkout/events",
       "environment_variable": "RESET_STRIPE_EVENT_SERVICES_URL",
-      "purpose": "Produced events, workshops, sponsorship-related or event production services as separately defined offers",
+      "payment_link_id": "plink_1UG8HNLlKcswOpj9oTj7dBbn",
+      "checkout_url": "https://donate.rmsglobalpublishing.com/b/4gM9AUgyQdB08HC3A1grS02",
+      "purpose": "Reset Live produced events, workshops, activations, sponsorship-related or event production services as separately defined offers",
       "discord_access_entitlement": false,
-      "status": "unbound_fail_closed"
+      "status": "active_verified"
     }
   },
   "activation_rules": [
