@@ -21,4 +21,4 @@ jobs:
         with:
           node-version: 22
       - name: Run Reset contract regression
-        run: npm test
+        run: node --test tests/reset-contract.test.mjs
