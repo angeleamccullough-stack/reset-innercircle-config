@@ -1,6 +1,6 @@
 {
-  "version": "2026-08-24-founder-frame-v2",
-  "status": "planned_safe",
+  "version": "2026-09-29-live-audio-alignment-v3",
+  "status": "active_with_supervised_local_audio_certification",
   "system": "Reset Media Virtual Studio",
   "founder_frame": {
     "name": "Timeless From the Gate",
@@ -112,11 +112,21 @@
         "present": true,
         "observed_state": "account_access_expired",
         "rule": "Do not reconnect or broadcast automatically. Re-authentication is an owner action and must occur only during a supervised production test."
+      },
+      "audio_baseline": {
+        "sample_rate": "48 kHz",
+        "desktop_audio": "Disabled",
+        "desktop_audio_2": "Disabled",
+        "mic_aux": "OBS/Restream (Elgato Virtual Audio)",
+        "mic_aux_2_4": "Disabled"
       }
     },
     "wave_link": {
-      "status": "already_connected_needs_future_adjustment",
-      "role": "audio_bus_and_monitoring_control"
+      "status": "verified_working_baseline",
+      "role": "audio_bus_and_monitoring_control",
+      "discord_microphone": "Stream Mix (Elgato Virtual Audio)",
+      "discord_speaker": "Elgato Wave:3 (Elgato Virtual Audio)",
+      "mix_minus_rule": "Incoming Discord return must never feed the same bus Discord consumes as its microphone."
     },
     "community_daw": {
       "project_name": "Reset Inner Circle Community DAW - Discord.xpj",
@@ -124,12 +134,12 @@
     }
   },
   "target_signal_flow": [
-    "Discord studio channel / guest session",
-    "Wave Link isolated guest/host/DAW buses",
-    "Community DAW source",
-    "Dedicated OBS Virtual Studio scene",
-    "Local multitrack-safe recording",
-    "Optional supervised live broadcast through approved Restream destinations",
+    "resetinnercircle.com public gateway",
+    "Canonical Reset Inner Circle Discord invite",
+    "Reset Media Studios Discord voice channel / guest session",
+    "Wave Link host/music/return routing with mix-minus protection",
+    "OBS/Restream program capture exactly once",
+    "Local recording first; optional supervised live broadcast only after preflight",
     "Post-session archive / approved repurposing",
     "Normalized session/fulfillment/revenue stage metadata to AOS after ingress certification"
   ],
@@ -189,7 +199,7 @@
     "ATLAS": "education/workshop use cases, creator training documentation and reusable curriculum/IP packaging",
     "LEDGER": "rights/provenance guard for recorded music, stems, performances, third-party material, splits, licenses and approved repurposing",
     "CAPITAL": "identify non-dilutive funding, sponsorship or grant opportunities that improve studio capability without forcing customer overpricing",
-    "STAGE": "artist-facing session/release readiness when DAION, Auralyn or future RMS artist brands use the studio"
+    "STAGE": "artist-facing session/release readiness, RESET Sound Stage/open-mic preflight, performer flow, session-mode selection, and artist-brand activation"
   },
   "execution_phases": [
     {
@@ -224,11 +234,14 @@
     },
     {
       "phase": 3,
-      "name": "Audio isolation",
+      "name": "Audio isolation and mix-minus",
       "steps": [
-        "Separate Discord guest, host mic, DAW and monitor buses in Wave Link",
-        "Prevent monitor echo and Discord feedback",
-        "Verify OBS receives intended buses exactly once"
+        "Confirm Discord microphone = Stream Mix (Elgato Virtual Audio)",
+        "Confirm Discord speaker = Elgato Wave:3 (Elgato Virtual Audio)",
+        "Confirm OBS Mic/Aux = OBS/Restream (Elgato Virtual Audio) at 48 kHz with Desktop Audio disabled",
+        "Allow host microphone and intentionally shared music to feed Discord",
+        "Exclude incoming Discord return from the Discord-send bus to prevent self-return, echo and feedback",
+        "Verify OBS receives each intended source exactly once"
       ]
     },
     {
@@ -246,9 +259,12 @@
       "name": "Local QA and fulfillment proof",
       "steps": [
         "Run private two-person Discord test",
-        "Record locally without streaming",
-        "Verify lip sync, audio isolation, DAW capture, no feedback, fallback scene and file integrity",
-        "Verify delivery workflow and customer-facing handoff before charging"
+        "Verify host mic in Discord and OBS",
+        "Verify intended music reaches Discord and OBS",
+        "Verify guest reaches OBS but does not hear delayed self-return",
+        "Record locally without streaming and review playback",
+        "Verify lip sync, audio isolation, no feedback, no doubling, fallback scene and file integrity",
+        "Verify delivery workflow and customer-facing handoff before charging for an unproven live-production scope"
       ]
     },
     {
