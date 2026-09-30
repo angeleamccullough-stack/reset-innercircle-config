@@ -4,7 +4,7 @@
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "brand": "Reset Media Virtual Studio™",
   "community": "Reset Inner Circle",
-  "discord_entry": "https://discord.gg/hE5TarQsut",
+  "discord_entry": "https://discord.gg/PAHFE5mGV",
   "production_stack": [
     "Discord",
     "OBS Studio",
@@ -51,5 +51,15 @@
       "creator rights documents",
       "unreleased masters"
     ]
+  },
+  "audio_baseline": {
+    "verified_date": "2026-09-29",
+    "discord_microphone": "Stream Mix (Elgato Virtual Audio)",
+    "discord_speaker": "Elgato Wave:3 (Elgato Virtual Audio)",
+    "obs_sample_rate": "48 kHz",
+    "obs_desktop_audio": "Disabled",
+    "obs_mic_aux": "OBS/Restream (Elgato Virtual Audio)",
+    "wave_link_rule": "Host mic and intentionally shared music may feed Discord. Incoming Discord return must not feed the same Discord-send bus. OBS/Restream receives the broadcast program exactly once.",
+    "preflight_required": true
   }
 }
