@@ -72,7 +72,7 @@
       <div class="studio-signal-card">
         <span>FLAGSHIP SIGNAL PATH</span>
         <div><b>MPC / CREATOR APP</b><i>→</i><b>WAVE LINK</b><i>→</i><b>OBS</b><i>→</i><b>LIVE / REC</b></div>
-        <small>Discord receives a clean microphone bus. The full program mix stays with OBS so guest audio, music and app sound do not feed back into the room.</small>
+        <small>Discord receives the verified Stream Mix for host mic plus intentionally shared music. OBS receives the separate OBS/Restream program bus. Incoming Discord return must stay out of the Discord-send bus to prevent self-return, echo and feedback.</small>
       </div>
     </section>
 

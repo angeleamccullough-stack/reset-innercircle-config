@@ -2,12 +2,12 @@
   "schema_version": "1.0.0",
   "updated_at": "2026-09-10T00:00:00Z",
   "default_state": "offline",
-  "discord_invite_url": "https://discord.gg/Qu8QwjsvXJ",
+  "discord_invite_url": "https://discord.gg/PAHFE5mGV",
   "fallback": {
     "title": "RESET Inner Circle",
     "subtitle": "Community is open. Live programming appears here when confirmed.",
     "state": "offline",
-    "primary_url": "https://discord.gg/Qu8QwjsvXJ",
+    "primary_url": "https://discord.gg/PAHFE5mGV",
     "primary_label": "Join RESET Inner Circle on Discord"
   },
   "programs": [
@@ -18,7 +18,7 @@
       "state": "offline",
       "scheduled_start": null,
       "scheduled_end": null,
-      "live_url": "https://discord.gg/Qu8QwjsvXJ",
+      "live_url": "https://discord.gg/PAHFE5mGV",
       "replay_url": null,
       "notification_role": "OmniLink Power Hour"
     },
@@ -29,7 +29,7 @@
       "state": "offline",
       "scheduled_start": null,
       "scheduled_end": null,
-      "live_url": "https://discord.gg/Qu8QwjsvXJ",
+      "live_url": "https://discord.gg/PAHFE5mGV",
       "replay_url": null,
       "notification_role": "Live Events"
     },
@@ -40,7 +40,7 @@
       "state": "offline",
       "scheduled_start": null,
       "scheduled_end": null,
-      "live_url": "https://discord.gg/Qu8QwjsvXJ",
+      "live_url": "https://discord.gg/PAHFE5mGV",
       "replay_url": null,
       "notification_role": "Live Events"
     },
@@ -51,7 +51,7 @@
       "state": "offline",
       "scheduled_start": null,
       "scheduled_end": null,
-      "live_url": "https://discord.gg/Qu8QwjsvXJ",
+      "live_url": "https://discord.gg/PAHFE5mGV",
       "replay_url": null,
       "notification_role": "Collaboration Calls"
     }

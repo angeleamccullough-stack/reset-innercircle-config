@@ -5,7 +5,7 @@
   const liveBridgeUrl = '/live.html';
   const partnerUrl = '/partner.html';
   const arenaUrl = '/arena.html';
-  const discordInviteUrl = 'https://discord.gg/hE5TarQsut';
+  const discordInviteUrl = 'https://discord.gg/PAHFE5mGV';
   const studioAnchor = '#studio';
   const supportAnchor = '#support';
 

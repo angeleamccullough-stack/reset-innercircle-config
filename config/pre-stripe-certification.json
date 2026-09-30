@@ -1,13 +1,17 @@
 {
-  "schema_version": "1.0.0",
-  "status": "pre_stripe_certified_with_explicit_bindings_pending",
+  "schema_version": "1.1.0",
+  "status": "service_payment_lanes_bound_membership_checkout_still_gated",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "gateway": "https://resetinnercircle.com/",
   "verified_architecture": {
     "canonical_gateway": true,
     "github_to_netlify_deploy_model": true,
     "official_logo_directly_wired_to_public_pages": true,
-    "footer_shortcuts_connected": ["network", "studio", "services"],
+    "footer_shortcuts_connected": [
+      "network",
+      "studio",
+      "services"
+    ],
     "public_live_bridge": "/live.html",
     "partner_intake": "/partner.html",
     "partner_confirmation": "/partner-thanks.html",
@@ -22,20 +26,20 @@
   },
   "discord_model": {
     "server_id": "1429398855681573038",
-    "public_invite": "https://discord.gg/hE5TarQsut",
+    "public_invite": "https://discord.gg/PAHFE5mGV",
     "live_events_channel_id": "1429398859020370096",
     "shared_main_arena": "architecture_ready_channel_binding_pending",
     "rule": "Participating external-community members must voluntarily join Discord and complete Reset onboarding before shared Arena access. Origin community may be attributed for analytics and leader credit, but members are not siloed by source after onboarding."
   },
   "payment_model": {
-    "community_support": "prepared_unbound_fail_closed",
-    "studio_services": "prepared_unbound_fail_closed",
-    "event_services": "prepared_unbound_fail_closed",
-    "rule": "Support and paid service payment links must remain separate Stripe buckets with separate fulfillment language."
+    "community_support": "bound_active_live_payment_link",
+    "studio_services": "bound_active_live_payment_link",
+    "event_services": "bound_active_live_payment_link",
+    "studio_membership": "approved_pricing_display_only_checkout_not_yet_wired",
+    "rule": "Support, Studio project deposits, Event booking deposits, and any future Studio membership subscriptions remain separate Stripe lanes with separate products, fulfillment language, and entitlement logic."
   },
   "remaining_explicit_bindings": [
-    "Owner supplies/approves canonical Reset Main Arena Discord channel URL before shared Arena routing is activated.",
-    "Owner/provider supplies final Stripe-hosted URLs for community support, studio services and event services after offer language, fulfillment and refund/cancellation terms are approved.",
+    "Studio membership checkout remains gated until distinct membership products/prices, entitlement fulfillment, Drive access lifecycle, cancellation/revocation behavior, and production certification are explicitly bound.",
     "RMS/CreatorHub secure communications ingress must be production-certified before RESET_INTELLIGENCE_INGRESS_URL and RESET_INTELLIGENCE_INGRESS_SECRET are activated in Netlify."
   ],
   "do_not_do": [
@@ -44,5 +48,15 @@
     "Do not create artificial engagement or engagement-for-engagement automation that risks platform enforcement.",
     "Do not use one Stripe payment link for both voluntary support and paid services.",
     "Do not expose Stripe, Resend, Zoho, Google, Supabase or communications secrets in browser code."
-  ]
+  ],
+  "verified_bindings": {
+    "canonical_gateway": "https://resetinnercircle.com/",
+    "discord_invite": "https://discord.gg/PAHFE5mGV",
+    "stripe_support_payment_link": "active via RESET_STRIPE_SUPPORT_URL",
+    "stripe_studio_services_payment_link": "active via RESET_STRIPE_STUDIO_SERVICES_URL",
+    "stripe_event_services_payment_link": "active via RESET_STRIPE_EVENT_SERVICES_URL",
+    "stripe_event_product": "prod_VGfcSE7cAOCZbf",
+    "stripe_event_price": "price_1UG8HALlKcswOpj9Lm0KAevp",
+    "membership_checkout": "not wired"
+  }
 }
