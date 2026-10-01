@@ -430,5 +430,28 @@
       "Record live state and any exact IDs after validation."
     ],
     "public_fail_safe": "If any premium workflow fails, normal Discord channels, resetinnercircle.com, Discord native Events, RMS CreatorHub commands, and manual moderator operations remain available."
+  },
+  "cost_control": {
+    "incremental_browser_automation_budget_usd": 0,
+    "tinyfish_default": "disabled_for_routine_operations",
+    "rule": "Do not use metered browser agents, paid RPA, browser credits, new subscriptions, upgrades or add-ons without explicit Founder approval for that exact cost.",
+    "fallback_order": [
+      "service-native connector/API/CLI",
+      "free browser connector",
+      "local headed browser automation with Founder-controlled sign-in",
+      "screenshot-guided manual execution"
+    ],
+    "login_failure_policy": "Stop after the first confirmed authentication loop; do not retry with a metered browser agent."
+  },
+  "execution_transport": {
+    "primary_authority": "docs/RMS_FREE_BROWSER_FALLBACK.md",
+    "carl_dashboard_fallback": "screenshot-guided manual configuration when free authenticated browser control is unavailable",
+    "public_product_protection": true,
+    "completion_evidence": [
+      "connector/API success",
+      "merged regression-tested repository change",
+      "authenticated dashboard verification",
+      "Founder-supplied post-change screenshot"
+    ]
   }
 }

@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.7.0",
+  "schema_version": "1.8.0",
   "status": "active",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "system": "RMS Fully Automated Intelligence System",
@@ -96,7 +96,8 @@
       "dashboard_visual_state": "premium_not_active_in_latest_screenshot",
       "operational_state": "activation_verification_required_before_premium-only dashboard writes",
       "public_fail_safe": "Reset Inner Circle, resetinnercircle.com, Discord native Events, RMS CreatorHub slash commands and manual operations remain usable regardless of Carl Premium state."
-    }
+    },
+    "free_browser_fallback": "docs/RMS_FREE_BROWSER_FALLBACK.md"
   },
   "automation_ownership": {
     "rms_creatorhub_app": [
@@ -369,7 +370,13 @@
     "discord_stores_private_project_data": false,
     "discord_stores_private_entitlement_data": false,
     "carl_premium_public_access_rule": "Premium automation may organize, moderate, notify, recognize and clean transient chatter; it must never become a single point of failure for base community access.",
-    "legacy_prefix_policy": "Do not create new workflows dependent on Carl prefixes; Carl dashboard warns prefixes are retiring. Migrate leadership operation to slash-first/tag surfaces."
+    "legacy_prefix_policy": "Do not create new workflows dependent on Carl prefixes; Carl dashboard warns prefixes are retiring. Migrate leadership operation to slash-first/tag surfaces.",
+    "browser_execution_cost_policy": {
+      "incremental_budget_usd": 0,
+      "metered_browser_agents": "explicit-founder-approval-only",
+      "authentication_failure": "fail closed after one confirmed login loop and switch to free/manual fallback",
+      "credential_policy": "Never request passwords, MFA codes, recovery codes, or session cookies in chat."
+    }
   },
   "resilience": {
     "rms_creatorhub_app_failure": "Carl-bot, Discord native Events, and manual RMS operations remain usable",
@@ -377,7 +384,8 @@
     "zapier_failure": "send one private automation-alerts notice and use manual event fallback",
     "tatsu_failure": "record recognition manually",
     "production_app_failure": "continue Discord communication and switch to the approved manual media fallback",
-    "single_automation_failure_must_not_block_server": true
+    "single_automation_failure_must_not_block_server": true,
+    "browser_connector_failure": "Use service-native APIs/connectors first; then free local headed browser/manual screenshot execution. Do not spend on metered browser automation without explicit Founder approval."
   },
   "operating_loop": [
     "Signal",
