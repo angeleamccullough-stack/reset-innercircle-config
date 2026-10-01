@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.6.0",
+  "schema_version": "1.7.0",
   "status": "active",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "system": "RMS Fully Automated Intelligence System",
@@ -89,7 +89,14 @@
     ],
     "low_priority_platforms": [
       "X"
-    ]
+    ],
+    "carl_premium_profile": "config/carl-premium-automation.json",
+    "carl_premium_state": {
+      "founder_report": "renewed 2026-10-01",
+      "dashboard_visual_state": "premium_not_active_in_latest_screenshot",
+      "operational_state": "activation_verification_required_before_premium-only dashboard writes",
+      "public_fail_safe": "Reset Inner Circle, resetinnercircle.com, Discord native Events, RMS CreatorHub slash commands and manual operations remain usable regardless of Carl Premium state."
+    }
   },
   "automation_ownership": {
     "rms_creatorhub_app": [
@@ -108,32 +115,42 @@
     "carl_bot": [
       "Code of Law gate",
       "CHOOSE YOUR SIGNALS self roles",
-      "reaction roles",
-      "static embeds and tags",
-      "moderation",
-      "event entry gates"
+      "reaction roles and timed event roles",
+      "static embeds and Advanced TagScript launchers",
+      "moderation and Drama Watcher",
+      "event entry controls",
+      "Levels/XP ambient participation progression",
+      "sticky messages",
+      "voice-role presence links",
+      "auto purge in explicitly transient channels only",
+      "temporary collaboration/event rooms after verification",
+      "YouTube/Twitch Discord-native alerts where Carl is the designated owner",
+      "starboard and suggestions",
+      "greetings, separate farewell, autoroles and sticky roles",
+      "Discord-native logging including non-Carl ban logs",
+      "server discovery"
     ],
     "zapier": [
-      "schedule triggers",
+      "cross-platform schedule triggers",
       "calendar and sheet automation",
-      "approved announcements",
-      "reminders",
-      "live-now signals",
+      "approved announcements not owned by Carl",
       "recaps",
+      "live-now signals not owned by Carl",
       "cross-platform routing",
       "private failure alerts"
     ],
     "tatsu": [
-      "community recognition",
-      "verified participation rewards",
-      "positive engagement"
+      "verified event/contribution recognition",
+      "positive engagement recognition",
+      "not ambient message XP"
     ],
     "ticket_tool": [
       "private support",
       "privacy-sensitive escalation"
     ],
     "voicemaster": [
-      "temporary collaboration rooms"
+      "fallback-only temporary collaboration rooms during Carl Premium migration",
+      "retire if Carl temporary-channel lifecycle passes verification"
     ],
     "statbot": [
       "community analytics",
@@ -350,7 +367,9 @@
     "creatorhub_is_system_of_record": true,
     "discord_stores_private_rights_data": false,
     "discord_stores_private_project_data": false,
-    "discord_stores_private_entitlement_data": false
+    "discord_stores_private_entitlement_data": false,
+    "carl_premium_public_access_rule": "Premium automation may organize, moderate, notify, recognize and clean transient chatter; it must never become a single point of failure for base community access.",
+    "legacy_prefix_policy": "Do not create new workflows dependent on Carl prefixes; Carl dashboard warns prefixes are retiring. Migrate leadership operation to slash-first/tag surfaces."
   },
   "resilience": {
     "rms_creatorhub_app_failure": "Carl-bot, Discord native Events, and manual RMS operations remain usable",
