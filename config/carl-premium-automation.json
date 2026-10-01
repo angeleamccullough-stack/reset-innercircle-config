@@ -1,0 +1,434 @@
+{
+  "schema_version": "1.0.0",
+  "status": "desired_state_ready_for_dashboard_apply",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "system": "Reset Inner Circle / Carl-bot Premium Automation",
+  "guild": {
+    "name": "Reset Inner Circle",
+    "id": "1429398855681573038",
+    "public_gateway": "https://resetinnercircle.com/",
+    "canonical_invite": "https://discord.gg/PAHFE5mGV"
+  },
+  "premium": {
+    "founder_report": "Renewed 2026-10-01",
+    "latest_visual_evidence": "Carl dashboard screenshot still displayed 'Carlbot Premium — Not active' after renewal attempt",
+    "activation_gate": "Before premium-only writes, confirm the renewed Premium slot is attached to guild 1429398855681573038. Do not assume renewal alone activated the slot.",
+    "source_of_truth": "Carl dashboard + this manifest after live verification"
+  },
+  "operating_rules": [
+    "Keep Discord usable if Carl-bot is offline.",
+    "No routine @everyone pings; use opt-in notification roles.",
+    "Do not store rights, payment, contract, unreleased-master, credential, or entitlement data in public Discord.",
+    "One automation owner per routine signal to prevent duplicate posts.",
+    "Use slash commands first; legacy prefixes are transitional only because Carl-bot is retiring prefix commands.",
+    "Do not purge official event threads, support history, moderation evidence, rights/submission records, or automation audit logs.",
+    "Level roles and voice-linked roles are recognition/presence signals only and grant no authority or private access.",
+    "All public-facing automation must preserve Reset Inner Circle access and the resetinnercircle.com gateway."
+  ],
+  "command_migration": {
+    "legacy_prefixes_observed": [
+      "!",
+      "?",
+      ".flow",
+      ".reset",
+      ".rs"
+    ],
+    "target": "slash-first",
+    "policy": "Do not build new workflows that depend on prefixes. Existing event tags should be callable through Carl's slash/tag surface where supported; retain legacy aliases only during transition.",
+    "leadership_event_launch": "Use a single slash/tag launcher for Power Hour and event gates; delete invocation when supported so leadership channels stay clean."
+  },
+  "premium_features": {
+    "levels_xp": {
+      "enabled": true,
+      "purpose": "Ambient participation progression only; verified achievement remains separate.",
+      "anti_farm": "Use cooldowns and exclude bot/spam channels from XP where Carl supports it.",
+      "level_up_channel": "activity-reports or a dedicated low-noise recognition channel",
+      "reward_roles": [
+        {
+          "level": 5,
+          "role": "✨ Active Signal"
+        },
+        {
+          "level": 15,
+          "role": "🔥 Inner Circle Regular"
+        },
+        {
+          "level": 30,
+          "role": "🏆 Community Builder"
+        },
+        {
+          "level": 50,
+          "role": "💎 Legacy Contributor"
+        }
+      ],
+      "role_permissions": "none beyond visual recognition",
+      "boundary": "Do not imply RMS representation, licensing approval, professional clearance, employment, or publishing status."
+    },
+    "sticky_messages": {
+      "enabled": true,
+      "channels": [
+        {
+          "channel": "reset-code-of-law",
+          "message": "Code of Law acceptance + next-step onboarding link"
+        },
+        {
+          "channel": "reset-main-arena",
+          "message": "What is live now + how to enter current activation"
+        },
+        {
+          "channel": "omnilink-power-hour",
+          "message": "Entry gate rules, all-engage-with-all standard, thread instructions, two-minute gate reminder"
+        },
+        {
+          "channel": "RESET Sound Stage",
+          "message": "Listening-room etiquette, original/cleared music rule, quick-entry / stage routing"
+        },
+        {
+          "channel": "help-desk",
+          "message": "Fast support routes + privacy warning"
+        },
+        {
+          "channel": "reset-community-feedback",
+          "message": "How to submit a suggestion and where decisions are logged"
+        }
+      ],
+      "rule": "One sticky per high-value channel; no duplicate banners or clutter."
+    },
+    "voice_role_links": {
+      "enabled": true,
+      "mappings": [
+        {
+          "voice_channel": "RESET Sound Stage",
+          "temporary_role": "🎧 Sound Stage Live"
+        },
+        {
+          "voice_channel": "Creator Showcase",
+          "temporary_role": "🎬 Showcase Live"
+        },
+        {
+          "voice_channel": "Game Room",
+          "temporary_role": "🎮 Game Room Live"
+        },
+        {
+          "voice_channel": "Reset Media Studios",
+          "temporary_role": "🎙️ Studio Live"
+        }
+      ],
+      "exclude": [
+        "Leadership Lounge",
+        "private support rooms",
+        "staff-only rooms"
+      ],
+      "role_permissions": "no elevated permissions"
+    },
+    "auto_purge": {
+      "enabled": true,
+      "apply_only_to": [
+        {
+          "surface": "bot-command / launcher noise",
+          "retention": "2-24 hours"
+        },
+        {
+          "surface": "temporary event lobby chatter",
+          "retention": "12-24 hours"
+        },
+        {
+          "surface": "game-room transient chatter",
+          "retention": "24 hours"
+        }
+      ],
+      "never_purge": [
+        "official event participation threads",
+        "support/help case history",
+        "moderation evidence and logs",
+        "automation-alerts",
+        "reset-decisions-log",
+        "rights/submission records",
+        "staff audit records"
+      ]
+    },
+    "timed_reaction_roles": {
+      "enabled": true,
+      "roles": [
+        {
+          "role": "🔥 Event Participant",
+          "expiry": "2 hours",
+          "use": "Power Hour / activation participation"
+        },
+        {
+          "role": "🎧 Sound Stage Listener",
+          "expiry": "3 hours",
+          "use": "listening rooms"
+        },
+        {
+          "role": "🎙️ Open Mic Performer",
+          "expiry": "3 hours",
+          "use": "open mic sessions"
+        },
+        {
+          "role": "🎮 Game Night",
+          "expiry": "4 hours",
+          "use": "game events"
+        }
+      ],
+      "note": "Role expiry cleans up temporary event identity; the two-minute entry gate still requires the existing gate-close workflow."
+    },
+    "drama_watcher": {
+      "enabled": true,
+      "destination": "automation-alerts or a dedicated private mod-watch channel",
+      "policy": "Private only. Route automod incidents for human review; no public shaming."
+    },
+    "personalize": {
+      "enabled": true,
+      "nickname": "RESET Steward",
+      "avatar": "Use the exact approved RS/Reset Inner Circle mark with no duplicate logo treatment.",
+      "banner": "Brand Kit 1 / futuristic modernism / luxe black-gold, safe margins, no cropped crest.",
+      "fallback_name": "Carl-bot"
+    },
+    "higher_reaction_role_limit": {
+      "enabled": true,
+      "strategy": "Use capacity for clean self-service creator disciplines + notification roles, not role clutter.",
+      "groups": {
+        "notification": [
+          "Live Events",
+          "OmniLink Power Hour",
+          "RESET Arena Games",
+          "Platform Missions",
+          "Creator Education",
+          "Collaboration Calls"
+        ],
+        "creator_disciplines": [
+          "Music",
+          "Podcasting",
+          "Film & Video",
+          "Visual Art",
+          "Writing & Publishing",
+          "Gaming",
+          "Education",
+          "Entrepreneurship"
+        ],
+        "participation": [
+          "Sound Stage",
+          "Creator Showcase",
+          "Game Room",
+          "Collaboration"
+        ]
+      }
+    },
+    "youtube_alerts": {
+      "enabled": true,
+      "max_slots": 20,
+      "owner": "Carl-bot",
+      "channel": "creator-showcase or a dedicated media-drops channel",
+      "role_mentions": "opt-in creator/media notification role only",
+      "rule": "Add only Founder-approved RMS/artist/community channels; Zapier must not duplicate these alerts."
+    },
+    "twitch_alerts": {
+      "enabled": true,
+      "max_slots": 5,
+      "owner": "Carl-bot",
+      "channel": "live-now or creator-showcase",
+      "role_mentions": "Live Events role only",
+      "rule": "Use only for approved creator streams and RMS live programming."
+    },
+    "weblog_capacity": {
+      "enabled": true,
+      "target_split": [
+        "mod-log",
+        "message-log",
+        "member-log",
+        "role-log",
+        "invite-log"
+      ],
+      "fallback_destination": "automation-alerts",
+      "include_non_carl_bans": true,
+      "privacy": "Private staff channels only."
+    },
+    "higher_purge_limits": {
+      "enabled": true,
+      "purpose": "Emergency moderation and controlled cleanup only.",
+      "boundary": "No bulk deletion of official event records or support history."
+    },
+    "separate_farewell_channel": {
+      "enabled": true,
+      "destination": "member-exits",
+      "fallback_destination": "automation-alerts",
+      "public_farewell": false
+    },
+    "temporary_channels": {
+      "enabled": true,
+      "owner_after_verification": "Carl-bot",
+      "use_cases": [
+        "creator collab rooms",
+        "open-mic green rooms",
+        "short-lived event breakout rooms",
+        "game squads"
+      ],
+      "lifecycle": "Auto-delete after event/session window with a conservative buffer.",
+      "migration": "Once Carl temporary rooms are verified, move VoiceMaster to fallback-only or retire it to reduce overlap."
+    },
+    "immediate_autofeeds": {
+      "enabled": true,
+      "owner": "Carl-bot for Discord-native recurring reminders and approved content feeds only",
+      "use_cases": [
+        "event gate reminders",
+        "weekly room prompts",
+        "approved creator/media feed"
+      ],
+      "role_mentions": "opt-in roles only",
+      "rule": "Zapier retains cross-platform/calendar/recap/failure-alert duties; no duplicate Discord routine message."
+    },
+    "advanced_tagscript": {
+      "enabled": true,
+      "use_cases": [
+        "Power Hour launch embed",
+        "Sound Stage open/close message",
+        "Creator Showcase launcher",
+        "quick help/route cards",
+        "moderator clean closeout"
+      ],
+      "settings": "Delete invocation where supported; concise output; no secret or private data; leadership-only for event launchers."
+    },
+    "starboard_customization": {
+      "enabled": true,
+      "channel": "creator-spotlight",
+      "emoji": "🔥",
+      "threshold": 3,
+      "auto_star_new_entries": true,
+      "purpose": "Surface meaningful creator/community moments without turning raw volume into professional status."
+    }
+  },
+  "standard_features_to_harden": {
+    "greetings": {
+      "enabled": true,
+      "public_welcome": "welcome / access-granted",
+      "dm_welcome": true,
+      "onboarding_sequence": [
+        "Welcome",
+        "Code of Law",
+        "CHOOSE YOUR SIGNALS",
+        "CreatorHub route",
+        "current live room"
+      ],
+      "autorole": "New Member / onboarding role until gate completion",
+      "no_private_data": true
+    },
+    "moderation": {
+      "enabled": true,
+      "anti_spam": true,
+      "anti_mass_mentions": true,
+      "anti_invite_spam": true,
+      "anti_attachment_spam": true,
+      "bad_link_filter": true,
+      "progressive_action": "delete/warn → timeout → moderator review",
+      "staff_exemptions": "Founder/mod roles only; use narrow channel exceptions instead of global bypass."
+    },
+    "logging": {
+      "enabled": true,
+      "events": [
+        "message edits/deletes",
+        "joins/leaves",
+        "role changes",
+        "nickname changes",
+        "bans",
+        "invites",
+        "moderator actions"
+      ],
+      "private_only": true
+    },
+    "permissions": {
+      "destructive_commands": "Founder + trusted moderators only",
+      "member_commands": "public-safe commands only",
+      "redirect_spammy_output": "bot-commands or ephemeral/private where supported",
+      "routine_everyone_mentions": false
+    },
+    "suggestions": {
+      "enabled": true,
+      "intake_channel": "reset-community-feedback",
+      "decision_log": "reset-decisions-log",
+      "anonymous_default": false,
+      "dm_submitter_on_decision": true
+    },
+    "server_discovery": {
+      "enabled": true,
+      "category": "Community",
+      "description": "Ownership-first creator ecosystem for music, media, publishing, education, live listening, collaboration, creator showcases, games and professional growth.",
+      "tags": [
+        "creators",
+        "music",
+        "artists",
+        "collaboration",
+        "community"
+      ],
+      "landing": "https://resetinnercircle.com/"
+    },
+    "starboard": {
+      "enabled": true,
+      "destination": "creator-spotlight"
+    },
+    "triggers": {
+      "enabled": true,
+      "low_noise_keywords": [
+        {
+          "scope": "help-desk",
+          "keyword": "submit music",
+          "response": "Route to CreatorHub secure submission flow"
+        },
+        {
+          "scope": "help-desk",
+          "keyword": "sync",
+          "response": "Route to RMS licensing-readiness guidance"
+        },
+        {
+          "scope": "help-desk",
+          "keyword": "rights",
+          "response": "Route to Rights & Metadata Intelligence"
+        },
+        {
+          "scope": "help-desk",
+          "keyword": "sound stage",
+          "response": "Route to RESET Sound Stage entry"
+        }
+      ],
+      "cooldown_required": true
+    },
+    "autoroles_and_stickyroles": {
+      "enabled": true,
+      "join_role": "New Member / onboarding",
+      "sticky_self_roles": true,
+      "authority_roles_excluded": true
+    },
+    "gaming_notifications": {
+      "enabled": true,
+      "destination": "Game Room or game-drops",
+      "use": "Free-game/sale alerts only if they add value; no unrelated promotional spam."
+    }
+  },
+  "ownership_after_upgrade": {
+    "RMS CreatorHub Discord App": "RMS slash commands, secure routing, CreatorHub/Marketplace/rights/studio pathways, public-safe RMS intelligence.",
+    "Carl-bot Premium": "Onboarding, Code of Law gate, self roles, event gates, premium engagement/leveling, sticky messages, voice-role presence, temporary rooms, Discord-native alerts, automod, logging, suggestions, starboard.",
+    "Zapier": "Cross-platform schedules, calendar/Sheets-driven announcements, recaps, live-now signals not owned by Carl, and private failure alerts.",
+    "Tatsu": "Verified event/contribution recognition only; not ambient message XP.",
+    "Ticket Tool": "Private support/escalation.",
+    "VoiceMaster": "Fallback only after Carl temporary-channel verification; retire if redundant.",
+    "Statbot": "Analytics and server-health reporting."
+  },
+  "verification_gate": {
+    "steps": [
+      "Confirm Carl Premium shows active for guild 1429398855681573038.",
+      "Apply premium settings without changing public Discord access or resetinnercircle.com.",
+      "Test onboarding with a non-staff account.",
+      "Test reaction/self roles and timed role removal.",
+      "Test voice-role add/remove without permission elevation.",
+      "Test one sticky and one auto-purge channel.",
+      "Test automod in a private test channel.",
+      "Test one YouTube/Twitch feed without duplicate Zapier alert.",
+      "Test temporary room lifecycle.",
+      "Verify mod/message/member/role/invite logs stay private.",
+      "Verify Starboard and Suggestions routes.",
+      "Verify legacy prefixes are no longer required for leadership operations.",
+      "Record live state and any exact IDs after validation."
+    ],
+    "public_fail_safe": "If any premium workflow fails, normal Discord channels, resetinnercircle.com, Discord native Events, RMS CreatorHub commands, and manual moderator operations remain available."
+  }
+}
