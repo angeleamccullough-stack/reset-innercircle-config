@@ -22,7 +22,7 @@ The Netlify connector accepted these production-context, functions-scope updates
 
 Deployment 6abef36a5d09d75f0fd5e230 reached ready and was published. This did not repair either checkout route. Connector success is not proof of runtime fulfillment.
 
-Do not treat the historical `active_verified` payment manifest as fresh end-to-end certification. Product/link existence is verified; the two gateway service routes are degraded. Diagnose production runtime binding propagation within production functions only. Do not broaden contexts or scopes without specific approval.
+Do not treat the historical `active_verified` payment manifest as fresh end-to-end certification. Product/link existence is verified; the two gateway service routes are degraded. Direct function requests with bucket query parameters subsequently returned 302 to the correct existing Stripe links. The root cause is that public-path rewrites preserve the original Request URL, so the query-only lane resolver does not identify the lane. PR #6 resolves the lane from the public pathname and gives it precedence over caller query values. Five contract tests pass, including exact public paths, conflicting queries and HEAD requests. The fix is prepared, not deployed. Do not broaden contexts or scopes without specific approval.
 
 Automatic approval review rejected reading all Netlify environment variables and rejected all-context/all-scope updates. No rejected changes were executed.
 
@@ -56,3 +56,7 @@ Cancel-at-period-end must retain access until the paid-through boundary. Preserv
 
 Incremental recurring cost introduced: $0.00.
 Overall public product: DEGRADED (homepage works; Studio/Event gateway checkout routes fail).
+
+## Approval boundary
+
+Automatic approval review rejected squash-merging PR #6 into main because it may trigger production deployment and requires approval for this exact merge. No merge or indirect deployment of that code fix was executed. Approve merging PR #6 and deploying the tested fix to continue production verification.
