@@ -86,10 +86,15 @@ test('RESET payment functions fail closed when unbound and redirect only to veri
     assert.equal(supportBound.status, 302);
     assert.equal(supportBound.headers.get('location'), EXPECTED_PAYMENT_LINKS.community_support);
     for (const [bucket, expected] of [['studio', EXPECTED_PAYMENT_LINKS.studio_services], ['events', EXPECTED_PAYMENT_LINKS.event_services]]) {
-      const response = await serviceCheckout(new Request(`https://resetinnercircle.com/checkout/${bucket}?bucket=${bucket}`));
-      assert.equal(response.status, 302);
-      assert.equal(response.headers.get('location'), expected);
-      assert.equal(response.headers.get('cache-control'), 'no-store');
+      for (const suffix of ['', `?bucket=${bucket}`, `?bucket=${bucket === 'studio' ? 'events' : 'studio'}`]) {
+        const response = await serviceCheckout(new Request(`https://resetinnercircle.com/checkout/${bucket}${suffix}`));
+        assert.equal(response.status, 302);
+        assert.equal(response.headers.get('location'), expected);
+        assert.equal(response.headers.get('cache-control'), 'no-store');
+      }
+      const head = await serviceCheckout(new Request(`https://resetinnercircle.com/checkout/${bucket}`, { method: 'HEAD' }));
+      assert.equal(head.status, 302);
+      assert.equal(await head.text(), '');
     }
   } finally {
     if (saved.support === undefined) delete process.env.RESET_STRIPE_SUPPORT_URL; else process.env.RESET_STRIPE_SUPPORT_URL = saved.support;
