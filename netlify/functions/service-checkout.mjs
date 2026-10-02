@@ -23,7 +23,13 @@ export default async (request) => {
     return new Response('Method Not Allowed', { status: 405, headers: { allow: 'GET, HEAD', 'cache-control': 'no-store' } });
   }
   const url = new URL(request.url);
-  const bucket = String(url.searchParams.get('bucket') || '').toLowerCase();
+  // Netlify rewrites retain the original public pathname in the Request URL.
+  // The public route also takes precedence over caller-supplied query values.
+  const routeBucket = {
+    '/checkout/studio': 'studio',
+    '/checkout/events': 'events'
+  }[url.pathname];
+  const bucket = routeBucket || String(url.searchParams.get('bucket') || '').toLowerCase();
   const envName = buckets[bucket];
   const checkoutUrl = envName ? (process.env[envName] || '') : '';
 
