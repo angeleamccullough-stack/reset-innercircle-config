@@ -16,5 +16,7 @@ test('every service card selects a supported offer and every local home anchor e
  for(const c of choices) assert.ok(booking.includes('value="'+c+'"'));
  for(const m of home.matchAll(/href="#([^"]+)"/g)) assert.ok(home.includes('id="'+m[1]+'"'),m[1]);
  assert.doesNotMatch(read('site/app.js'),/loadScript\('\/studio-(?:final-)?upgrade.js'\)/);
+ assert.doesNotMatch(read('site/brand-upgrade.js'),/script.src = '\/studio-upgrade.js'/);
+ assert.match(read('site/styles.css'),/\.lux-card::before\{[^}]*pointer-events:none/);
  assert.match(booking,/does not submit a booking automatically/);
 });

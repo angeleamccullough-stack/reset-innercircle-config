@@ -15,17 +15,11 @@
         <p>Reset Society | Be You On Purpose ✨ Remember · Embody · Stand · Elevate · Truth.</p>
       </div>
       <nav class="footer-links" aria-label="Footer shortcuts">
-        <a class="soundable track" data-event="footer_network_click" data-placement="footer" href="#network">Network</a>
+        <a class="soundable track" data-event="footer_network_click" data-placement="footer" href="/partner.html">Network</a>
         <a class="soundable track" data-event="footer_studio_click" data-placement="footer" href="#studio">Studio</a>
         <a class="soundable track" data-event="footer_services_click" data-placement="footer" href="#services">Services</a>
       </nav>
       <div class="owner">Stewarded by<br><strong>Angelea McCullough, Founder of RMS Global Publishing</strong></div>`;
   }
 
-  if (!document.querySelector('script[src="/studio-upgrade.js"]')) {
-    const script = document.createElement('script');
-    script.src = '/studio-upgrade.js';
-    script.defer = true;
-    document.body.appendChild(script);
-  }
 })();
