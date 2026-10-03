@@ -26,9 +26,11 @@ function safeCompareHex(a, b) {
   }
 }
 
-function verifyStripeSignature(rawBody, header, secret) {
+export function verifyStripeSignature(rawBody, header, secret, nowSeconds = Math.floor(Date.now() / 1000)) {
   const { timestamp, signatures } = parseStripeSignatureHeader(header);
-  if (!timestamp || !signatures.length || !secret) return false;
+  if (!/^\d+$/.test(timestamp) || !signatures.length || !secret) return false;
+  const signedAt = Number(timestamp);
+  if (!Number.isSafeInteger(signedAt) || Math.abs(nowSeconds - signedAt) > 300) return false;
   const expected = createHmac('sha256', secret).update(`${timestamp}.${rawBody}`, 'utf8').digest('hex');
   return signatures.some((signature) => safeCompareHex(expected, signature));
 }
@@ -63,12 +65,12 @@ export default async (request) => {
     return Response.json({ error: 'Invalid JSON payload.' }, { status: 400, headers: { 'cache-control': 'no-store' } });
   }
 
-  if (event?.type !== 'checkout.session.completed') {
+  if (!['checkout.session.completed', 'checkout.session.async_payment_succeeded'].includes(event?.type)) {
     return Response.json({ received: true, ignored: true, eventType: event?.type || null }, { headers: { 'cache-control': 'no-store' } });
   }
 
   const session = event?.data?.object;
-  if (!session || session.object !== 'checkout.session') {
+  if (!event.id || typeof event.id !== 'string' || !session || session.object !== 'checkout.session' || typeof session.id !== 'string') {
     return Response.json({ error: 'Invalid checkout session event.' }, { status: 400, headers: { 'cache-control': 'no-store' } });
   }
 
@@ -120,7 +122,7 @@ export default async (request) => {
   });
 
   if (!rpcResponse.ok) {
-    console.error('Reset Stripe communications ingress failed:', rpcResponse.status, await rpcResponse.text());
+    console.error('Reset Stripe communications ingress failed:', rpcResponse.status);
     return Response.json({ error: 'Communications ingress failed.' }, { status: 500, headers: { 'cache-control': 'no-store' } });
   }
 
