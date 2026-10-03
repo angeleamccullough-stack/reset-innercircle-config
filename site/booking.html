@@ -7,7 +7,7 @@
   <meta name="description" content="Book approved Reset Media Studios and live event production. Review your project scope and pay your agreed deposit securely through Stripe.">
   <meta name="author" content="Angelea McCullough, Founder of RMS Global Publishing">
   <meta name="theme-color" content="#08090b">
-  <link rel="canonical" href="https://resetinnercircle.com/booking.html">
+  <link rel="canonical" href="https://resetinnercircle.com/booking">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/bridge.css">
@@ -21,11 +21,12 @@
   <main class="wrap booking-main">
     <section class="booking-intro">
       <p class="kicker">RESET MEDIA STUDIOS · RESET LIVE</p>
-      <h1>Your vision.<br><em>Our production floor.</em></h1>
-      <p class="lead">Bring your session, performance or live event into a clear production plan. Once your scope is approved, pay the agreed deposit securely through Stripe.</p>
+      <h1>Make a beat. Record a session.<br><em>Create your next experience.</em></h1>
+      <p class="lead">Choose the production help you need. New projects start with scope and availability confirmation. Approved projects can go straight to Stripe checkout below.</p>
       <p class="booking-notice"><strong>Need a quote first?</strong> <a href="https://discord.gg/PAHFE5mGV" target="_blank" rel="noopener">Discuss your project with Reset</a>. Confirm scope, availability, deliverables, revisions, timeline and cancellation terms before payment.</p>
     </section>
-    <div class="booking-grid">
+<section id="choose" class="booking-details"><p class="kicker">01 · CHOOSE YOUR EXPERIENCE</p><h2>What are we creating?</h2><label for="service-choice">Service</label><select id="service-choice"><option value="beat">Beat production</option><option value="recording">Remote recording session</option><option value="own-setup">Bring your own setup</option><option value="podcast">Podcast & interview</option><option value="mix">Mixing & mastering</option><option value="performance">Performance & content capture</option><option value="open-mic">Open mic production</option><option value="poetry">Poetry slam & spoken word</option><option value="workshop">Workshops & listening parties</option><option value="event">Launches, showcases & branded events</option></select><p id="service-description"></p><p id="service-rate"></p><div class="booking-paths"><article><h3>New project</h3><p>Confirm your selected service, duration, time zone, preferred dates and deliverables with Reset before paying.</p><a class="button ghost" href="https://discord.gg/PAHFE5mGV" target="_blank" rel="noopener"><span>Request a quote in Discord</span><i>↗</i></a><p>This opens the community invite. Ask for Reset Media Studios and include your selected service. It does not submit a booking automatically.</p></article><article><h3>Approved project</h3><p>Have your agreed scope and amount ready? Use the matching payment option.</p><a id="selected-checkout" class="button gold" href="/checkout/studio"><span>Continue to Studio Stripe checkout</span><i>→</i></a><p id="selected-payment-note"></p></article></div></section><section id="checkout"><p class="kicker">02 · PAY YOUR APPROVED DEPOSIT</p>
+<div class="booking-grid">
       <article id="studio" class="booking-card">
         <p class="kicker">STUDIO PRODUCTION</p>
         <h2>Make something<br><em>worth keeping.</em></h2>
@@ -37,10 +38,7 @@
           <li>Deliverables, revisions and dates are confirmed separately.</li>
           <li>Ownership and licensing follow your written agreement.</li>
         </ul>
-        <form action="/checkout/studio" method="get">
-          <label class="booking-consent"><input type="checkbox" name="scope_confirmed" value="yes" required><span>I have an approved project scope and understand this is a deposit, not the total project price.</span></label>
-          <button class="button gold" type="submit"><span>Pay Studio Deposit with Stripe</span><i>→</i></button>
-        </form>
+        <p>Continue after scope and terms are agreed. This is a deposit, not the total price or a confirmed date.</p><a class="button gold" href="/checkout/studio"><span>Open Studio Stripe checkout</span><i>→</i></a>
       </article>
       <article id="events" class="booking-card">
         <p class="kicker">LIVE EVENT PRODUCTION</p>
@@ -53,13 +51,11 @@
           <li>Availability, staffing, equipment and venue needs are confirmed separately.</li>
           <li>Travel, licensing and third-party costs follow the agreed scope.</li>
         </ul>
-        <form action="/checkout/events" method="get">
-          <label class="booking-consent"><input type="checkbox" name="scope_confirmed" value="yes" required><span>I have an approved event scope and understand this deposit alone does not confirm an event date.</span></label>
-          <button class="button gold" type="submit"><span>Pay Event Deposit with Stripe</span><i>→</i></button>
-        </form>
+        <p>Continue after scope and terms are agreed. This is a deposit, not the total price or a confirmed date.</p><a class="button gold" href="/checkout/events"><span>Open Event Stripe checkout</span><i>→</i></a>
       </article>
     </div>
-    <section class="booking-details">
+</section>
+<section class="booking-details">
       <p class="kicker">CLEAR BEFORE YOU COMMIT</p>
       <h2>What happens next?</h2>
       <details open><summary>After checkout</summary><p>Stripe confirms your payment. Reset uses the contact and project details supplied at checkout to coordinate the agreed next steps. Payment confirmation is separate from production scheduling and delivery.</p></details>
@@ -71,6 +67,7 @@
     </section>
   </main>
   <footer class="bridge-footer"><div class="wrap"><a href="/"><img src="/reset-inner-circle-logo.svg" alt="Reset Inner Circle" width="150" height="80"></a><p>Reset Society | Be You On Purpose ✨ Remember • Embody • Stand • Elevate • Truth.</p><small>Angelea McCullough, Founder of RMS Global Publishing</small></div></footer>
+<script src="/booking.js" defer></script>
 </body>
 </html>
 
