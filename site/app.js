@@ -178,8 +178,8 @@
   loadStyle('/brand-upgrade.css');
   loadStyle('/now-playing.css');
   loadScript('/network.js');
-  loadScript('/studio-upgrade.js');
-  loadScript('/studio-final-upgrade.js');
+
+
   loadScript('/arena-upgrade.js');
   loadScript('/brand-upgrade.js');
   loadScript('/now-playing.js');
