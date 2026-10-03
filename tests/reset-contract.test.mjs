@@ -52,7 +52,7 @@ test('RESET payment lanes are active, distinct, entitlement-safe and pinned to v
     assert.match(bucket.checkout_url, /^https:\/\/donate\.rmsglobalpublishing\.com\/b\//);
   }
   assert.equal(buckets.community_support.tax_deductible_claim, false);
-  assert.match(studio, /href="\/checkout\/studio"/);
+  assert.match(studio, /href="\/booking\.html#studio"/);
   assert.doesNotMatch(studio, /href="\/\.netlify\/functions\/service-checkout\?bucket=studio"/);
 });
 
