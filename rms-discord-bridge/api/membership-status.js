@@ -31,7 +31,8 @@ export default async function handler(req,res){
       paidRoles,
       lifecycleWebhookConfigured:Boolean(process.env.RMS_MEMBERSHIP_STRIPE_WEBHOOK_SECRET),
       creatorHubIngressConfigured:Boolean(process.env.RMS_CREATORHUB_SUPABASE_URL&&process.env.RMS_CREATORHUB_SUPABASE_PUBLISHABLE_KEY),
-      checkoutSigningConfigured:Boolean(process.env.RMS_MEMBERSHIP_SIGNING_SECRET)
+      checkoutSigningConfigured:Boolean(process.env.RMS_MEMBERSHIP_SIGNING_SECRET),
+      publicCheckoutEnabled:process.env.RMS_MEMBERSHIP_PUBLIC_ENABLED==='true'
     });
   }catch(error){
     console.error('Membership status failed:',error?.message||error);
