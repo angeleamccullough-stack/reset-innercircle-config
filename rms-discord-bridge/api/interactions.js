@@ -1,5 +1,6 @@
 import { verifyKey } from 'discord-interactions';
 import { buildCommandResponse } from '../src/commands.js';
+import { buildMembershipCommandResponse } from '../src/membership.js';
 
 const PING = 1;
 const APPLICATION_COMMAND = 2;
@@ -87,11 +88,14 @@ export default async function handler(req, res) {
   }
 
   const commandName = interaction.data?.name;
-  const commandResponse = buildCommandResponse(commandName);
+  const commandResponse = commandName === 'membership'
+    ? buildMembershipCommandResponse(interaction.member?.user?.id || interaction.user?.id || '')
+    : buildCommandResponse(commandName);
   const data = {};
 
   if (commandResponse.content) data.content = commandResponse.content;
   if (commandResponse.embeds) data.embeds = commandResponse.embeds;
+  if (commandResponse.components) data.components = commandResponse.components;
   if (commandResponse.ephemeral) data.flags = EPHEMERAL_FLAG;
 
   return sendJson(res, 200, {
