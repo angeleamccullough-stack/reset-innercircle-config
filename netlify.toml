@@ -44,3 +44,14 @@
   from = "/booking/"
   to = "/booking.html"
   status = 200
+
+
+[[redirects]]
+  from = "/membership"
+  to = "/membership.html"
+  status = 200
+
+[[redirects]]
+  from = "/membership/"
+  to = "/membership.html"
+  status = 200
