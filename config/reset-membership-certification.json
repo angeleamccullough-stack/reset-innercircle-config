@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0.0",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
-  "status": "automation_built_lifecycle_matrix_passed_discord_manage_roles_permission_pending",
+  "status": "FULL_GREEN_LIVE",
   "verified_at": "2026-10-06",
   "stripe_account": "acct_1TelSkLlKcswOpj9",
   "currency": "usd",
-  "public_checkout_enabled": false,
+  "public_checkout_enabled": true,
   "incremental_recurring_cost_usd": 0,
   "plans": [
     {
@@ -85,7 +85,7 @@
       "discord_role_failure",
       "retry_reconciliation"
     ],
-    "result": "discord_manage_roles_permission_and_live_role_proof_pending"
+    "result": "PASS_OPEN"
   },
   "reuse_existing_products": true,
   "private_data_in_discord": false,
@@ -104,10 +104,18 @@
     "membership_lifecycle_matrix": "PASS_ROLLBACK_ONLY_2026-10-07",
     "stripe_membership_webhook": "LIVE_ENABLED_we_1UNkL0LlKcswOpj9vk3qpEtd",
     "discord_membership_command": "PASS_REGISTERED_FAIL_CLOSED",
-    "discord_paid_role_bootstrap": "BLOCKED_DISCORD_403_MISSING_MANAGE_ROLES",
+    "discord_paid_role_bootstrap": "PASS_ROLES_CREATED",
     "public_membership_luxe_surface": "LIVE_DEPLOYED",
     "membership_ingress_security": "PASS_SUPABASE_EDGE_GATEWAY_SERVICE_ROLE_ONLY",
     "membership_specific_security_advisors": "PASS_NO_MEMBERSHIP_WARNINGS",
-    "qa_residue": "PASS_ZERO_QA_ROWS"
+    "qa_residue": "PASS_ZERO_QA_ROWS",
+    "discord_role_grant_revoke_proof": "PASS_3_OF_3",
+    "discord_manage_roles": "PASS_TRUE_ADMINISTRATOR_FALSE",
+    "public_membership_checkout": "LIVE_ENABLED",
+    "role_ids": {
+      "tier_1": "1557216770383810631",
+      "tier_2": "1557216771172212777",
+      "tier_3": "1557216771860336652"
+    }
   }
 }
