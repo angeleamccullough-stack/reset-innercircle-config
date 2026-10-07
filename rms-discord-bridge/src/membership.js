@@ -82,6 +82,20 @@ export function membershipButtons(discordUserId) {
 }
 
 export function buildMembershipCommandResponse(discordUserId) {
+  if (process.env.RMS_MEMBERSHIP_PUBLIC_ENABLED !== 'true') {
+    return {
+      ephemeral: true,
+      embeds: [{
+        color: 0xC8A24A,
+        title: 'RESET Inner Circle · Membership',
+        description:
+          '**Membership checkout is in final activation.**\n\n' +
+          'Pricing and plans are live on resetinnercircle.com/membership, but paid checkout remains securely gated until Discord paid-role authority completes its final verification.\n\n' +
+          'No payment is required or accepted through this command until that proof passes.',
+        footer: { text: 'RMS Global Publishing · RESET Inner Circle · Ownership First' },
+      }],
+    };
+  }
   return {
     ephemeral: true,
     embeds: [{
