@@ -12,7 +12,7 @@ export default async function handler(req,res){
   if(!normalized) return send(res,200,{received:true,ignored:true,type:event?.type||null});
   try{
     const result=await recordMembershipEvent(normalized);
-    if(result?.duplicate || result?.stale || result?.pending_binding) return send(res,200,{received:true,...result});
+    if(result?.stale || result?.pending_binding || result?.binding_mismatch) return send(res,200,{received:true,...result});
     const role=await reconcileDiscordMembership(result.discord_user_id,result.desired_role_tier);
     return send(res,200,{received:true,eventId:event.id,action:result.action,role});
   }catch(error){
