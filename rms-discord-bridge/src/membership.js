@@ -222,18 +222,21 @@ export function normalizeMembershipStripeEvent(event) {
   return null;
 }
 
-export async function recordMembershipEvent(normalized) {
+async function membershipGateway(action, payload = {}) {
   const supabaseUrl = (process.env.RMS_CREATORHUB_SUPABASE_URL || '').replace(/\/$/,'');
-  const key = process.env.RMS_CREATORHUB_SUPABASE_PUBLISHABLE_KEY || '';
   const secret = process.env.RMS_MEMBERSHIP_SIGNING_SECRET || '';
-  if (!supabaseUrl || !key || !secret) throw new Error('CreatorHub membership ingress is not configured.');
-  const response = await fetch(`${supabaseUrl}/rest/v1/rpc/rms_membership_ingress`, {
+  if (!supabaseUrl || !secret) throw new Error('CreatorHub membership gateway is not configured.');
+  const response = await fetch(`${supabaseUrl}/functions/v1/rms-membership-gateway`, {
     method:'POST',
-    headers:{apikey:key,'content-type':'application/json',accept:'application/json'},
-    body:JSON.stringify({p_secret:secret,p_event:normalized}),
+    headers:{'x-rms-membership-secret':secret,'content-type':'application/json',accept:'application/json'},
+    body:JSON.stringify({action,...payload}),
   });
-  if (!response.ok) throw new Error(`CreatorHub membership ingress failed: ${response.status}`);
+  if (!response.ok) throw new Error(`CreatorHub membership gateway failed: ${response.status}`);
   return response.json();
+}
+
+export async function recordMembershipEvent(normalized) {
+  return membershipGateway('ingress', { event: normalized });
 }
 
 async function discordRequest(path, method='GET', body) {
@@ -288,15 +291,8 @@ export async function bootstrapMembershipRoles() {
 }
 
 export async function controlledMembershipRoleProof(roles) {
-  const supabaseUrl = (process.env.RMS_CREATORHUB_SUPABASE_URL || '').replace(/\/$/,'');
-  const key = process.env.RMS_CREATORHUB_SUPABASE_PUBLISHABLE_KEY || '';
-  const secret = process.env.RMS_MEMBERSHIP_SIGNING_SECRET || '';
   const guildId = process.env.DISCORD_GUILD_ID || '';
-  const r = await fetch(`${supabaseUrl}/rest/v1/rpc/rms_membership_control_target`,{
-    method:'POST',headers:{apikey:key,'content-type':'application/json',accept:'application/json'},body:JSON.stringify({p_secret:secret})
-  });
-  if (!r.ok) throw new Error(`Control-target lookup failed: ${r.status}`);
-  const target = await r.json();
+  const target = await membershipGateway('control_target');
   if (!target?.discord_user_id) return {ok:false,reason:'no_controlled_bound_identity'};
   for (const roleId of Object.values(roles)) {
     const path=`/guilds/${guildId}/members/${target.discord_user_id}/roles/${roleId}`;
