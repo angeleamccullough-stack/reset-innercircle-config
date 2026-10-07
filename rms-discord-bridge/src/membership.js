@@ -191,7 +191,7 @@ export function normalizeMembershipStripeEvent(event) {
       tier,
       billing_interval: interval,
       subscription_status: type === 'customer.subscription.deleted' ? 'canceled' : (object.status || ''),
-      current_period_end: object.current_period_end || '',
+      current_period_end: object.current_period_end || object.items?.data?.[0]?.current_period_end || '',
       cancel_at_period_end: Boolean(object.cancel_at_period_end),
     };
   }
