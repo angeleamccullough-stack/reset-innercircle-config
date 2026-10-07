@@ -24,6 +24,7 @@ export const commandBuilders = [
   new SlashCommandBuilder().setName('licensing').setDescription('Open RMS licensing and rights-readiness guidance.'),
   new SlashCommandBuilder().setName('studioservices').setDescription('View RMS Studio services and starting rates.'),
   new SlashCommandBuilder().setName('helpstudio').setDescription('View RESET Studio commands and privacy-safe help.'),
+  new SlashCommandBuilder().setName('membership').setDescription('Open your private RESET membership checkout options.'),
   new SlashCommandBuilder().setName('support').setDescription('Open the private RMS support route.'),
 ];
 
@@ -110,6 +111,8 @@ export function buildCommandResponse(commandName) {
       return { ephemeral: false, embeds: [baseEmbed('RMS Studio · New This Week', `Only rights-cleared, commercially cleared Studio assets are eligible for the New This Week feed. Internal masters and review-required material never surface here. The first cleared asset batch will populate the live feed without placeholder tracks or fake activity.\n\n${studioUrl()}`)] };
     case 'helpstudio':
       return { ephemeral: true, embeds: [baseEmbed('RESET Studio Help', `**Create:** /studio · /startsession · /savesession · /exportstems\n**Services:** /studioservices · /requestmix · /licensing\n**Private routes:** /myprojects · /myaccess · /support\n**Rooms:** /stage · /game\n\nNever post unreleased masters, private contracts, splits, passwords, banking information or confidential CreatorHub records into public channels.`)] };
+    case 'membership':
+      return { ephemeral: true, content: 'Membership checkout is generated securely for your Discord identity.' };
     case 'support': {
       const channelId = env('SUPPORT_CHANNEL_ID');
       const route = channelId ? `<#${channelId}>` : 'the private RMS support pathway';
