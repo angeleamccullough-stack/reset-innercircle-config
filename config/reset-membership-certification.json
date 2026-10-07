@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
-  "status": "checkout_webhook_drive_identity_certified_paid_role_reconciliation_pending",
+  "status": "automation_built_lifecycle_matrix_passed_discord_manage_roles_permission_pending",
   "verified_at": "2026-10-06",
   "stripe_account": "acct_1TelSkLlKcswOpj9",
   "currency": "usd",
@@ -85,7 +85,7 @@
       "discord_role_failure",
       "retry_reconciliation"
     ],
-    "result": "paid_role_reconciliation_and_full_lifecycle_certification_pending"
+    "result": "discord_manage_roles_permission_and_live_role_proof_pending"
   },
   "reuse_existing_products": true,
   "private_data_in_discord": false,
@@ -98,8 +98,13 @@
     "downgrade_event_support": "PASS",
     "cancel_at_period_end_deferral": "PASS",
     "public_checkout": "BLOCKED_FAIL_CLOSED",
-    "remaining_gate": "Automated paid Discord-role reconciliation + controlled full subscription lifecycle certification",
+    "remaining_gate": "Grant RMS CreatorHub bot Manage Roles (not Administrator), then rerun controlled paid-role grant/revoke proof before enabling public paid checkout.",
     "membership_checkout_webhook": "PASS_VALIDATED_2026-10-06",
-    "public_membership_surface": "PASS_LIVE_HTTP_200_2026-10-07"
+    "public_membership_surface": "PASS_LIVE_HTTP_200_2026-10-07",
+    "membership_lifecycle_matrix": "PASS_ROLLBACK_ONLY_2026-10-07",
+    "stripe_membership_webhook": "LIVE_ENABLED_we_1UNkL0LlKcswOpj9vk3qpEtd",
+    "discord_membership_command": "DEPLOYED_PRIVATE_IDENTITY_BOUND",
+    "discord_paid_role_bootstrap": "BLOCKED_DISCORD_403_MISSING_MANAGE_ROLES",
+    "public_membership_luxe_surface": "LIVE_DEPLOYED"
   }
 }
