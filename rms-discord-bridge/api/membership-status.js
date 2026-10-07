@@ -30,7 +30,7 @@ export default async function handler(req,res){
       administrator:perms.has(PermissionsBitField.Flags.Administrator),
       paidRoles,
       lifecycleWebhookConfigured:Boolean(process.env.RMS_MEMBERSHIP_STRIPE_WEBHOOK_SECRET),
-      creatorHubIngressConfigured:Boolean(process.env.RMS_CREATORHUB_SUPABASE_URL&&process.env.RMS_CREATORHUB_SUPABASE_PUBLISHABLE_KEY),
+      creatorHubIngressConfigured:Boolean(process.env.RMS_CREATORHUB_SUPABASE_URL),
       checkoutSigningConfigured:Boolean(process.env.RMS_MEMBERSHIP_SIGNING_SECRET),
       publicCheckoutEnabled:process.env.RMS_MEMBERSHIP_PUBLIC_ENABLED==='true'
     });
