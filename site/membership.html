@@ -193,11 +193,6 @@
     <p>Angelea McCullough, Founder of RMS Global Publishing</p>
   </footer>
 
-  <script>
-    (() => {
-      const params = new URLSearchParams(location.search);
-      if (params.get('membership') === 'success') document.getElementById('successBanner')?.classList.add('show');
-    })();
-  </script>
+  <script src="/membership-page.js" defer></script>
 </body>
 </html>
