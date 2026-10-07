@@ -31,9 +31,9 @@ export default async function handler(req,res){
   if(req.method!=='POST'){res.setHeader('allow','POST');return send(res,405,{error:'Method not allowed'});}
   try{
     if(!(await consumeGate())) return send(res,403,{error:'Bootstrap gate is closed'});
+    const commandsRegistered=await registerCommands();
     const roles=await bootstrapMembershipRoles();
     const proof=await controlledMembershipRoleProof(roles);
-    const commandsRegistered=await registerCommands();
     return send(res,200,{ok:true,roles,proof,commandsRegistered});
   }catch(error){
     console.error('Membership bootstrap failed:',error?.message||error);
