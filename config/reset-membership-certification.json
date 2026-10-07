@@ -103,8 +103,11 @@
     "public_membership_surface": "PASS_LIVE_HTTP_200_2026-10-07",
     "membership_lifecycle_matrix": "PASS_ROLLBACK_ONLY_2026-10-07",
     "stripe_membership_webhook": "LIVE_ENABLED_we_1UNkL0LlKcswOpj9vk3qpEtd",
-    "discord_membership_command": "DEPLOYED_PRIVATE_IDENTITY_BOUND",
+    "discord_membership_command": "PASS_REGISTERED_FAIL_CLOSED",
     "discord_paid_role_bootstrap": "BLOCKED_DISCORD_403_MISSING_MANAGE_ROLES",
-    "public_membership_luxe_surface": "LIVE_DEPLOYED"
+    "public_membership_luxe_surface": "LIVE_DEPLOYED",
+    "membership_ingress_security": "PASS_SUPABASE_EDGE_GATEWAY_SERVICE_ROLE_ONLY",
+    "membership_specific_security_advisors": "PASS_NO_MEMBERSHIP_WARNINGS",
+    "qa_residue": "PASS_ZERO_QA_ROWS"
   }
 }
