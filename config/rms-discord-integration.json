@@ -59,7 +59,8 @@
         "licensing",
         "studioservices",
         "helpstudio",
-        "support"
+        "support",
+        "membership"
       ],
       "status_note": "If Discovery Status remains yellow after commands are registered and executable, do not broaden permissions or enable Message Content solely to satisfy the badge; allow Discord metadata to reconcile and verify Discovery Settings independently."
     },
@@ -97,7 +98,17 @@
       "operational_state": "activation_verification_required_before_premium-only dashboard writes",
       "public_fail_safe": "Reset Inner Circle, resetinnercircle.com, Discord native Events, RMS CreatorHub slash commands and manual operations remain usable regardless of Carl Premium state."
     },
-    "free_browser_fallback": "docs/RMS_FREE_BROWSER_FALLBACK.md"
+    "free_browser_fallback": "docs/RMS_FREE_BROWSER_FALLBACK.md",
+    "membership_automation": {
+      "state": "DEPLOYED_PERMISSION_GATED",
+      "command": "/membership",
+      "checkout_identity": "signed_discord_client_reference_id",
+      "stripe_webhook": "https://rms-discord-bridge.vercel.app/api/membership-webhook",
+      "lifecycle_database": "RMS Creator Portal",
+      "required_bot_permission": "Manage Roles",
+      "administrator_required": false,
+      "current_role_mutation_proof": "BLOCKED_403_MISSING_PERMISSIONS"
+    }
   },
   "automation_ownership": {
     "rms_creatorhub_app": [
