@@ -27,7 +27,7 @@ async function registerCommands(){
 }
 
 export default async function handler(req,res){
-  if(req.method!=='POST'){res.setHeader('allow','POST');return send(res,405,{error:'Method not allowed'});}
+  if(req.method!=='POST'&&req.method!=='GET'){res.setHeader('allow','GET, POST');return send(res,405,{error:'Method not allowed'});}
   try{
     if(!(await consumeGate())) return send(res,403,{error:'Bootstrap gate is closed'});
     const commandsRegistered=await registerCommands();
