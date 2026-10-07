@@ -100,14 +100,29 @@
     },
     "free_browser_fallback": "docs/RMS_FREE_BROWSER_FALLBACK.md",
     "membership_automation": {
-      "state": "DEPLOYED_PERMISSION_GATED",
+      "state": "LIVE_FULL_GREEN",
       "command": "/membership",
       "checkout_identity": "signed_discord_client_reference_id",
       "stripe_webhook": "https://rms-discord-bridge.vercel.app/api/membership-webhook",
       "lifecycle_database": "RMS Creator Portal",
       "required_bot_permission": "Manage Roles",
       "administrator_required": false,
-      "current_role_mutation_proof": "BLOCKED_403_MISSING_PERMISSIONS"
+      "current_role_mutation_proof": "PASS_3_OF_3",
+      "roles": {
+        "tier_1": {
+          "name": "RMS Member",
+          "id": "1557216770383810631"
+        },
+        "tier_2": {
+          "name": "RMS Pro",
+          "id": "1557216771172212777"
+        },
+        "tier_3": {
+          "name": "RMS Executive",
+          "id": "1557216771860336652"
+        }
+      },
+      "public_checkout_enabled": true
     }
   },
   "automation_ownership": {
