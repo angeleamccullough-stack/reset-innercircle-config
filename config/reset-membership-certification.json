@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "status": "FULL_GREEN_LIVE",
-  "verified_at": "2026-10-06",
+  "verified_at": "2026-10-07",
   "stripe_account": "acct_1TelSkLlKcswOpj9",
   "currency": "usd",
   "public_checkout_enabled": true,
@@ -97,8 +97,8 @@
     "stale_drive_completion_guard": "PASS",
     "downgrade_event_support": "PASS",
     "cancel_at_period_end_deferral": "PASS",
-    "public_checkout": "BLOCKED_FAIL_CLOSED",
-    "remaining_gate": "Grant RMS CreatorHub bot Manage Roles (not Administrator), then rerun controlled paid-role grant/revoke proof before enabling public paid checkout.",
+    "public_checkout": "LIVE_ENABLED_VERIFIED_2026-10-07",
+    "remaining_gate": "NONE_CLOSED_DISCORD_MANAGE_ROLES_AND_3_OF_3_GRANT_REVOKE_PROOF_PASSED",
     "membership_checkout_webhook": "PASS_VALIDATED_2026-10-06",
     "public_membership_surface": "PASS_LIVE_HTTP_200_2026-10-07",
     "membership_lifecycle_matrix": "PASS_ROLLBACK_ONLY_2026-10-07",
@@ -116,6 +116,7 @@
       "tier_1": "1557216770383810631",
       "tier_2": "1557216771172212777",
       "tier_3": "1557216771860336652"
-    }
+    },
+    "record_reconciled_at": "2026-10-07"
   }
 }
