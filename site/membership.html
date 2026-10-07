@@ -4,34 +4,200 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Reset Inner Circle Membership | RMS Global Publishing</title>
-  <meta name="description" content="Reset Inner Circle membership tiers for creators building, collaborating and growing inside the RMS ecosystem.">
+  <meta name="description" content="Choose your Reset Inner Circle membership level: Member, Pro, or Executive. Secure identity-bound checkout and automated creator access.">
+  <meta name="theme-color" content="#080706">
   <link rel="icon" href="/favicon.svg">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/brand-upgrade.css">
   <style>
-    .membership-hero{padding:10rem 0 3rem}.membership-hero h1{max-width:900px}.membership-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;padding:2rem 0 5rem}.membership-card{display:flex;flex-direction:column;gap:1rem;padding:2rem}.membership-card .price{font-size:2.2rem;font-weight:800}.membership-card .price small{font-size:.9rem;font-weight:500;opacity:.7}.membership-card ul{padding-left:1.2rem;line-height:1.8}.membership-note{max-width:900px;padding:1.25rem 1.5rem;margin:0 0 4rem}.membership-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:auto}@media(max-width:900px){.membership-grid{grid-template-columns:1fr}.membership-hero{padding-top:8rem}}
+    :root{--m-gold:#d7b76a;--m-gold2:#9c7a36;--m-ink:#080706;--m-panel:rgba(19,16,12,.86);--m-line:rgba(215,183,106,.2);--m-muted:#b9b1a3}
+    body{background:
+      radial-gradient(circle at 18% 12%,rgba(174,128,44,.13),transparent 32rem),
+      radial-gradient(circle at 82% 28%,rgba(125,86,28,.11),transparent 34rem),
+      #080706;color:#f7f1e5}
+    .membership-shell{overflow:hidden}
+    .membership-hero{position:relative;padding:10.5rem 0 4.5rem;min-height:72vh;display:grid;align-items:center}
+    .membership-hero:after{content:"";position:absolute;inset:8rem -20vw auto auto;width:42rem;height:42rem;border:1px solid rgba(215,183,106,.12);border-radius:50%;box-shadow:0 0 0 5rem rgba(215,183,106,.025),0 0 0 10rem rgba(215,183,106,.018);pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.65fr);gap:4rem;align-items:end;position:relative;z-index:1}
+    .membership-hero h1{font-size:clamp(3.6rem,8vw,7.6rem);line-height:.88;letter-spacing:-.055em;max-width:12ch;margin:.55rem 0 1.4rem}
+    .membership-hero h1 em{color:var(--m-gold);font-weight:500}
+    .membership-hero .lead{font-size:clamp(1.05rem,1.6vw,1.3rem);max-width:43rem;color:#d9d0c2;line-height:1.7}
+    .signal-card{border:1px solid var(--m-line);background:linear-gradient(145deg,rgba(31,25,18,.82),rgba(10,9,8,.94));padding:1.45rem;border-radius:1.4rem;box-shadow:0 24px 70px rgba(0,0,0,.38);backdrop-filter:blur(16px)}
+    .signal-top{display:flex;align-items:center;justify-content:space-between;font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:#cabd9f}
+    .signal-dot{display:inline-block;width:.55rem;height:.55rem;border-radius:50%;background:#70d69a;box-shadow:0 0 18px rgba(112,214,154,.55);margin-right:.45rem}
+    .signal-card strong{display:block;font-size:1.65rem;margin:1.35rem 0 .4rem}
+    .signal-card p{color:var(--m-muted);line-height:1.6;margin:0}
+    .trust-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-top:2rem}
+    .trust-chip{border:1px solid rgba(215,183,106,.14);background:rgba(255,255,255,.025);border-radius:999px;padding:.65rem .85rem;text-align:center;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:#d6cab4}
+    .section-intro{padding:1rem 0 1.7rem;display:flex;justify-content:space-between;gap:2rem;align-items:end}
+    .section-intro h2{font-size:clamp(2.2rem,4.8vw,4.8rem);letter-spacing:-.04em;line-height:.96;margin:.3rem 0}
+    .section-intro p{max-width:35rem;color:var(--m-muted);line-height:1.7}
+    .billing-note{font-size:.82rem;color:#d8c8a5;border:1px solid var(--m-line);border-radius:999px;padding:.65rem 1rem;white-space:nowrap}
+    .membership-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.15rem;padding:1rem 0 3rem}
+    .membership-card{position:relative;display:flex;flex-direction:column;min-height:36rem;gap:1.05rem;padding:2rem;border:1px solid var(--m-line);border-radius:1.55rem;background:linear-gradient(155deg,rgba(28,23,17,.88),rgba(11,10,8,.96));box-shadow:0 28px 70px rgba(0,0,0,.28);overflow:hidden;transition:transform .25s ease,border-color .25s ease}
+    .membership-card:hover{transform:translateY(-5px);border-color:rgba(215,183,106,.42)}
+    .membership-card.featured{border-color:rgba(215,183,106,.48);background:linear-gradient(155deg,rgba(46,34,18,.9),rgba(13,11,8,.98))}
+    .membership-card.featured:before{content:"MOST POPULAR";position:absolute;top:1.1rem;right:-2.6rem;background:var(--m-gold);color:#171108;font-weight:900;font-size:.64rem;letter-spacing:.16em;padding:.48rem 3.15rem;transform:rotate(35deg)}
+    .tier-code{font-size:.72rem;letter-spacing:.18em;color:#d8bd78;font-weight:800}
+    .membership-card h3{font-size:2rem;letter-spacing:-.03em;margin:.2rem 0}
+    .tier-copy{color:var(--m-muted);line-height:1.65;min-height:4.8rem}
+    .price-wrap{padding:1.1rem 0;border-top:1px solid rgba(215,183,106,.14);border-bottom:1px solid rgba(215,183,106,.14)}
+    .price{font-size:3.05rem;line-height:1;font-weight:850;letter-spacing:-.05em}
+    .price small{font-size:.82rem;font-weight:650;letter-spacing:0;color:#bbb09d}
+    .annual{font-size:.82rem;color:#d7c49b;margin-top:.55rem}
+    .save{color:#86d9aa;font-weight:800}
+    .membership-card ul{list-style:none;margin:0;padding:0;display:grid;gap:.72rem}
+    .membership-card li{position:relative;padding-left:1.55rem;color:#ddd4c7;line-height:1.45}
+    .membership-card li:before{content:"✓";position:absolute;left:0;color:var(--m-gold);font-weight:900}
+    .membership-actions{display:grid;gap:.65rem;margin-top:auto}
+    .button.membership-cta{justify-content:center;width:100%;min-height:3.25rem}
+    .micro{font-size:.73rem;color:#908878;text-align:center;line-height:1.45}
+    .how-it-works{padding:3rem 0 4rem}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .step{border-top:1px solid var(--m-line);padding:1.4rem .4rem 0}
+    .step b{display:inline-grid;place-items:center;width:2rem;height:2rem;border-radius:50%;border:1px solid rgba(215,183,106,.35);color:var(--m-gold);margin-bottom:1rem}
+    .step h3{margin:.2rem 0 .55rem;font-size:1.25rem}
+    .step p{color:var(--m-muted);line-height:1.6}
+    .security-band{display:grid;grid-template-columns:1.1fr .9fr;gap:1.3rem;align-items:center;margin:1rem 0 4.5rem;padding:2.2rem;border-radius:1.5rem;border:1px solid var(--m-line);background:linear-gradient(120deg,rgba(215,183,106,.08),rgba(255,255,255,.02))}
+    .security-band h2{font-size:clamp(2rem,4vw,3.6rem);margin:.3rem 0 1rem;letter-spacing:-.04em}
+    .security-list{display:grid;gap:.75rem}
+    .security-list div{padding:.85rem 1rem;border:1px solid rgba(215,183,106,.12);border-radius:.9rem;background:rgba(0,0,0,.18)}
+    .faq{padding:1rem 0 5rem}
+    .faq h2{font-size:clamp(2.2rem,4vw,4rem);letter-spacing:-.04em}
+    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+    details{border:1px solid rgba(215,183,106,.15);border-radius:1rem;background:rgba(255,255,255,.02);padding:1rem 1.15rem}
+    summary{cursor:pointer;font-weight:750}
+    details p{color:var(--m-muted);line-height:1.65;margin:.8rem 0 .15rem}
+    .final-cta{padding:3.4rem 2rem;margin-bottom:5rem;text-align:center;border-radius:1.7rem;border:1px solid rgba(215,183,106,.28);background:radial-gradient(circle at 50% 0,rgba(215,183,106,.16),transparent 55%),#0d0b08}
+    .final-cta h2{font-size:clamp(2.3rem,5vw,5rem);letter-spacing:-.05em;margin:.3rem auto 1rem;max-width:13ch}
+    .final-cta p{max-width:42rem;margin:0 auto 1.6rem;color:#c9c0b2;line-height:1.65}
+    .command-pill{display:inline-block;margin:.7rem 0 1.4rem;padding:.7rem 1rem;border-radius:.8rem;background:#15110c;border:1px solid var(--m-line);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#f0d38d}
+    .success-banner{display:none;margin:8.2rem auto -6rem;max-width:70rem;border:1px solid rgba(112,214,154,.4);background:rgba(30,88,55,.18);border-radius:1rem;padding:1rem 1.2rem;color:#d8f6e5}
+    .success-banner.show{display:block}
+    @media(max-width:980px){.hero-grid,.security-band{grid-template-columns:1fr}.membership-grid{grid-template-columns:1fr}.membership-card{min-height:0}.steps{grid-template-columns:1fr}.trust-row{grid-template-columns:1fr 1fr}.faq-grid{grid-template-columns:1fr}.section-intro{align-items:start;flex-direction:column}.billing-note{white-space:normal}.membership-hero{padding-top:8.5rem;min-height:auto}}
+    @media(max-width:560px){.membership-hero h1{font-size:3.35rem}.trust-row{grid-template-columns:1fr}.membership-card{padding:1.45rem}.security-band{padding:1.5rem}.nav nav{display:none}}
   </style>
 </head>
-<body>
+<body class="membership-shell">
   <header class="nav-shell">
     <div class="nav wrap">
       <a class="brand brand-official" href="/" aria-label="Reset Inner Circle home"><img class="official-brand-logo" src="/reset-inner-circle-logo.svg" alt="Reset Inner Circle — Be You On Purpose" width="240" height="127"></a>
       <nav aria-label="Primary navigation"><a href="/">Home</a><a href="/arena.html">Arena</a><a href="/booking">Services</a><a href="https://discord.gg/DWyT4vskVW" target="_blank" rel="noopener">Community</a></nav>
     </div>
   </header>
+
+  <div id="successBanner" class="success-banner wrap" role="status"><strong>Payment received.</strong> Your membership is reconciling automatically. Return to Discord and use <code>/myaccess</code> for your private access route.</div>
+
   <main>
     <section class="membership-hero wrap">
-      <p class="kicker">RESET INNER CIRCLE</p>
-      <h1>Choose the level that matches <em>how you build.</em></h1>
-      <p class="lead">Three creator membership levels are approved. Membership fulfillment is being kept fail-closed until paid-role reconciliation is fully certified across Stripe, CreatorHub, Discord and Google Drive.</p>
+      <div class="hero-grid">
+        <div>
+          <p class="kicker">RESET INNER CIRCLE · CREATOR MEMBERSHIP</p>
+          <h1>Build louder.<br><em>Own everything.</em></h1>
+          <p class="lead">A premium creator membership layer for people who want community, resources, collaboration and momentum without giving up ownership. Choose your level, verify through Discord, and let the system handle access.</p>
+          <div class="trust-row" aria-label="Membership trust signals">
+            <div class="trust-chip">Secure Stripe billing</div>
+            <div class="trust-chip">Discord-bound access</div>
+            <div class="trust-chip">Automated fulfillment</div>
+            <div class="trust-chip">Ownership first</div>
+          </div>
+        </div>
+        <aside class="signal-card" aria-label="Membership system status">
+          <div class="signal-top"><span><i class="signal-dot"></i> SYSTEM READY</span><span>RMS / RESET</span></div>
+          <strong>One identity. One membership. Clean access.</strong>
+          <p>Your checkout is generated privately inside Discord so the membership purchased is tied to the correct creator identity. No public payment link guessing. No email-based role assignment.</p>
+        </aside>
+      </div>
     </section>
-    <section class="wrap membership-grid" aria-label="Membership plans">
-      <article class="lux-card membership-card"><span>MEMBER</span><h2>Build your base.</h2><div class="price">$29 <small>/ month · $290 annual</small></div><ul><li>Reset creator community access</li><li>Tier-based resource access after activation</li><li>Creator sessions and ecosystem participation</li></ul><div class="membership-actions"><a class="button gold" href="https://discord.gg/DWyT4vskVW" target="_blank" rel="noopener"><span>Enter the community</span><i>↗</i></a></div></article>
-      <article class="lux-card membership-card"><span>PRO</span><h2>Move with more access.</h2><div class="price">$59 <small>/ month · $590 annual</small></div><ul><li>Everything in Member</li><li>Expanded tier-based resource access</li><li>Higher-touch creator ecosystem participation</li></ul><div class="membership-actions"><a class="button gold" href="https://discord.gg/DWyT4vskVW" target="_blank" rel="noopener"><span>Enter the community</span><i>↗</i></a></div></article>
-      <article class="lux-card membership-card"><span>EXECUTIVE</span><h2>Operate at the top tier.</h2><div class="price">$99 <small>/ month · $990 annual</small></div><ul><li>Everything in Pro</li><li>Top membership resource tier</li><li>Priority ecosystem participation where offered</li></ul><div class="membership-actions"><a class="button gold" href="https://discord.gg/DWyT4vskVW" target="_blank" rel="noopener"><span>Enter the community</span><i>↗</i></a></div></article>
+
+    <section class="wrap" aria-labelledby="choose-tier">
+      <div class="section-intro">
+        <div><p class="kicker">CHOOSE YOUR LEVEL</p><h2 id="choose-tier">Your room.<br><em>Your pace.</em></h2></div>
+        <p>Annual pricing is roughly two months free. Every level keeps creator ownership intact. Higher tiers increase access and participation—not ownership claims or placement promises.</p>
+        <div class="billing-note">Monthly or annual · cancel through Stripe</div>
+      </div>
+
+      <div class="membership-grid">
+        <article class="membership-card">
+          <span class="tier-code">01 · MEMBER</span>
+          <h3>Build your base.</h3>
+          <p class="tier-copy">For creators who want a serious community layer, structured resources and a clean place to start moving.</p>
+          <div class="price-wrap"><div class="price">$29 <small>/ month</small></div><div class="annual">$290 / year · <span class="save">save $58</span></div></div>
+          <ul><li>Reset creator community access</li><li>Member resource tier</li><li>Creator sessions and ecosystem participation</li><li>Automated membership access reconciliation</li></ul>
+          <div class="membership-actions"><a class="button gold membership-cta" href="https://discord.gg/DWyT4vskVW" target="_blank" rel="noopener"><span>Choose Member in Discord</span><i>↗</i></a><div class="micro">Open Discord, then run <strong>/membership</strong>.</div></div>
+        </article>
+
+        <article class="membership-card featured">
+          <span class="tier-code">02 · PRO</span>
+          <h3>Move with more access.</h3>
+          <p class="tier-copy">For active creators ready for deeper resource access, stronger ecosystem participation and more room to build.</p>
+          <div class="price-wrap"><div class="price">$59 <small>/ month</small></div><div class="annual">$590 / year · <span class="save">save $118</span></div></div>
+          <ul><li>Everything in Member</li><li>Expanded Pro resource tier</li><li>Higher-touch creator participation</li><li>Automated tier upgrade and downgrade handling</li></ul>
+          <div class="membership-actions"><a class="button gold membership-cta" href="https://discord.gg/DWyT4vskVW" target="_blank" rel="noopener"><span>Choose Pro in Discord</span><i>↗</i></a><div class="micro">Private checkout options are identity-bound.</div></div>
+        </article>
+
+        <article class="membership-card">
+          <span class="tier-code">03 · EXECUTIVE</span>
+          <h3>Operate at the top tier.</h3>
+          <p class="tier-copy">For creators who want the highest membership resource level and priority ecosystem participation where offered.</p>
+          <div class="price-wrap"><div class="price">$99 <small>/ month</small></div><div class="annual">$990 / year · <span class="save">save $198</span></div></div>
+          <ul><li>Everything in Pro</li><li>Executive resource tier</li><li>Priority participation where offered</li><li>Full automated access lifecycle handling</li></ul>
+          <div class="membership-actions"><a class="button gold membership-cta" href="https://discord.gg/DWyT4vskVW" target="_blank" rel="noopener"><span>Choose Executive in Discord</span><i>↗</i></a><div class="micro">No guaranteed income, placements or publishing deals.</div></div>
+        </article>
+      </div>
     </section>
-    <section class="wrap"><div class="lux-card membership-note"><strong>Checkout activation status</strong><p>Stripe checkout and webhook transport have been validated. Public paid membership activation remains intentionally gated until automated paid-role reconciliation and full lifecycle certification are complete. This prevents anyone from paying before every promised access path is proven.</p></div></section>
+
+    <section class="how-it-works wrap" aria-labelledby="how">
+      <p class="kicker">ZERO-CONFUSION CHECKOUT</p>
+      <div class="section-intro"><h2 id="how">Three steps.<br><em>Then go build.</em></h2><p>The checkout flow is intentionally tied to Discord so access lands on the right member automatically.</p></div>
+      <div class="steps">
+        <div class="step"><b>1</b><h3>Enter Reset Inner Circle</h3><p>Join or open the Reset Discord server using your creator account.</p></div>
+        <div class="step"><b>2</b><h3>Run <code>/membership</code></h3><p>RMS generates six private monthly/annual checkout buttons securely bound to your Discord identity.</p></div>
+        <div class="step"><b>3</b><h3>Checkout with Stripe</h3><p>After payment, the lifecycle system reconciles membership state, resource access and your paid Discord tier.</p></div>
+      </div>
+    </section>
+
+    <section class="security-band wrap">
+      <div><p class="kicker">BUILT TO FAIL CLOSED</p><h2>Your payment should never outrun your access.</h2><p class="lead">RMS validates webhook signatures, rejects stale or duplicate transitions, preserves paid-through access, and keeps perpetual purchases separate from membership-derived permissions.</p></div>
+      <div class="security-list">
+        <div><strong>Identity-bound checkout</strong><br><small>Discord identity—not editable email—is the role authority.</small></div>
+        <div><strong>Lifecycle-aware access</strong><br><small>Upgrades, downgrades, cancellation and resubscribe are reconciled.</small></div>
+        <div><strong>Rights remain separate</strong><br><small>Membership never changes ownership, publishing splits or separately purchased licenses.</small></div>
+      </div>
+    </section>
+
+    <section class="faq wrap" aria-labelledby="faq-title">
+      <p class="kicker">BEFORE YOU JOIN</p>
+      <h2 id="faq-title">Clear answers.<br><em>No fine-print games.</em></h2>
+      <div class="faq-grid">
+        <details><summary>Does membership give RMS ownership of my work?</summary><p>No. Membership is an access and participation product. Ownership, publishing, licensing and rights agreements remain separate and require their own explicit terms.</p></details>
+        <details><summary>Why does checkout start in Discord?</summary><p>It lets RMS bind your paid access to the correct Discord identity automatically, instead of guessing from an email address.</p></details>
+        <details><summary>What happens if I cancel?</summary><p>When Stripe marks a subscription to cancel at period end, access is retained through the paid-through boundary. Membership-derived access is revoked after the subscription actually ends.</p></details>
+        <details><summary>What if a payment fails?</summary><p>A temporary past-due state does not instantly destroy access. Stripe lifecycle status is reconciled and access is removed only when the subscription reaches a terminal unpaid or canceled state.</p></details>
+        <details><summary>Can I upgrade or downgrade?</summary><p>Yes. Tier changes are reconciled to the actual subscription state and the matching membership access level.</p></details>
+        <details><summary>Does membership guarantee sync placements or revenue?</summary><p>No. RMS does not promise income, placements, publishing deals or licensing outcomes through membership.</p></details>
+      </div>
+    </section>
+
+    <section class="final-cta wrap">
+      <p class="kicker">READY WHEN YOU ARE</p>
+      <h2>Choose your level. Keep your leverage.</h2>
+      <p>Enter Reset Inner Circle and use the private membership command. Your checkout options will be generated for your Discord identity.</p>
+      <div class="command-pill">/membership</div><br>
+      <a class="button gold" href="https://discord.gg/DWyT4vskVW" target="_blank" rel="noopener"><span>Open Reset Inner Circle</span><i>↗</i></a>
+    </section>
   </main>
-  <footer class="footer wrap"><p>Reset Society | Be You On Purpose ✨ Remember · Embody · Stand · Elevate · Truth.</p><p>Angelea McCullough, Founder of RMS Global Publishing</p></footer>
+
+  <footer class="footer wrap">
+    <p>Reset Society | Be You On Purpose ✨ Remember · Embody · Stand · Elevate · Truth.</p>
+    <p>Angelea McCullough, Founder of RMS Global Publishing</p>
+  </footer>
+
+  <script>
+    (() => {
+      const params = new URLSearchParams(location.search);
+      if (params.get('membership') === 'success') document.getElementById('successBanner')?.classList.add('show');
+    })();
+  </script>
 </body>
 </html>
