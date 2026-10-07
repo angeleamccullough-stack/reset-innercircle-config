@@ -1,103 +1,105 @@
-﻿{
-    "schema_version":  "1.0.0",
-    "owner":  "Angelea McCullough, Founder of RMS Global Publishing",
-    "status":  "drive_and_identity_certified_full_benefit_fulfillment_pending",
-    "verified_at":  "2026-10-06",
-    "stripe_account":  "acct_1TelSkLlKcswOpj9",
-    "currency":  "usd",
-    "public_checkout_enabled":  false,
-    "incremental_recurring_cost_usd":  0,
-    "plans":  [
-                  {
-                      "tier":  "tier_1",
-                      "name":  "Member",
-                      "product_id":  "prod_VLu5wUykyDVX7N",
-                      "monthly":  {
-                                      "amount_cents":  2900,
-                                      "price_id":  "price_1ULCH7LlKcswOpj9m3dvv1Tc"
-                                  },
-                      "annual":  {
-                                     "amount_cents":  29000,
-                                     "price_id":  "price_1ULCH9LlKcswOpj9xp9KjM0x"
-                                 },
-                      "discord_role_key":  "studio_tier_1_member"
-                  },
-                  {
-                      "tier":  "tier_2",
-                      "name":  "Pro",
-                      "product_id":  "prod_VLu5WPbthUht4R",
-                      "monthly":  {
-                                      "amount_cents":  5900,
-                                      "price_id":  "price_1ULCHBLlKcswOpj9QHaWe9CT"
-                                  },
-                      "annual":  {
-                                     "amount_cents":  59000,
-                                     "price_id":  "price_1ULCHDLlKcswOpj96dzjsNu3"
-                                 },
-                      "discord_role_key":  "studio_tier_2_pro"
-                  },
-                  {
-                      "tier":  "tier_3",
-                      "name":  "Executive",
-                      "product_id":  "prod_VLu5WsaU7c5jDn",
-                      "monthly":  {
-                                      "amount_cents":  9900,
-                                      "price_id":  "price_1ULCHELlKcswOpj9fdUG34Np"
-                                  },
-                      "annual":  {
-                                     "amount_cents":  99000,
-                                     "price_id":  "price_1ULCHGLlKcswOpj9yL7T8I9S"
-                                 },
-                      "discord_role_key":  "studio_tier_3_executive"
-                  }
-              ],
-    "fulfillment_authority":  "CreatorHub authenticated entitlement records",
-    "identity_rules":  [
-                           "Bind Stripe customer/subscription to authenticated CreatorHub member server-side.",
-                           "Explicitly bind Discord user ID through authenticated, CSRF-protected OAuth or an equivalent verified linking flow. Never infer Discord identity from email.",
-                           "Resolve approved Google Drive principal separately. Grant only approved tier folders; never grant master-library access.",
-                           "Client success redirects never grant access."
-                       ],
-    "lifecycle_rules":  [
-                            "Verify Stripe webhook signatures; durably deduplicate event IDs and reconcile current subscription state before applying transitions.",
-                            "Cancel-at-period-end retains access until the paid-through boundary; a cancellation request alone must not revoke paid access.",
-                            "Upgrade or downgrade applies at the actual effective billing boundary. Reconcile Drive and Discord independently with retryable audited jobs.",
-                            "Failed payment follows an explicitly approved grace policy; unpaid initial checkout grants no paid access.",
-                            "Revoke only membership-derived grants. Preserve separately purchased perpetual licenses and unrelated roles or Drive permissions.",
-                            "Resubscribe reconciles the current verified identity and tier; stale webhook retries cannot restore expired grants."
-                        ],
-    "activation_gate":  {
-                            "requires_all_pass":  true,
-                            "tests":  [
-                                          "new_monthly_membership",
-                                          "new_annual_membership",
-                                          "upgrade",
-                                          "downgrade",
-                                          "cancel_at_period_end",
-                                          "failed_payment",
-                                          "revocation",
-                                          "resubscribe",
-                                          "missing_discord_binding",
-                                          "wrong_account_binding",
-                                          "duplicate_webhook",
-                                          "out_of_order_webhook",
-                                          "drive_grant_failure",
-                                          "discord_role_failure",
-                                          "retry_reconciliation"
-                                      ],
-                            "result":  "partial_pass_launch_blocked"
-                        },
-    "reuse_existing_products":  true,
-    "private_data_in_discord":  false,
-    "no_guaranteed_income_or_sync_placement":  true,
-    "certification_evidence":  {
-                                   "drive_live_grant_revoke":  "PASS_CONTROLLED_NON_CUSTOMER_2026-10-06",
-                                   "discord_identity_binding":  "PASS_VERIFIED_SERVER_BINDING_ACTIVE",
-                                   "local_studio_ingest":  "PASS_STAGED_INTERNAL_RIGHTS_REVIEW_REQUIRED",
-                                   "stale_drive_completion_guard":  "PASS",
-                                   "downgrade_event_support":  "PASS",
-                                   "cancel_at_period_end_deferral":  "PASS",
-                                   "public_checkout":  "BLOCKED",
-                                   "remaining_gate":  "Stripe lifecycle adapter + Discord paid-role reconciliation + selected benefit fulfillment + controlled end-to-end subscription certification"
-                               }
+{
+  "schema_version": "1.0.0",
+  "owner": "Angelea McCullough, Founder of RMS Global Publishing",
+  "status": "checkout_webhook_drive_identity_certified_paid_role_reconciliation_pending",
+  "verified_at": "2026-10-06",
+  "stripe_account": "acct_1TelSkLlKcswOpj9",
+  "currency": "usd",
+  "public_checkout_enabled": false,
+  "incremental_recurring_cost_usd": 0,
+  "plans": [
+    {
+      "tier": "tier_1",
+      "name": "Member",
+      "product_id": "prod_VLu5wUykyDVX7N",
+      "monthly": {
+        "amount_cents": 2900,
+        "price_id": "price_1ULCH7LlKcswOpj9m3dvv1Tc"
+      },
+      "annual": {
+        "amount_cents": 29000,
+        "price_id": "price_1ULCH9LlKcswOpj9xp9KjM0x"
+      },
+      "discord_role_key": "studio_tier_1_member"
+    },
+    {
+      "tier": "tier_2",
+      "name": "Pro",
+      "product_id": "prod_VLu5WPbthUht4R",
+      "monthly": {
+        "amount_cents": 5900,
+        "price_id": "price_1ULCHBLlKcswOpj9QHaWe9CT"
+      },
+      "annual": {
+        "amount_cents": 59000,
+        "price_id": "price_1ULCHDLlKcswOpj96dzjsNu3"
+      },
+      "discord_role_key": "studio_tier_2_pro"
+    },
+    {
+      "tier": "tier_3",
+      "name": "Executive",
+      "product_id": "prod_VLu5WsaU7c5jDn",
+      "monthly": {
+        "amount_cents": 9900,
+        "price_id": "price_1ULCHELlKcswOpj9fdUG34Np"
+      },
+      "annual": {
+        "amount_cents": 99000,
+        "price_id": "price_1ULCHGLlKcswOpj9yL7T8I9S"
+      },
+      "discord_role_key": "studio_tier_3_executive"
+    }
+  ],
+  "fulfillment_authority": "CreatorHub authenticated entitlement records",
+  "identity_rules": [
+    "Bind Stripe customer/subscription to authenticated CreatorHub member server-side.",
+    "Explicitly bind Discord user ID through authenticated, CSRF-protected OAuth or an equivalent verified linking flow. Never infer Discord identity from email.",
+    "Resolve approved Google Drive principal separately. Grant only approved tier folders; never grant master-library access.",
+    "Client success redirects never grant access."
+  ],
+  "lifecycle_rules": [
+    "Verify Stripe webhook signatures; durably deduplicate event IDs and reconcile current subscription state before applying transitions.",
+    "Cancel-at-period-end retains access until the paid-through boundary; a cancellation request alone must not revoke paid access.",
+    "Upgrade or downgrade applies at the actual effective billing boundary. Reconcile Drive and Discord independently with retryable audited jobs.",
+    "Failed payment follows an explicitly approved grace policy; unpaid initial checkout grants no paid access.",
+    "Revoke only membership-derived grants. Preserve separately purchased perpetual licenses and unrelated roles or Drive permissions.",
+    "Resubscribe reconciles the current verified identity and tier; stale webhook retries cannot restore expired grants."
+  ],
+  "activation_gate": {
+    "requires_all_pass": true,
+    "tests": [
+      "new_monthly_membership",
+      "new_annual_membership",
+      "upgrade",
+      "downgrade",
+      "cancel_at_period_end",
+      "failed_payment",
+      "revocation",
+      "resubscribe",
+      "missing_discord_binding",
+      "wrong_account_binding",
+      "duplicate_webhook",
+      "out_of_order_webhook",
+      "drive_grant_failure",
+      "discord_role_failure",
+      "retry_reconciliation"
+    ],
+    "result": "paid_role_reconciliation_and_full_lifecycle_certification_pending"
+  },
+  "reuse_existing_products": true,
+  "private_data_in_discord": false,
+  "no_guaranteed_income_or_sync_placement": true,
+  "certification_evidence": {
+    "drive_live_grant_revoke": "PASS_CONTROLLED_NON_CUSTOMER_2026-10-07",
+    "discord_identity_binding": "PASS_VERIFIED_SERVER_BINDING_ACTIVE",
+    "local_studio_ingest": "PASS_STAGED_INTERNAL_RIGHTS_REVIEW_REQUIRED",
+    "stale_drive_completion_guard": "PASS",
+    "downgrade_event_support": "PASS",
+    "cancel_at_period_end_deferral": "PASS",
+    "public_checkout": "BLOCKED_FAIL_CLOSED",
+    "remaining_gate": "Automated paid Discord-role reconciliation + controlled full subscription lifecycle certification",
+    "membership_checkout_webhook": "PASS_VALIDATED_2026-10-06",
+    "public_membership_surface": "PASS_LIVE_HTTP_200_2026-10-07"
+  }
 }
