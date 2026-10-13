@@ -5,6 +5,8 @@ import {
   GatewayIntentBits,
 } from 'discord.js';
 import { buildCommandResponse } from './commands.js';
+import {buildMembershipCommandResponse} from './membership.js';
+import {ASSISTANCE_COMMANDS,handleAssistance,assistanceFailure} from './assistance.js';
 
 const token = process.env.DISCORD_TOKEN;
 const guildId = process.env.DISCORD_GUILD_ID;
@@ -40,14 +42,22 @@ client.once(Events.ClientReady, (readyClient) => {
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {
-  if (!interaction.isChatInputCommand()) return;
+  if (!interaction.isChatInputCommand() && !interaction.isButton() && !interaction.isModalSubmit()) return;
   if (interaction.guildId !== guildId) {
     await interaction.reply({ content: 'This RMS command is available only inside Reset Inner Circle.', ephemeral: true });
     return;
   }
 
   try {
-    const response = buildCommandResponse(interaction.commandName);
+    if(ASSISTANCE_COMMANDS.has(interaction.commandName)||String(interaction.customId||'').startsWith('ra1.')){
+      const form=interaction.isModalSubmit()?[{components:[...interaction.fields.fields.values()].map(field=>({custom_id:field.customId,value:field.value}))}]:[];
+      const envelope={id:interaction.id,type:interaction.isChatInputCommand()?2:interaction.isModalSubmit()?5:3,guild_id:interaction.guildId,channel_id:interaction.channelId,member:{user:{id:interaction.user.id},permissions:interaction.memberPermissions?.bitfield.toString()||'0'},data:{name:interaction.commandName,custom_id:interaction.customId,components:form}};
+      let answer;try{answer=await handleAssistance(envelope);}catch{answer=assistanceFailure();}
+      if(answer?.type===9){await interaction.showModal(answer.data);return;}
+      if(answer?.data){const {allowed_mentions,...data}=answer.data;await interaction.reply({...data,allowedMentions:{parse:[]}});return;}
+    }
+    if(!interaction.isChatInputCommand()){await interaction.reply({content:'Open /helpstudio for current controls.',flags:64});return;}
+    const response = interaction.commandName==='membership'?buildMembershipCommandResponse(interaction.user.id):buildCommandResponse(interaction.commandName);
     await interaction.reply({
       ...response,
       allowedMentions: { parse: [] },

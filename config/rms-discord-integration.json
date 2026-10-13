@@ -1,12 +1,12 @@
 {
-  "schema_version": "1.8.0",
+  "schema_version": "1.9.0",
   "status": "active",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "system": "RMS Fully Automated Intelligence System",
   "discord": {
     "server_name": "Reset Inner Circle",
     "server_id": "1429398855681573038",
-    "invite_url": "https://discord.gg/PAHFE5mGV",
+    "invite_url": "https://discord.gg/DWyT4vskVW",
     "application_name": "RMS CreatorHub",
     "application_id": "1540169303213609023",
     "managed_role_id": "1540522466420465726",
@@ -34,7 +34,7 @@
       "deployment_model": "isolated-from-creatorhub-production"
     },
     "discovery": {
-      "interaction_model": "slash-commands",
+      "interaction_model": "slash-commands-and-member-bound-components",
       "message_content_intent_required": false,
       "commands_registered": [
         "portal",
@@ -193,7 +193,7 @@
       "replay",
       "offline"
     ],
-    "discord_fallback_url": "https://discord.gg/PAHFE5mGV",
+    "discord_fallback_url": "https://discord.gg/DWyT4vskVW",
     "truth_policy": "Never infer Discord voice/stage presence unless an approved live source explicitly confirms it. Schedule/config state may announce STARTING SOON and NEXT UP; LIVE NOW requires explicit live state or an active bounded event window.",
     "supported_programs": [
       "OmniLink Power Hour",
@@ -421,5 +421,25 @@
     "Recognize",
     "Measure",
     "Improve"
-  ]
+  ],
+  "assistance": {
+    "version": "1.0.0",
+    "entry_commands": [
+      "portal",
+      "helpstudio",
+      "support",
+      "studio"
+    ],
+    "requested_help": "implemented_pending_release_verification",
+    "unsolicited_mode": "shadow",
+    "message_content_listener": false,
+    "member_identity": "signed_discord_id; no email/name inference",
+    "state_source": "CreatorHub existing intelligence and routing ledgers",
+    "host_readiness": "explicit current-route checklist and listener attestation; not device telemetry",
+    "human_takeover": "explicit staff controls; no unobserved-message inference",
+    "outbound_messages_enabled": false,
+    "automatic_spending": false,
+    "quiet_recognition": "policy_prepared; exact Glow Exchange application/dashboard not changed",
+    "sound_stage_channel_id": "1431964592421998684"
+  }
 }
