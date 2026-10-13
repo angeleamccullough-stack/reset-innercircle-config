@@ -25,4 +25,13 @@ jobs:
       - name: Verify requested assistance and signed interaction boundaries
         run: npm --prefix rms-discord-bridge run test:assistance
       - name: Run Reset contract regression
-        run: node --test tests/reset-contract.test.mjs
+        run: node --test tests/reset-contract.test.mjs tests/reset-booking-routing.test.mjs tests/reset-help-routing.test.mjs
+
+      - name: Verify public Help and 404 recovery at real desktop/mobile sizes
+        env:
+          RMS_CREATOR_QA_RUNTIME: ${{ runner.temp }}/rms-director-qa
+          RMS_HELP_EVIDENCE: ${{ runner.temp }}/rms-help-evidence
+        run: |
+          npm install --prefix "$RMS_CREATOR_QA_RUNTIME" --save-exact --ignore-scripts --no-audit --no-fund playwright@1.56.1
+          "$RMS_CREATOR_QA_RUNTIME/node_modules/.bin/playwright" install --with-deps chromium
+          node tests/reset-help-browser.mjs

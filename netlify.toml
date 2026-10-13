@@ -55,3 +55,14 @@
   from = "/membership/"
   to = "/membership.html"
   status = 200
+
+# Public help entry; Discord command and web URL are different interfaces.
+[[redirects]]
+  from = "/helpstudio"
+  to = "/helpstudio.html"
+  status = 200
+
+[[redirects]]
+  from = "/help"
+  to = "/helpstudio"
+  status = 302
