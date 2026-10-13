@@ -20,3 +20,6 @@ The browser suite asserts real 320/390/768/1365 widths, no horizontal/control ov
 
 ## Rollback
 Revert this web-entry commit using the existing Git deployment workflow. No database or payment rollback is needed. Do not delete member state or undo the shared-assistance release.
+
+## Adjacent regression found
+The pre-release live destination check found a pre-existing membership decorative pseudo-element extending document width to 454px at a 390px viewport. Hiding only that decoration below 560px removes the overhang; membership content, price, checkout and identity logic are unchanged. The browser suite now checks this at 320px and 390px.
