@@ -102,7 +102,7 @@ export function buildCommandResponse(commandName) {
       return { ephemeral: true, embeds: [baseEmbed('RMS Stem Export Checklist', `Export from a common start point where practical. Keep sample rate and bit depth consistent. Name each stem clearly. Include instrumental, vocal, FX and alternate versions only when they are part of the agreed delivery scope.\n\nDo not post confidential or unreleased source files in public Discord channels.`)] };
     case 'requestmix':
     case 'studioservices':
-      return { ephemeral: true, embeds: [baseEmbed('RESET Studio Services', `Current starting rates and service scope live on the Studio floor. Rights, complexity, revision scope and delivery requirements are confirmed before work begins. Membership pricing remains Founder-approval gated and Stripe is intentionally last.\n\n${studioUrl()}`)] };
+      return { ephemeral: true, embeds: [baseEmbed('RESET Studio Services', `Current starting rates and service scope live on the Studio floor. Rights, complexity, revision scope and delivery requirements are confirmed before work begins. Studio production services and membership are separate. Review the current service scope before checkout; no bundle or placement is guaranteed.\n\n${studioUrl()}`)] };
     case 'myprojects':
       return { ephemeral: true, embeds: [baseEmbed('My RMS Projects', `Private project information stays out of Discord. Sign in to CreatorHub™ to view your authenticated creator records and project workflows.\n\n${creatorHubUrl()}`)] };
     case 'myaccess':
