@@ -113,3 +113,52 @@ test('RMS Discord bridge is guild-bound and routes customers through canonical d
   assert.ok(discordRegistration.indexOf('rest.get(route)') < discordRegistration.indexOf('rest.put('));
   assert.match(discordRegistration, /already current; no Discord write needed/);
 });
+
+// Preserve the evidence/authority boundary discovered during community alignment.
+test('community bots remain capabilities beneath whole-ecosystem authority', () => {
+  const carl = JSON.parse(read('config/carl-premium-automation.json'));
+  const discord = JSON.parse(read('config/rms-discord-integration.json'));
+  for (const config of [carl, discord]) {
+    assert.equal(config.ecosystem_alignment.company_control_plane, 'RMS Command Core v3.1');
+    assert.equal(config.ecosystem_alignment.provider_authority, 'CAPABILITY_ONLY');
+    assert.equal(config.ecosystem_alignment.new_paid_dependency, false);
+    assert.equal(config.ecosystem_alignment.new_scheduler, false);
+    assert.equal(config.ecosystem_alignment.recognition_is_entitlement, false);
+    assert.equal(config.ecosystem_alignment.recognition_is_mastery, false);
+  }
+  assert.equal(carl.tatsu_control.native_bot_control_verified, false);
+  assert.equal(discord.discord.tatsu_integration.native_bot_control_verified, false);
+  assert.equal(carl.standard_features_to_harden.greetings.live_state.creatorhub, 'https://creators.rmsglobalpublishing.com/start');
+  assert.equal(carl.tatsu_control.live_state.automatic_role_mapping_count, 0);
+  assert.equal(carl.tatsu_control.live_state.self_role_mapping_count, 0);
+  if (carl.tatsu_control.live_state.recognition_runtime_certified) {
+    assert.ok(carl.tatsu_control.recognition_evidence?.source);
+    assert.ok(carl.tatsu_control.recognition_evidence?.verified_at);
+  } else {
+    assert.match(carl.tatsu_control.status, /NOT_CERTIFIED/);
+  }
+  assert.equal(carl.tatsu_control.live_state.historical_balances_preserved, true);
+  assert.equal(carl.tatsu_control.live_state.historical_voucher_records_preserved, true);
+  const counts = ['points_blocked_text_channels', 'score_blocked_text_channels', 'global_xp_credits_blocked_text_channels'].map(key => carl.tatsu_control.live_state[key]);
+  assert.ok(counts.every(n => Number.isInteger(n) && n > 0));
+  assert.ok(counts.every(n => n === counts[0]));
+  assert.equal(carl.tatsu_control.live_state.new_channel_coverage_requires_recheck, true);
+  const loggingConfig = carl.standard_features_to_harden.logging;
+  assert.equal(loggingConfig.privacy_policy, 'REQUIRE_PRIVATE_STAFF_DESTINATIONS');
+  const logging = loggingConfig.live_state;
+  if (loggingConfig.private_only === true) {
+    assert.equal(logging.privacy_verification, 'VERIFIED_DISCORD_PERMISSIONS');
+    assert.ok(logging.privacy_evidence?.source);
+    assert.ok(logging.privacy_evidence?.verified_at);
+  } else {
+    assert.equal(loggingConfig.private_only, null);
+  }
+  if (logging.privacy_gap === false) {
+    assert.equal(logging.privacy_verification, 'VERIFIED_DISCORD_PERMISSIONS');
+    assert.ok(logging.privacy_evidence?.source);
+    assert.ok(logging.privacy_evidence?.verified_at);
+  } else {
+    assert.equal(logging.privacy_gap, null);
+    assert.ok(carl.live_audit.standard_gap.length > 0);
+  }
+});
