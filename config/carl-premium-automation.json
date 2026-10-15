@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.2.0",
+  "schema_version": "1.2.1",
   "status": "live_standard_automation_green_premium_entitlement_recovery_required",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "system": "Reset Inner Circle / Carl-bot Premium Automation",
@@ -379,7 +379,15 @@
         "current live room"
       ],
       "autorole": "New Member / onboarding role until gate completion",
-      "no_private_data": true
+      "no_private_data": true,
+      "live_state": {
+        "welcome_message": "VERIFIED: join message routes members from Code of Law verification to CreatorHub, Studio or membership.",
+        "dm_on_join": "VERIFIED: DM provides verify -> #flow-selection -> one action today sequence.",
+        "creatorhub": "https://creators.rmsglobalpublishing.com/create",
+        "studio": "https://resetinnercircle.com/booking",
+        "membership": "/membership",
+        "privacy_warning": true
+      }
     },
     "moderation": {
       "enabled": true,
@@ -389,7 +397,14 @@
       "anti_attachment_spam": true,
       "bad_link_filter": true,
       "progressive_action": "delete/warn → timeout → moderator review",
-      "staff_exemptions": "Founder/mod roles only; use narrow channel exceptions instead of global bypass."
+      "staff_exemptions": "Founder/mod roles only; use narrow channel exceptions instead of global bypass.",
+      "live_state": {
+        "automod_log_channel": "#ticket-logs",
+        "moderation_report_channel": "#🛠-help-desk-tickets",
+        "invite_spam": true,
+        "delete_scary_files": true,
+        "status": "VERIFIED_HARDENED"
+      }
     },
     "logging": {
       "enabled": true,
@@ -515,16 +530,18 @@
       ],
       "cooldown_required": true,
       "live_state": {
-        "count": 5,
+        "count": 7,
         "type": "Normal",
         "records": [
           "how do i submit music",
           "how do i join the sound stage",
           "how do i become a member",
           "how do i book the studio",
-          "how do i get sync ready"
+          "how do i get sync ready",
+          "where do i start",
+          "what should i do first"
         ],
-        "purpose": "Low-noise creator routing into secure CreatorHub, membership, Studio, Sound Stage and sync-readiness pathways."
+        "purpose": "Low-noise creator routing into secure CreatorHub, membership, Studio, Sound Stage, sync-readiness and first-action pathways."
       }
     },
     "autoroles_and_stickyroles": {
@@ -542,13 +559,14 @@
       }
     },
     "gaming_notifications": {
-      "enabled": true,
+      "enabled": false,
       "destination": "Game Room or game-drops",
-      "use": "Free-game/sale alerts only if they add value; no unrelated promotional spam.",
+      "use": "Disabled: unrelated free-game/sale promotions are not part of the RMS creator conversion journey.",
       "live_state": {
-        "free_game_alerts": true,
-        "discount_offer_alerts": true,
-        "destination": "#🎯 | Game Room"
+        "free_game_alerts": false,
+        "discount_offer_alerts": false,
+        "destination": "#🎯 | Game Room",
+        "status": "VERIFIED_DISABLED_NOISE_REDUCTION"
       }
     },
     "reaction_roles": {
@@ -586,7 +604,7 @@
       ]
     },
     "live_routing_tags": {
-      "verified_count": 7,
+      "verified_count": 8,
       "records": [
         "membership",
         "studio",
@@ -594,9 +612,10 @@
         "create",
         "sync",
         "academy",
-        "marketplace"
+        "marketplace",
+        "start"
       ],
-      "note": "All seven were created or verified live in Carl and route into approved RMS revenue/value pathways without exposing private creator data."
+      "note": "Eight routing tags verified live. The new start tag gives one decision surface for CreatorHub, Studio, membership and verification while preserving privacy."
     }
   },
   "ownership_after_upgrade": {
@@ -650,7 +669,7 @@
     ]
   },
   "audit_reconciled_at": "2026-10-15",
-  "audit_note": "Authenticated live Carl dashboard hardening completed at $0 incremental cost using local RMS browser automation. Standard/free automation is materially green and revenue routing was expanded. Premium-only controls remain entitlement-blocked because Carl reports no active Premium on the authenticated account; no repurchase was attempted.",
+  "audit_note": "Authenticated Carl dashboard member-journey optimization completed at $0 incremental cost. Join/DM onboarding now drives verify -> pathway -> CreatorHub/Studio/membership action; start routing and two first-step triggers are live; unrelated game promotion alerts are disabled. Premium entitlement remains unresolved and no repurchase was attempted.",
   "live_audit": {
     "audited_at": "2026-10-15",
     "browser_method": "Local headed Chrome via RMS Desktop Commander / Chrome DevTools Protocol; zero incremental browser-agent cost",
@@ -666,7 +685,12 @@
       "Five creator help/revenue triggers live: submit music, Sound Stage entry, membership, Studio booking, sync readiness.",
       "Removed all four legacy voice-role links because they could grant membership/authority/non-presence roles; voice links now zero pending safe presence-only roles after Premium recovery.",
       "Removed 🪶 RESET Inner Circle VIP level-75 XP reward; level rewards now zero so XP cannot grant VIP/paid/private access.",
-      "Preserved Code of Law gate, flow-selection roles, access-granted opt-ins, Lounge Member autorole, sticky-role reassignment, Suggestions, Starboard threshold 3, game alerts, YouTube and Twitch feeds."
+      "Preserved Code of Law gate, flow-selection roles, access-granted opt-ins, Lounge Member autorole, sticky-role reassignment, Suggestions, Starboard threshold 3, game alerts, YouTube and Twitch feeds.",
+      "Member conversion journey optimized: welcome + DM now route verify → #flow-selection → CreatorHub, Studio or membership with public-data safety warning.",
+      "Created verified start routing tag covering CreatorHub, Studio, membership and onboarding.",
+      "Added verified triggers: 'where do i start' and 'what should i do first'; trigger count is now 7/50.",
+      "Disabled generic free-game and discount alerts to remove non-RMS promotional noise; YouTube/Twitch creator feeds preserved.",
+      "Enabled Automod 'Delete scary files' and verified Carl persisted automod.settings."
     ],
     "verified_existing": [
       "Code of Law reaction-role verification gate",
@@ -680,7 +704,11 @@
       "Game free/discount alerts to Game Room",
       "YouTube Reset_Engagement_Lounge → reset-main-arena",
       "Twitch reset_engagement_lounge → reset-sound-lounge",
-      "Automod logs to ticket-logs; moderation reports to help-desk-tickets; invite spam and existing spam/mention/attachment/bad-word thresholds preserved"
+      "Automod logs to ticket-logs; moderation reports to help-desk-tickets; invite spam and existing spam/mention/attachment/bad-word thresholds preserved",
+      "Welcome + DM conversion routing into CreatorHub, Studio and membership",
+      "Start routing tag",
+      "Seven creator-help triggers including first-step routing",
+      "Generic game/deal alerts disabled"
     ],
     "premium_blocked_features": [
       "Premium Levels & XP live operation / cosmetic reward expansion",
@@ -698,6 +726,6 @@
       "Logging channel/event hardening remains incomplete: current live routing is mixed between activity-reports, ticket-logs and voice-control-center; a direct programmatic persistence attempt did not survive reload."
     ],
     "blocker": "Carl does not recognize the previously renewed Premium entitlement on the authenticated account. No purchase or upgrade was attempted. Reconcile the existing Carl/Patreon/Discord subscription entitlement instead of buying again.",
-    "next_free_step": "Resolve the already-paid Premium entitlement/account mapping. Then activate safe presence-only voice links, high-value stickies, transient-only Auto Purge, cosmetic-only Levels rewards, Premium Starboard controls and extra approved feeds. Separately complete logging hardening through a persistence-safe dashboard interaction."
+    "next_free_step": "Run one non-staff member journey test from join -> Code of Law verification -> #flow-selection -> CreatorHub/Studio/membership action, then measure where members stop. Premium-only expansion remains gated on entitlement recovery; do not repurchase."
   }
 }
