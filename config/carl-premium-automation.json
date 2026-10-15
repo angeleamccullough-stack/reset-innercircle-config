@@ -669,7 +669,7 @@
     ]
   },
   "audit_reconciled_at": "2026-10-15",
-  "audit_note": "2026-10-15: Carl/Tatsu control model hardened at zero incremental cost. Tatsu recognition-only state verified; Carl low-noise logging split certified. No new spend or subscription added.",
+  "audit_note": "Tatsu is authenticated and hardened to an inert recognition-only posture at $0 incremental cost: economy commands disabled, store empty, leveled roles disabled, self-role command disabled/saved, no reaction roles, no notification destinations, and social/fun/search commands disabled. Carl remains primary Discord orchestration. Three Carl logging toggles still fail persistence after reload and are documented as a vendor limitation; existing verified logging remains operational.",
   "live_audit": {
     "audited_at": "2026-10-15",
     "browser_method": "Local headed Chrome via RMS Desktop Commander / Chrome DevTools Protocol; zero incremental browser-agent cost",
@@ -722,9 +722,11 @@
       "Automatic star on new entries / custom starboard emoji",
       "Expanded YouTube/Twitch capacity"
     ],
-    "standard_gap": [],
+    "standard_gap": [
+      "Carl logging still does not persist Member timeout, Member remove-timeout, or Leave voice channel toggles after reload; retain verified existing logging and use Discord native audit history as fail-safe rather than adding a duplicate paid logger."
+    ],
     "blocker": "Carl does not recognize the previously renewed Premium entitlement on the authenticated account. No purchase or upgrade was attempted. Reconcile the existing Carl/Patreon/Discord subscription entitlement instead of buying again.",
-    "next_free_step": "Run a non-staff onboarding/conversion journey test. Premium-only expansion remains gated on Carl entitlement recovery; do not repurchase."
+    "next_free_step": "No Tatsu action required. Continue using Carl as primary Discord control. Treat the three non-persisting Carl logging events as a vendor limitation unless Carl changes behavior; do not add paid logging overhead."
   },
   "tatsu_control": {
     "status": "LIVE_RECOGNITION_ONLY_HARDENED",
@@ -739,11 +741,17 @@
       "Tatsu is limited to verified contribution/event recognition and optional vanity/accolade rewards.",
       "Tatsu rewards must never grant staff authority, membership entitlement, paid access, publishing/licensing approval, rights status or private CreatorHub access.",
       "Do not duplicate Carl/RMS announcements or cross-platform automations.",
-      "If Tatsu is unavailable, recognition falls back to manual verification; no customer-critical flow may depend on Tatsu."
+      "If Tatsu is unavailable, recognition falls back to manual verification; no customer-critical flow may depend on Tatsu.",
+      "All Tatsu Rewards & Economy commands are disabled.",
+      "Tatsu leveled roles are disabled.",
+      "Tatsu self-role command is disabled and saved.",
+      "Tatsu reaction-role table is empty.",
+      "Tatsu greeting and ban-log destinations are empty.",
+      "Tatsu Social, Fun, and Search/Info commands are all disabled."
     ],
-    "auth_evidence": "2026-10-15: Tatsu home redirected to Discord OAuth then Discord login in the RMS headed browser.",
-    "blocker": null,
-    "next_safe_action": "Keep Tatsu subordinate to Carl/RMS policy. Do not re-enable leveled roles or reward-store listings.",
+    "auth_evidence": "2026-10-15: authenticated Reset Inner Circle Tatsu dashboard audited and hardened.",
+    "blocker": "None for current zero-cost recognition-only hardening. Historical disabled leveled-role targets remain visible but cannot execute while the module is disabled.",
+    "next_safe_action": "Keep Tatsu disabled/inert unless RMS explicitly needs a verified recognition use case. Do not enable ambient XP, economy, role grants, greetings, logs, or entertainment commands.",
     "live_state": {
       "authenticated": true,
       "leveled_roles_disabled": true,
