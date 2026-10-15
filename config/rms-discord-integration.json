@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.9.0",
+  "schema_version": "1.10.0",
   "status": "active",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "system": "RMS Fully Automated Intelligence System",
@@ -123,6 +123,34 @@
         }
       },
       "public_checkout_enabled": true
+    },
+    "tatsu_integration": {
+      "provider": "Tatsu",
+      "dashboard": "https://tatsu.gg/home",
+      "control_model": "Carl-bot is the Discord orchestration/policy authority; Tatsu remains the provider-owned execution surface for recognition/economy features. Carl does not receive Tatsu account credentials and no unsupported bot-to-bot administrative control is assumed.",
+      "verified_provider_capabilities": [
+        "server points earned from participation",
+        "server store rewards",
+        "role/accolade rewards",
+        "leaderboards and leveled roles"
+      ],
+      "rms_scope": [
+        "verified event/contribution recognition",
+        "positive engagement recognition tied to RMS-approved events or milestones",
+        "optional vanity/non-authority rewards only"
+      ],
+      "prohibited_overlap": [
+        "ambient message XP when Carl Levels is the designated progression owner",
+        "membership or paid-access entitlement",
+        "staff/moderator authority",
+        "licensing, publishing, rights or sync approval",
+        "private CreatorHub data storage",
+        "duplicate announcements already owned by Carl/RMS CreatorHub App"
+      ],
+      "cost_policy": "Use current/free Tatsu capabilities only. No Tatsu subscription, add-on, token purchase, paid reward inventory or upgrade without explicit Founder approval.",
+      "auth_state": "BLOCKED_LOGIN_REQUIRED",
+      "latest_verification": "2026-10-15: tatsu.gg/home redirected to Discord OAuth and then Discord login in the RMS browser. No credential bypass attempted.",
+      "next_safe_action": "After Founder signs into Discord in the existing browser, audit Tatsu server settings and disable any duplicate ambient XP/authority-bearing rewards before enabling RMS recognition use."
     }
   },
   "automation_ownership": {
@@ -146,7 +174,6 @@
       "static embeds and Advanced TagScript launchers",
       "moderation and Drama Watcher",
       "event entry controls",
-      "Levels/XP ambient participation progression",
       "sticky messages",
       "voice-role presence links",
       "auto purge in explicitly transient channels only",
@@ -155,7 +182,9 @@
       "starboard and suggestions",
       "greetings, separate farewell, autoroles and sticky roles",
       "Discord-native logging including non-Carl ban logs",
-      "server discovery"
+      "server discovery",
+      "primary Discord orchestration and policy authority for onboarding, moderation, routing, community progression and engagement automation",
+      "Carl Levels/XP is the single ambient participation progression owner when available; Tatsu must not duplicate ambient XP"
     ],
     "zapier": [
       "cross-platform schedule triggers",
@@ -167,9 +196,12 @@
       "private failure alerts"
     ],
     "tatsu": [
+      "subordinate recognition/reward execution under RMS/Carl policy",
       "verified event/contribution recognition",
       "positive engagement recognition",
-      "not ambient message XP"
+      "vanity or accolade rewards with no authority/private access",
+      "not ambient message XP",
+      "not membership, staff authority, licensing approval, rights status or payment entitlement"
     ],
     "ticket_tool": [
       "private support",
@@ -402,13 +434,14 @@
       "metered_browser_agents": "explicit-founder-approval-only",
       "authentication_failure": "fail closed after one confirmed login loop and switch to free/manual fallback",
       "credential_policy": "Never request passwords, MFA codes, recovery codes, or session cookies in chat."
-    }
+    },
+    "tatsu_control_boundary": "Carl/RMS policy may define when Tatsu is used, but Tatsu configuration remains provider-owned and requires its own authenticated dashboard. Never share or automate Discord/Tatsu credentials between bots."
   },
   "resilience": {
     "rms_creatorhub_app_failure": "Carl-bot, Discord native Events, and manual RMS operations remain usable",
-    "carl_bot_failure": "Discord Events and manual RMS operations remain usable",
+    "carl_bot_failure": "Discord Events, RMS CreatorHub App, Tatsu recognition (if independently available), and manual RMS operations remain usable; Tatsu must not inherit moderation or access-control authority.",
     "zapier_failure": "send one private automation-alerts notice and use manual event fallback",
-    "tatsu_failure": "record recognition manually",
+    "tatsu_failure": "Skip automated recognition and record verified recognition manually; do not block onboarding, access, CreatorHub, Studio, membership, moderation or events.",
     "production_app_failure": "continue Discord communication and switch to the approved manual media fallback",
     "single_automation_failure_must_not_block_server": true,
     "browser_connector_failure": "Use service-native APIs/connectors first; then free local headed browser/manual screenshot execution. Do not spend on metered browser automation without explicit Founder approval."
@@ -440,6 +473,13 @@
     "outbound_messages_enabled": false,
     "automatic_spending": false,
     "quiet_recognition": "policy_prepared; exact Glow Exchange application/dashboard not changed",
-    "sound_stage_channel_id": "1431964592421998684"
+    "sound_stage_channel_id": "1431964592421998684",
+    "tatsu_alignment": {
+      "state": "POLICY_ALIGNED_AUTH_WRITE_BLOCKED",
+      "incremental_cost_usd": 0,
+      "founder_login_required": true,
+      "no_duplicate_xp": true,
+      "no_authority_rewards": true
+    }
   }
 }
