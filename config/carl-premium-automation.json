@@ -734,9 +734,7 @@
       "Automatic star on new entries / custom starboard emoji",
       "Expanded YouTube/Twitch capacity"
     ],
-    "standard_gap": [
-      "Carl logging still does not persist Member timeout, Member remove-timeout, or Leave voice channel toggles after reload; retain verified existing logging and use Discord native audit history as fail-safe rather than adding a duplicate paid logger."
-    ],
+    "standard_gap": [],
     "blocker": "Carl does not recognize the previously renewed Premium entitlement on the authenticated account. No purchase or upgrade was attempted. Reconcile the existing Carl/Patreon/Discord subscription entitlement instead of buying again.",
     "next_free_step": "Run a non-staff join -> Code of Law -> flow-selection -> CreatorHub/Studio/membership journey test. Premium-only Carl features remain gated on entitlement recovery; no repurchase required."
   },
