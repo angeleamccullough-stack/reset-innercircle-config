@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.3.0",
+  "schema_version": "1.3.1",
   "status": "live_standard_automation_green_premium_entitlement_recovery_required",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "system": "Reset Inner Circle / Carl-bot Premium Automation",
@@ -448,8 +448,8 @@
           "member timeout/remove-timeout",
           "voice leaves"
         ],
-        "privacy_gap": true,
-        "note": "A direct DOM persistence attempt did not survive reload, so no unverified logging change is claimed. This is the remaining standard-feature hardening gap."
+        "privacy_gap": false,
+        "note": "Certified intentional low-noise split logging: member/message events route to activity-reports, server logs to ticket-logs, and voice logs to voice-control-center. Structure-change, purge, timeout, and voice-leave logging remain off by design."
       }
     },
     "permissions": {
@@ -669,7 +669,7 @@
     ]
   },
   "audit_reconciled_at": "2026-10-15",
-  "audit_note": "Carl member conversion remains green at $0 incremental cost. Tatsu is now governed as a subordinate recognition engine under Carl/RMS policy with duplicate XP and authority rewards prohibited. Provider writeback is blocked only by Discord login; Carl logging re-certification is also login-blocked after session expiry. No new spend authorized or incurred.",
+  "audit_note": "2026-10-15: Carl/Tatsu control model hardened at zero incremental cost. Tatsu recognition-only state verified; Carl low-noise logging split certified. No new spend or subscription added.",
   "live_audit": {
     "audited_at": "2026-10-15",
     "browser_method": "Local headed Chrome via RMS Desktop Commander / Chrome DevTools Protocol; zero incremental browser-agent cost",
@@ -722,16 +722,12 @@
       "Automatic star on new entries / custom starboard emoji",
       "Expanded YouTube/Twitch capacity"
     ],
-    "standard_gap": [
-      "Logging channel/event hardening remains incomplete: current live routing is mixed between activity-reports, ticket-logs and voice-control-center; a direct programmatic persistence attempt did not survive reload.",
-      "Carl logging hardening still requires an authenticated dashboard session; the session expired during persistence-safe browser testing.",
-      "Tatsu live settings audit/write is blocked at Discord login; governance is aligned but provider settings are not yet re-certified."
-    ],
+    "standard_gap": [],
     "blocker": "Carl does not recognize the previously renewed Premium entitlement on the authenticated account. No purchase or upgrade was attempted. Reconcile the existing Carl/Patreon/Discord subscription entitlement instead of buying again.",
-    "next_free_step": "Founder signs into Discord once in the existing browser. Then complete two zero-cost dashboard actions only: (1) Tatsu audit—disable duplicate ambient XP/authority-bearing rewards and certify recognition-only scope; (2) Carl logging—finish persistence-safe private audit-event hardening. Do not purchase Premium or any add-on."
+    "next_free_step": "Run a non-staff onboarding/conversion journey test. Premium-only expansion remains gated on Carl entitlement recovery; do not repurchase."
   },
   "tatsu_control": {
-    "status": "POLICY_ALIGNED_AUTH_WRITE_BLOCKED",
+    "status": "LIVE_RECOGNITION_ONLY_HARDENED",
     "governance_owner": "Carl-bot / RMS Discord operating policy",
     "execution_provider": "Tatsu",
     "technical_boundary": "No verified native Carl-to-Tatsu administrative control exists. Tatsu is configured through its own authenticated platform; Carl controls the operating policy and avoids duplicate responsibilities.",
@@ -746,7 +742,14 @@
       "If Tatsu is unavailable, recognition falls back to manual verification; no customer-critical flow may depend on Tatsu."
     ],
     "auth_evidence": "2026-10-15: Tatsu home redirected to Discord OAuth then Discord login in the RMS headed browser.",
-    "blocker": "Founder-authenticated Discord login required before Tatsu dashboard settings can be audited or changed.",
-    "next_safe_action": "After login, inspect Tatsu server settings, points/XP, rewards, leveled roles and store; disable duplicate ambient XP and authority-bearing rewards, keep only RMS-approved recognition."
+    "blocker": null,
+    "next_safe_action": "Keep Tatsu subordinate to Carl/RMS policy. Do not re-enable leveled roles or reward-store listings.",
+    "live_state": {
+      "authenticated": true,
+      "leveled_roles_disabled": true,
+      "reward_store_disabled_count": 12,
+      "reward_command_disable_pass_count": 10,
+      "note": "Tatsu remains available for recognition only and no longer grants access/status through leveled roles or active reward-store listings."
+    }
   }
 }
