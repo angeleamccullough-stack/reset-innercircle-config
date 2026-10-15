@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.1.0",
-  "status": "service_payment_lanes_bound_membership_checkout_still_gated",
+  "schema_version": "1.2.0",
+  "status": "service_payment_lanes_and_membership_live_certified",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "gateway": "https://resetinnercircle.com/",
   "verified_architecture": {
@@ -26,7 +26,7 @@
   },
   "discord_model": {
     "server_id": "1429398855681573038",
-    "public_invite": "https://discord.gg/PAHFE5mGV",
+    "public_invite": "https://discord.gg/DWyT4vskVW",
     "live_events_channel_id": "1429398859020370096",
     "shared_main_arena": "architecture_ready_channel_binding_pending",
     "rule": "Participating external-community members must voluntarily join Discord and complete Reset onboarding before shared Arena access. Origin community may be attributed for analytics and leader credit, but members are not siloed by source after onboarding."
@@ -35,11 +35,10 @@
     "community_support": "bound_active_live_payment_link",
     "studio_services": "bound_active_live_payment_link",
     "event_services": "bound_active_live_payment_link",
-    "studio_membership": "approved_pricing_display_only_checkout_not_yet_wired",
-    "rule": "Support, Studio project deposits, Event booking deposits, and any future Studio membership subscriptions remain separate Stripe lanes with separate products, fulfillment language, and entitlement logic."
+    "studio_membership": "live_certified_identity_bound_subscription_checkout",
+    "rule": "Support, Studio project deposits, Event booking deposits, and Studio membership subscriptions remain separate Stripe lanes with separate products, fulfillment language, entitlement logic, and lifecycle controls."
   },
   "remaining_explicit_bindings": [
-    "Studio membership checkout remains gated until distinct membership products/prices, entitlement fulfillment, Drive access lifecycle, cancellation/revocation behavior, and production certification are explicitly bound.",
     "RMS/CreatorHub secure communications ingress must be production-certified before RESET_INTELLIGENCE_INGRESS_URL and RESET_INTELLIGENCE_INGRESS_SECRET are activated in Netlify."
   ],
   "do_not_do": [
@@ -51,12 +50,16 @@
   ],
   "verified_bindings": {
     "canonical_gateway": "https://resetinnercircle.com/",
-    "discord_invite": "https://discord.gg/PAHFE5mGV",
+    "discord_invite": "https://discord.gg/DWyT4vskVW",
     "stripe_support_payment_link": "active via RESET_STRIPE_SUPPORT_URL",
     "stripe_studio_services_payment_link": "active via RESET_STRIPE_STUDIO_SERVICES_URL",
     "stripe_event_services_payment_link": "active via RESET_STRIPE_EVENT_SERVICES_URL",
     "stripe_event_product": "prod_VGfcSE7cAOCZbf",
     "stripe_event_price": "price_1UG8HALlKcswOpj9Lm0KAevp",
-    "membership_checkout": "not wired"
+    "membership_checkout": "LIVE_ENABLED_VERIFIED_2026-10-07",
+    "membership_certification": "config/reset-membership-certification.json::FULL_GREEN_LIVE",
+    "membership_discord_roles": "RMS Member / RMS Pro / RMS Executive :: grant-revoke proof 3 of 3",
+    "membership_identity_binding": "verified server-side Discord binding; never inferred from email",
+    "membership_lifecycle": "new monthly/annual, upgrade, downgrade, cancel-at-period-end, failed payment, revocation, resubscribe, duplicate/out-of-order webhook and retry reconciliation certified"
   }
 }

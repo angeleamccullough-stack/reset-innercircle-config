@@ -7,7 +7,7 @@
     "name": "Reset Inner Circle",
     "id": "1429398855681573038",
     "public_gateway": "https://resetinnercircle.com/",
-    "canonical_invite": "https://discord.gg/PAHFE5mGV"
+    "canonical_invite": "https://discord.gg/DWyT4vskVW"
   },
   "premium": {
     "founder_report": "Renewed 2026-10-01",
@@ -453,5 +453,7 @@
       "authenticated dashboard verification",
       "Founder-supplied post-change screenshot"
     ]
-  }
+  },
+  "audit_reconciled_at": "2026-10-14",
+  "audit_note": "Canonical public invite reconciled to the currently approved Reset Inner Circle invite. Carl Premium dashboard application remains verification-gated and must not be marked complete until authenticated dashboard evidence exists."
 }
