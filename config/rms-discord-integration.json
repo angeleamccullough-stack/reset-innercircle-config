@@ -135,9 +135,8 @@
         "leaderboards and leveled roles"
       ],
       "rms_scope": [
-        "verified event/contribution recognition",
-        "positive engagement recognition tied to RMS-approved events or milestones",
-        "optional vanity/non-authority rewards only"
+        "provider remains available only for future manual/verified recognition if explicitly needed",
+        "no ambient XP, economy, role, notification, or entertainment automation is active"
       ],
       "prohibited_overlap": [
         "ambient message XP when Carl Levels is the designated progression owner",
@@ -145,11 +144,14 @@
         "staff/moderator authority",
         "licensing, publishing, rights or sync approval",
         "private CreatorHub data storage",
-        "duplicate announcements already owned by Carl/RMS CreatorHub App"
+        "duplicate announcements already owned by Carl/RMS CreatorHub App",
+        "Tatsu self-role menus while Carl owns role selection",
+        "Tatsu greeting/ban logging while Carl/Discord own logging",
+        "Tatsu social/fun/search command noise"
       ],
       "cost_policy": "Use current/free Tatsu capabilities only. No Tatsu subscription, add-on, token purchase, paid reward inventory or upgrade without explicit Founder approval.",
-      "auth_state": "AUTHENTICATED",
-      "latest_verification": "2026-10-15: authenticated Tatsu server dashboard for Reset Inner Circle verified live.",
+      "auth_state": "AUTHENTICATED_VERIFIED",
+      "latest_verification": "2026-10-15: authenticated Tatsu dashboard audited for Reset Inner Circle. Leveled Roles disabled; reward store empty; all Rewards & Economy commands disabled; Tatsu self-role command disabled and saved; reaction-role table has no rows; greetings and ban-log destinations empty; Social, Fun, and Search/Info commands all disabled.",
       "next_safe_action": "Keep Tatsu recognition-only. Do not re-enable leveled roles or store listings. Passive chat score/credit accrual remains non-authoritative and must not drive access, membership, rights, licensing, or paid fulfillment.",
       "live_state": {
         "managed_server": "Reset Inner Circle",
@@ -175,6 +177,23 @@
           "Spotlighted Member ✨"
         ],
         "policy_result": "Tatsu cannot currently auto-grant leveled access/status or fulfill reward-store obligations because leveled roles and visible reward listings are disabled."
+      },
+      "current_live_state": {
+        "leveled_roles": "DISABLED",
+        "historical_leveled_role_targets_present_but_inactive": true,
+        "reward_store_items": 0,
+        "rewards_economy_commands": "ALL_DISABLED",
+        "self_roles_command": "DISABLED_SAVED",
+        "reaction_role_rows": 0,
+        "autorole": "NONE",
+        "greetings_channels": 0,
+        "ban_log_channels": 0,
+        "social_commands": "ALL_DISABLED",
+        "fun_commands": "ALL_DISABLED",
+        "search_info_commands": "ALL_DISABLED",
+        "loyalty_points_blocked_role": "Lounge Member",
+        "server_score_blocked_role": "Lounge Member",
+        "no_new_spend": true
       }
     }
   },
@@ -466,7 +485,7 @@
     "rms_creatorhub_app_failure": "Carl-bot, Discord native Events, and manual RMS operations remain usable",
     "carl_bot_failure": "Discord Events, RMS CreatorHub App, Tatsu recognition (if independently available), and manual RMS operations remain usable; Tatsu must not inherit moderation or access-control authority.",
     "zapier_failure": "send one private automation-alerts notice and use manual event fallback",
-    "tatsu_failure": "Skip automated recognition and record verified recognition manually; do not block onboarding, access, CreatorHub, Studio, membership, moderation or events.",
+    "tatsu_failure": "No customer-critical flow depends on Tatsu. Carl, Discord native controls, RMS CreatorHub App, and manual recognition remain available.",
     "production_app_failure": "continue Discord communication and switch to the approved manual media fallback",
     "single_automation_failure_must_not_block_server": true,
     "browser_connector_failure": "Use service-native APIs/connectors first; then free local headed browser/manual screenshot execution. Do not spend on metered browser automation without explicit Founder approval."
