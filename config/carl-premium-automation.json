@@ -432,24 +432,34 @@
         "enabled_events": [
           "deleted messages",
           "edited messages",
+          "purged messages",
           "member joins",
           "member leaves",
+          "channel creation",
+          "channel updates",
+          "channel deletion",
+          "thread creation",
+          "thread updates",
+          "thread deletion",
+          "role creation",
+          "role updates",
+          "role deletion",
+          "server updates",
+          "emoji changes",
           "member role updates",
           "name changes",
           "avatar changes",
           "member bans",
           "member unbans",
+          "member timeout",
+          "member remove timeout",
           "voice joins",
-          "voice moves"
-        ],
-        "disabled_events": [
-          "purged messages",
-          "channel/thread/server structure changes",
-          "member timeout/remove-timeout",
+          "voice moves",
           "voice leaves"
         ],
+        "disabled_events": [],
         "privacy_gap": false,
-        "note": "Certified intentional low-noise split logging: member/message events route to activity-reports, server logs to ticket-logs, and voice logs to voice-control-center. Structure-change, purge, timeout, and voice-leave logging remain off by design."
+        "note": "2026-10-15: all 26 visible Carl logging event toggles were enabled through Carl's native Vue patch_settings method. Carl returned 'Success! Setting applied' and all 26 remained enabled after reload. Existing split private routing was preserved."
       }
     },
     "permissions": {
@@ -669,7 +679,7 @@
     ]
   },
   "audit_reconciled_at": "2026-10-15",
-  "audit_note": "Tatsu is authenticated and hardened to an inert recognition-only posture at $0 incremental cost: economy commands disabled, store empty, leveled roles disabled, self-role command disabled/saved, no reaction roles, no notification destinations, and social/fun/search commands disabled. Carl remains primary Discord orchestration. Three Carl logging toggles still fail persistence after reload and are documented as a vendor limitation; existing verified logging remains operational.",
+  "audit_note": "Carl standard/free automation and logging are now materially green at $0 incremental cost. Tatsu is live and constrained to recognition-only with duplicate progression and command surfaces disabled. Remaining blocker is Carl Premium entitlement recognition only; no repurchase attempted.",
   "live_audit": {
     "audited_at": "2026-10-15",
     "browser_method": "Local headed Chrome via RMS Desktop Commander / Chrome DevTools Protocol; zero incremental browser-agent cost",
@@ -690,7 +700,9 @@
       "Created verified start routing tag covering CreatorHub, Studio, membership and onboarding.",
       "Added verified triggers: 'where do i start' and 'what should i do first'; trigger count is now 7/50.",
       "Disabled generic free-game and discount alerts to remove non-RMS promotional noise; YouTube/Twitch creator feeds preserved.",
-      "Enabled Automod 'Delete scary files' and verified Carl persisted automod.settings."
+      "Enabled Automod 'Delete scary files' and verified Carl persisted automod.settings.",
+      "Carl Logging fully hardened using native patch_settings: all 26 visible event toggles enabled and reload-verified with private split routing preserved.",
+      "Tatsu reduced to quiet recognition-backend mode: Lounge Member blocked from Glow Credits and Glow Score; all member-facing economy, self-role, social, core, fun, utility and search commands disabled; leveled roles/store/reaction roles/greetings remain non-operational."
     ],
     "verified_existing": [
       "Code of Law reaction-role verification gate",
@@ -726,10 +738,10 @@
       "Carl logging still does not persist Member timeout, Member remove-timeout, or Leave voice channel toggles after reload; retain verified existing logging and use Discord native audit history as fail-safe rather than adding a duplicate paid logger."
     ],
     "blocker": "Carl does not recognize the previously renewed Premium entitlement on the authenticated account. No purchase or upgrade was attempted. Reconcile the existing Carl/Patreon/Discord subscription entitlement instead of buying again.",
-    "next_free_step": "No Tatsu action required. Continue using Carl as primary Discord control. Treat the three non-persisting Carl logging events as a vendor limitation unless Carl changes behavior; do not add paid logging overhead."
+    "next_free_step": "Run a non-staff join -> Code of Law -> flow-selection -> CreatorHub/Studio/membership journey test. Premium-only Carl features remain gated on entitlement recovery; no repurchase required."
   },
   "tatsu_control": {
-    "status": "LIVE_RECOGNITION_ONLY_HARDENED",
+    "status": "VERIFIED_RECOGNITION_ONLY_GREEN",
     "governance_owner": "Carl-bot / RMS Discord operating policy",
     "execution_provider": "Tatsu",
     "technical_boundary": "No verified native Carl-to-Tatsu administrative control exists. Tatsu is configured through its own authenticated platform; Carl controls the operating policy and avoids duplicate responsibilities.",
@@ -749,15 +761,20 @@
       "Tatsu greeting and ban-log destinations are empty.",
       "Tatsu Social, Fun, and Search/Info commands are all disabled."
     ],
-    "auth_evidence": "2026-10-15: authenticated Reset Inner Circle Tatsu dashboard audited and hardened.",
-    "blocker": "None for current zero-cost recognition-only hardening. Historical disabled leveled-role targets remain visible but cannot execute while the module is disabled.",
-    "next_safe_action": "Keep Tatsu disabled/inert unless RMS explicitly needs a verified recognition use case. Do not enable ambient XP, economy, role grants, greetings, logs, or entertainment commands.",
+    "auth_evidence": "2026-10-15: authenticated Tatsu Reset Inner Circle dashboard audited live.",
+    "blocker": null,
+    "next_safe_action": "Keep Tatsu in quiet recognition-backend mode only. Lounge Member is blocked from Glow Credits and Glow Score; economy, self-role, social, core, fun, utility, search, leveled-role and reward-store member-facing paths are disabled.",
     "live_state": {
-      "authenticated": true,
-      "leveled_roles_disabled": true,
-      "reward_store_disabled_count": 12,
-      "reward_command_disable_pass_count": 10,
-      "note": "Tatsu remains available for recognition only and no longer grants access/status through leveled roles or active reward-store listings."
+      "lounge_member_blocked_from_glow_credits": true,
+      "lounge_member_blocked_from_glow_score": true,
+      "rewards_economy_commands": "DISABLED_ALL",
+      "reward_store_items": "DISABLED",
+      "leveled_roles": "DISABLED",
+      "reaction_roles": "NONE",
+      "autorole": "NONE",
+      "self_roles_command": "DISABLED",
+      "greetings_and_ban_destinations": "NONE",
+      "social_core_fun_utility_search_commands": "DISABLED_ALL"
     }
   }
 }
