@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.10.1",
+  "schema_version": "1.10.2",
   "status": "active",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "system": "RMS Fully Automated Intelligence System",
@@ -127,7 +127,7 @@
     "tatsu_integration": {
       "provider": "Tatsu",
       "dashboard": "https://tatsu.gg/home",
-      "control_model": "Carl-bot is the Discord orchestration/policy authority; Tatsu remains the provider-owned execution surface for recognition/economy features. Carl does not receive Tatsu account credentials and no unsupported bot-to-bot administrative control is assumed.",
+      "control_model": "RMS Command Core governs the ecosystem. Carl executes community policy. Tatsu is separately configured; no native Carl-to-Tatsu administrative control is verified.",
       "verified_provider_capabilities": [
         "server points earned from participation",
         "server store rewards",
@@ -152,7 +152,7 @@
       "cost_policy": "Use current/free Tatsu capabilities only. No Tatsu subscription, add-on, token purchase, paid reward inventory or upgrade without explicit Founder approval.",
       "auth_state": "VERIFIED_AUTHENTICATED_AND_RESTRICTED",
       "latest_verification": "2026-10-15: authenticated Tatsu Reset Inner Circle dashboard audited and reduced to quiet recognition-backend mode.",
-      "next_safe_action": "Use Tatsu only for deliberate admin recognition/accolades when needed. Do not re-enable ambient XP/economy, self roles, leveled roles, store roles, or member-facing utility/fun/search commands while Carl remains the control authority.",
+      "next_safe_action": "Verify Discord log-destination permissions and real non-staff journey; reconcile existing Premium entitlement without repurchase. Do not equate configuration, route availability, registry completeness or recognition with full customer acceptance.",
       "live_state": {
         "loyalty_points_name": "Glow Credits",
         "server_score_name": "Glow Score",
@@ -171,12 +171,27 @@
         "fun_commands": "DISABLED_ALL",
         "utility_commands": "DISABLED_ALL",
         "search_info_commands": "DISABLED_ALL",
-        "role": "quiet recognition backend only"
+        "role": "quiet recognition backend only",
+        "lounge_member_blocked_from_glow_credits": true,
+        "lounge_member_blocked_from_glow_score": true,
+        "greetings_and_ban_destinations": "NONE",
+        "social_core_fun_utility_search_commands": "DISABLED_ALL",
+        "points_blocked_text_channels": 42,
+        "score_blocked_text_channels": 42,
+        "global_xp_credits_blocked_text_channels": 42,
+        "all_picker_text_channels_excluded": true,
+        "automatic_role_mapping_count": 0,
+        "self_role_mapping_count": 0,
+        "games_commands": "DISABLED_ALL",
+        "historical_balances_preserved": true,
+        "historical_voucher_records_preserved": true,
+        "recognition_runtime_certified": false,
+        "new_channel_coverage_requires_recheck": true
       },
       "current_live_state": {
         "leveled_roles": "DISABLED",
-        "historical_leveled_role_targets_present_but_inactive": true,
-        "reward_store_items": 0,
+        "historical_leveled_role_targets_present_but_inactive": false,
+        "reward_store_items": null,
         "rewards_economy_commands": "ALL_DISABLED",
         "self_roles_command": "DISABLED_SAVED",
         "reaction_role_rows": 0,
@@ -188,8 +203,14 @@
         "search_info_commands": "ALL_DISABLED",
         "loyalty_points_blocked_role": "Lounge Member",
         "server_score_blocked_role": "Lounge Member",
-        "no_new_spend": true
-      }
+        "no_new_spend": true,
+        "automatic_role_mapping_count": 0,
+        "self_role_mapping_count": 0,
+        "historical_voucher_review": "PRESERVED_NOT_CERTIFIED",
+        "games_commands": "ALL_DISABLED",
+        "all_picker_text_channels_excluded": 42
+      },
+      "native_bot_control_verified": false
     }
   },
   "automation_ownership": {
@@ -514,11 +535,25 @@
     "quiet_recognition": "policy_prepared; exact Glow Exchange application/dashboard not changed",
     "sound_stage_channel_id": "1431964592421998684",
     "tatsu_alignment": {
-      "state": "VERIFIED_RECOGNITION_ONLY_GREEN",
+      "state": "CONFIGURATION_VERIFIED_RECOGNITION_RUNTIME_NOT_CERTIFIED",
       "incremental_cost_usd": 0,
       "founder_login_required": false,
       "no_duplicate_xp": true,
-      "no_authority_rewards": true
+      "no_authority_rewards": true,
+      "recognition_runtime_certified": false,
+      "future_channel_coverage_requires_recheck": true
     }
+  },
+  "ecosystem_alignment": {
+    "change_key": "rms-whole-ecosystem-alignment-20261014",
+    "verified_at": "2026-10-15T01:42:19.675Z",
+    "owner_attribution": "Angelea McCullough, Founder of RMS Global Publishing",
+    "company_control_plane": "RMS Command Core v3.1",
+    "provider_authority": "CAPABILITY_ONLY",
+    "new_paid_dependency": false,
+    "new_scheduler": false,
+    "scope": "Community configuration and canonical alignment only; not an all-product runtime certification",
+    "recognition_is_entitlement": false,
+    "recognition_is_mastery": false
   }
 }
