@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.0.0",
-  "status": "desired_state_ready_for_dashboard_apply",
+  "schema_version": "1.1.0",
+  "status": "live_free_features_green_premium_entitlement_blocked",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "system": "Reset Inner Circle / Carl-bot Premium Automation",
   "guild": {
@@ -10,9 +10,9 @@
     "canonical_invite": "https://discord.gg/DWyT4vskVW"
   },
   "premium": {
-    "founder_report": "Renewed 2026-10-01",
-    "latest_visual_evidence": "Carl dashboard screenshot still displayed 'Carlbot Premium — Not active' after renewal attempt",
-    "activation_gate": "Before premium-only writes, confirm the renewed Premium slot is attached to guild 1429398855681573038. Do not assume renewal alone activated the slot.",
+    "founder_report": "Renewed previously; live audit on 2026-10-15 still shows no Premium entitlement on the authenticated Carl account.",
+    "latest_visual_evidence": "Live Carl botsettings and Premium pages both show Premium not active / no premium.",
+    "activation_gate": "Do not purchase again. Reconcile the already-paid Premium entitlement/account first. Premium-only changes remain blocked until Carl reports active for guild 1429398855681573038.",
     "source_of_truth": "Carl dashboard + this manifest after live verification"
   },
   "operating_rules": [
@@ -183,7 +183,8 @@
       "nickname": "RESET Steward",
       "avatar": "Use the exact approved RS/Reset Inner Circle mark with no duplicate logo treatment.",
       "banner": "Brand Kit 1 / futuristic modernism / luxe black-gold, safe margins, no cropped crest.",
-      "fallback_name": "Carl-bot"
+      "fallback_name": "Carl-bot",
+      "live_nickname": "RESET Steward"
     },
     "higher_reaction_role_limit": {
       "enabled": true,
@@ -334,7 +335,8 @@
         "invites",
         "moderator actions"
       ],
-      "private_only": true
+      "private_only": true,
+      "live_default_channel": "ticket-logs"
     },
     "permissions": {
       "destructive_commands": "Founder + trusted moderators only",
@@ -360,11 +362,24 @@
         "collaboration",
         "community"
       ],
-      "landing": "https://resetinnercircle.com/"
+      "landing": "https://resetinnercircle.com/",
+      "live_state": {
+        "approved": true,
+        "category": "Music",
+        "listing_channel": "access-granted",
+        "description": "RESET Inner Circle is the creator ecosystem by RMS Global Publishing — live listening rooms, creator showcases, collaboration, education, community missions and professional pathways into CreatorHub, Studio services, memberships, marketplace and licensing readiness. Ownership-first. Community-powered. Built to help independent creators grow without giving up what they own.",
+        "tags": [
+          "creators",
+          "music",
+          "artists",
+          "community"
+        ]
+      }
     },
     "starboard": {
       "enabled": true,
-      "destination": "creator-spotlight"
+      "destination": "creator-spotlight",
+      "live_threshold": 3
     },
     "triggers": {
       "enabled": true,
@@ -454,6 +469,53 @@
       "Founder-supplied post-change screenshot"
     ]
   },
-  "audit_reconciled_at": "2026-10-14",
-  "audit_note": "Canonical public invite reconciled to the currently approved Reset Inner Circle invite. Carl Premium dashboard application remains verification-gated and must not be marked complete until authenticated dashboard evidence exists."
+  "audit_reconciled_at": "2026-10-15",
+  "audit_note": "Live Carl audit completed at $0 incremental cost. Free/standard features optimized and verified. Premium-only controls remain entitlement-blocked because Carl reports no active Premium on the authenticated account; no repurchase attempted.",
+  "live_audit": {
+    "audited_at": "2026-10-15",
+    "browser_method": "local headed Chrome via RMS Desktop Commander / CDP; zero incremental browser cost",
+    "premium_status": "NOT ACTIVE in Carl account dashboard",
+    "premium_account_page": "Carl Premium page states 'It looks like you don’t have premium'",
+    "guild_botsettings_status": "Carlbot Premium: Not active, get it on Premium",
+    "no_new_spend": true,
+    "live_changes": [
+      "Server Discovery listing created and approved",
+      "Server Discovery category set to Music",
+      "Server Discovery listing channel set to access-granted",
+      "Server Discovery description updated to ownership-first RMS/CreatorHub/Studio/membership funnel",
+      "Starboard threshold reduced from 5 to 3",
+      "Carl nickname updated to RESET Steward",
+      "CreatorHub portal tag updated from old Vercel URL to creators.rmsglobalpublishing.com and /create",
+      "Default Carl logging channel set to ticket-logs"
+    ],
+    "verified_existing": [
+      "Code of Law reaction-role gate remains active",
+      "flow-selection unique reaction roles remain active",
+      "access-granted notification reaction roles remain active",
+      "Lounge Member autorole remains active",
+      "sticky-role reassignment remains enabled with Guest and RESET Participant excluded",
+      "Suggestions already route reset-community-feedback to reset-decisions-log; DM-on-decision and edit-in-place enabled; anonymous mode disabled",
+      "Game alerts for free games and discounts already enabled to Game Room",
+      "YouTube notification already tracks Reset_Engagement_Lounge to reset-main-arena",
+      "Automod invite spam enabled; mass-mention, attachment, bad-word, spam and warn thresholds configured",
+      "Automod logs route to ticket-logs and drama channel routes to help-desk-tickets",
+      "Welcome channel remains reset-code-of-law and DM-on-join onboarding content exists",
+      "Current portal/support/missions/arena/powerhour/events Carl tags remain present"
+    ],
+    "premium_blocked_features": [
+      "Levels & XP configuration/reward expansion",
+      "Voice link",
+      "Sticky Messages premium configuration",
+      "Auto Purge premium configuration",
+      "Separate farewell channel",
+      "Birthday premium controls",
+      "Premium suggestion decision-channel splits",
+      "Automatic star on new entries",
+      "Custom starboard emoji",
+      "Premium YouTube/Twitch capacity",
+      "Other premium-only capacity/features listed in desired state"
+    ],
+    "blocker": "Existing renewal is not recognized by the currently authenticated Carl account. No additional purchase was made. Founder should resolve subscription/account entitlement through the already-paid Carl/Patreon/Discord subscription path; workers must not repurchase.",
+    "next_free_step": "Continue slash-first migration and RMS-owned Discord automation while Premium entitlement is reconciled. Preserve public access and all existing flows."
+  }
 }
