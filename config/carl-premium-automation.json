@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.1.0",
-  "status": "live_free_features_green_premium_entitlement_blocked",
+  "schema_version": "1.2.0",
+  "status": "live_standard_automation_green_premium_entitlement_recovery_required",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "system": "Reset Inner Circle / Carl-bot Premium Automation",
   "guild": {
@@ -11,8 +11,8 @@
   },
   "premium": {
     "founder_report": "Renewed previously; live audit on 2026-10-15 still shows no Premium entitlement on the authenticated Carl account.",
-    "latest_visual_evidence": "Live Carl botsettings and Premium pages both show Premium not active / no premium.",
-    "activation_gate": "Do not purchase again. Reconcile the already-paid Premium entitlement/account first. Premium-only changes remain blocked until Carl reports active for guild 1429398855681573038.",
+    "latest_visual_evidence": "Authenticated Carl botsettings says 'Carlbot Premium — Not active, get it on Premium'; Carl Premium account page says 'It looks like you don’t have premium'. Premium-only panels expose historical records but disable new Premium writes.",
+    "activation_gate": "Do not repurchase. Reconcile the already-paid Premium entitlement/account first. Until Carl reports Premium active for guild 1429398855681573038, keep Premium-only modules fail-closed and continue with standard/RMS-owned automation.",
     "source_of_truth": "Carl dashboard + this manifest after live verification"
   },
   "operating_rules": [
@@ -62,7 +62,17 @@
         }
       ],
       "role_permissions": "none beyond visual recognition",
-      "boundary": "Do not imply RMS representation, licensing approval, professional clearance, employment, or publishing status."
+      "boundary": "Do not imply RMS representation, licensing approval, professional clearance, employment, or publishing status.",
+      "live_state": {
+        "premium_active": false,
+        "announcement_destination": "🏆｜creator-rankings",
+        "rate_limit": "1 XP-eligible message per 60 seconds",
+        "level_modulo": 5,
+        "reward_records": 0,
+        "removed_unsafe_reward": "🪶 RESET Inner Circle VIP at level 75",
+        "safety_reason": "XP may recognize participation but must never grant VIP, paid access, staff authority, licensing approval, or private access.",
+        "status": "SAFE_FAIL_CLOSED_PENDING_PREMIUM_ENTITLEMENT"
+      }
     },
     "sticky_messages": {
       "enabled": true,
@@ -92,7 +102,17 @@
           "message": "How to submit a suggestion and where decisions are logged"
         }
       ],
-      "rule": "One sticky per high-value channel; no duplicate banners or clutter."
+      "rule": "One sticky per high-value channel; no duplicate banners or clutter.",
+      "live_state": {
+        "premium_active": false,
+        "existing_records": [
+          "#✨-glow-exchange-✨",
+          "#💎｜reset-support-hub",
+          "#🌐-signal-sync"
+        ],
+        "create_new_disabled": true,
+        "note": "Existing historical stickies remain. New high-value stickies are blocked until the already-paid Premium entitlement is recognized."
+      }
     },
     "voice_role_links": {
       "enabled": true,
@@ -119,7 +139,25 @@
         "private support rooms",
         "staff-only rooms"
       ],
-      "role_permissions": "no elevated permissions"
+      "role_permissions": "no elevated permissions",
+      "live_state": {
+        "premium_active": false,
+        "records": 0,
+        "removed_legacy_links": [
+          "🎤 | RESET Sound Stage → 🎤 Reset Sound Stage Fast Track",
+          "🎯 | Game Room → Lounge Member",
+          "🏛️| Leadership Lounge → Leadership Council",
+          "🚀｜Creator Showcase → GLOW Systems"
+        ],
+        "safety_reason": "Voice presence must never grant authority, membership, paid access, or staff/private-room permissions.",
+        "reactivation_plan": [
+          "RESET Sound Stage → 🎧 Sound Stage Live",
+          "Creator Showcase → 🎬 Showcase Live",
+          "Game Room → 🎮 Game Room Live",
+          "Reset Media Studios → 🎙️ Studio Live"
+        ],
+        "status": "CLEARED_PENDING_SAFE_PRESENCE_ROLES_AFTER_PREMIUM_RECOVERY"
+      }
     },
     "auto_purge": {
       "enabled": true,
@@ -145,7 +183,13 @@
         "reset-decisions-log",
         "rights/submission records",
         "staff audit records"
-      ]
+      ],
+      "live_state": {
+        "premium_active": false,
+        "configured_channels": 0,
+        "status": "SAFE_FAIL_CLOSED",
+        "note": "No Auto Purge channels configured; protected records remain untouched."
+      }
     },
     "timed_reaction_roles": {
       "enabled": true,
@@ -218,11 +262,18 @@
     },
     "youtube_alerts": {
       "enabled": true,
-      "max_slots": 20,
+      "max_slots": 30,
       "owner": "Carl-bot",
       "channel": "creator-showcase or a dedicated media-drops channel",
       "role_mentions": "opt-in creator/media notification role only",
-      "rule": "Add only Founder-approved RMS/artist/community channels; Zapier must not duplicate these alerts."
+      "rule": "Add only Founder-approved RMS/artist/community channels; Zapier must not duplicate these alerts.",
+      "live_state": {
+        "standard_slots": "1/5 used",
+        "tracked_channel": "Reset_Engagement_Lounge",
+        "destination": "#reset-main-arena",
+        "premium_capacity_claimed_by_carl": 30,
+        "premium_capacity_available": false
+      }
     },
     "twitch_alerts": {
       "enabled": true,
@@ -230,7 +281,14 @@
       "owner": "Carl-bot",
       "channel": "live-now or creator-showcase",
       "role_mentions": "Live Events role only",
-      "rule": "Use only for approved creator streams and RMS live programming."
+      "rule": "Use only for approved creator streams and RMS live programming.",
+      "live_state": {
+        "standard_slots": "1/1 used",
+        "tracked_stream": "reset_engagement_lounge",
+        "destination": "#🎶｜reset-sound-lounge",
+        "premium_capacity_claimed_by_carl": 5,
+        "premium_capacity_available": false
+      }
     },
     "weblog_capacity": {
       "enabled": true,
@@ -296,7 +354,16 @@
       "emoji": "🔥",
       "threshold": 3,
       "auto_star_new_entries": true,
-      "purpose": "Surface meaningful creator/community moments without turning raw volume into professional status."
+      "purpose": "Surface meaningful creator/community moments without turning raw volume into professional status.",
+      "live_state": {
+        "threshold": 3,
+        "show_jump_link": true,
+        "allow_self_starring": false,
+        "nsfw": false,
+        "auto_star_new_entries": false,
+        "custom_emoji_available": false,
+        "premium_blocker": true
+      }
     }
   },
   "standard_features_to_harden": {
@@ -336,7 +403,39 @@
         "moderator actions"
       ],
       "private_only": true,
-      "live_default_channel": "ticket-logs"
+      "live_default_channel": null,
+      "live_state": {
+        "default_log_channel": "No channel selected",
+        "member_log_channel": "#📊｜activity-reports",
+        "server_log_channel": "#ticket-logs",
+        "voice_log_channel": "#🎛️｜voice-control-center",
+        "message_log_channel": "#📊｜activity-reports",
+        "join_leave_log_channel": "#📊｜activity-reports",
+        "ignored_channels": [
+          "#ticket-logs"
+        ],
+        "enabled_events": [
+          "deleted messages",
+          "edited messages",
+          "member joins",
+          "member leaves",
+          "member role updates",
+          "name changes",
+          "avatar changes",
+          "member bans",
+          "member unbans",
+          "voice joins",
+          "voice moves"
+        ],
+        "disabled_events": [
+          "purged messages",
+          "channel/thread/server structure changes",
+          "member timeout/remove-timeout",
+          "voice leaves"
+        ],
+        "privacy_gap": true,
+        "note": "A direct DOM persistence attempt did not survive reload, so no unverified logging change is claimed. This is the remaining standard-feature hardening gap."
+      }
     },
     "permissions": {
       "destructive_commands": "Founder + trusted moderators only",
@@ -349,7 +448,15 @@
       "intake_channel": "reset-community-feedback",
       "decision_log": "reset-decisions-log",
       "anonymous_default": false,
-      "dm_submitter_on_decision": true
+      "dm_submitter_on_decision": true,
+      "live_state": {
+        "suggestion_channel": "#💡reset-community-feedback",
+        "decision_channel": "#🪶-reset-decisions-log",
+        "dm_on_decision": true,
+        "edit_in_place": true,
+        "anonymous_mode": false,
+        "restricted_to_feedback_channel": true
+      }
     },
     "server_discovery": {
       "enabled": true,
@@ -373,7 +480,8 @@
           "music",
           "artists",
           "community"
-        ]
+        ],
+        "rank": "5960 / 26428"
       }
     },
     "starboard": {
@@ -405,18 +513,90 @@
           "response": "Route to RESET Sound Stage entry"
         }
       ],
-      "cooldown_required": true
+      "cooldown_required": true,
+      "live_state": {
+        "count": 5,
+        "type": "Normal",
+        "records": [
+          "how do i submit music",
+          "how do i join the sound stage",
+          "how do i become a member",
+          "how do i book the studio",
+          "how do i get sync ready"
+        ],
+        "purpose": "Low-noise creator routing into secure CreatorHub, membership, Studio, Sound Stage and sync-readiness pathways."
+      }
     },
     "autoroles_and_stickyroles": {
       "enabled": true,
       "join_role": "New Member / onboarding",
       "sticky_self_roles": true,
-      "authority_roles_excluded": true
+      "authority_roles_excluded": true,
+      "live_state": {
+        "autorole": "Lounge Member",
+        "reassign_on_rejoin": true,
+        "sticky_role_blacklist": [
+          "Guest",
+          "RESET Participant 🔥"
+        ]
+      }
     },
     "gaming_notifications": {
       "enabled": true,
       "destination": "Game Room or game-drops",
-      "use": "Free-game/sale alerts only if they add value; no unrelated promotional spam."
+      "use": "Free-game/sale alerts only if they add value; no unrelated promotional spam.",
+      "live_state": {
+        "free_game_alerts": true,
+        "discount_offer_alerts": true,
+        "destination": "#🎯 | Game Room"
+      }
+    },
+    "reaction_roles": {
+      "enabled": true,
+      "live_state": [
+        {
+          "channel": "#reset-code-of-law",
+          "roles": [
+            "Inner Circle Access"
+          ],
+          "type": "verify"
+        },
+        {
+          "channel": "#flow-selection",
+          "roles": [
+            "🌙 Evening Elevation",
+            "⚡ All Access",
+            "☀️ Midday Motion",
+            "🌞 Morning Flow"
+          ],
+          "type": "unique"
+        },
+        {
+          "channel": "#access-granted",
+          "roles": [
+            "Creator Education",
+            "Collaboration Calls",
+            "Live Events",
+            "OmniLink Power Hour",
+            "RESET Arena Games",
+            "Platform Missions"
+          ],
+          "type": "normal"
+        }
+      ]
+    },
+    "live_routing_tags": {
+      "verified_count": 7,
+      "records": [
+        "membership",
+        "studio",
+        "soundstage",
+        "create",
+        "sync",
+        "academy",
+        "marketplace"
+      ],
+      "note": "All seven were created or verified live in Carl and route into approved RMS revenue/value pathways without exposing private creator data."
     }
   },
   "ownership_after_upgrade": {
@@ -470,52 +650,54 @@
     ]
   },
   "audit_reconciled_at": "2026-10-15",
-  "audit_note": "Live Carl audit completed at $0 incremental cost. Free/standard features optimized and verified. Premium-only controls remain entitlement-blocked because Carl reports no active Premium on the authenticated account; no repurchase attempted.",
+  "audit_note": "Authenticated live Carl dashboard hardening completed at $0 incremental cost using local RMS browser automation. Standard/free automation is materially green and revenue routing was expanded. Premium-only controls remain entitlement-blocked because Carl reports no active Premium on the authenticated account; no repurchase was attempted.",
   "live_audit": {
     "audited_at": "2026-10-15",
-    "browser_method": "local headed Chrome via RMS Desktop Commander / CDP; zero incremental browser cost",
-    "premium_status": "NOT ACTIVE in Carl account dashboard",
+    "browser_method": "Local headed Chrome via RMS Desktop Commander / Chrome DevTools Protocol; zero incremental browser-agent cost",
+    "premium_status": "NOT ACTIVE / ENTITLEMENT RECOVERY REQUIRED",
     "premium_account_page": "Carl Premium page states 'It looks like you don’t have premium'",
     "guild_botsettings_status": "Carlbot Premium: Not active, get it on Premium",
     "no_new_spend": true,
+    "public_product_changed": false,
     "live_changes": [
-      "Server Discovery listing created and approved",
-      "Server Discovery category set to Music",
-      "Server Discovery listing channel set to access-granted",
-      "Server Discovery description updated to ownership-first RMS/CreatorHub/Studio/membership funnel",
-      "Starboard threshold reduced from 5 to 3",
-      "Carl nickname updated to RESET Steward",
-      "CreatorHub portal tag updated from old Vercel URL to creators.rmsglobalpublishing.com and /create",
-      "Default Carl logging channel set to ticket-logs"
+      "Server Discovery verified approved; Music category; access-granted landing; optimized ownership-first RMS/CreatorHub/Studio/membership description; current rank 5960 of 26428.",
+      "Carl nickname applied as RESET Steward.",
+      "Seven revenue/navigation tags live: membership, studio, soundstage, create, sync, academy, marketplace.",
+      "Five creator help/revenue triggers live: submit music, Sound Stage entry, membership, Studio booking, sync readiness.",
+      "Removed all four legacy voice-role links because they could grant membership/authority/non-presence roles; voice links now zero pending safe presence-only roles after Premium recovery.",
+      "Removed 🪶 RESET Inner Circle VIP level-75 XP reward; level rewards now zero so XP cannot grant VIP/paid/private access.",
+      "Preserved Code of Law gate, flow-selection roles, access-granted opt-ins, Lounge Member autorole, sticky-role reassignment, Suggestions, Starboard threshold 3, game alerts, YouTube and Twitch feeds."
     ],
     "verified_existing": [
-      "Code of Law reaction-role gate remains active",
-      "flow-selection unique reaction roles remain active",
-      "access-granted notification reaction roles remain active",
-      "Lounge Member autorole remains active",
-      "sticky-role reassignment remains enabled with Guest and RESET Participant excluded",
-      "Suggestions already route reset-community-feedback to reset-decisions-log; DM-on-decision and edit-in-place enabled; anonymous mode disabled",
-      "Game alerts for free games and discounts already enabled to Game Room",
-      "YouTube notification already tracks Reset_Engagement_Lounge to reset-main-arena",
-      "Automod invite spam enabled; mass-mention, attachment, bad-word, spam and warn thresholds configured",
-      "Automod logs route to ticket-logs and drama channel routes to help-desk-tickets",
-      "Welcome channel remains reset-code-of-law and DM-on-join onboarding content exists",
-      "Current portal/support/missions/arena/powerhour/events Carl tags remain present"
+      "Code of Law reaction-role verification gate",
+      "flow-selection unique reaction roles",
+      "access-granted notification roles",
+      "Lounge Member autorole",
+      "sticky-role rejoin behavior with Guest and RESET Participant excluded",
+      "Welcome channel reset-code-of-law and DM-on-join onboarding",
+      "Suggestions route reset-community-feedback → reset-decisions-log with DM-on-decision and edit-in-place",
+      "Starboard threshold 3, self-stars off, NSFW off, sensitive/internal channels ignored",
+      "Game free/discount alerts to Game Room",
+      "YouTube Reset_Engagement_Lounge → reset-main-arena",
+      "Twitch reset_engagement_lounge → reset-sound-lounge",
+      "Automod logs to ticket-logs; moderation reports to help-desk-tickets; invite spam and existing spam/mention/attachment/bad-word thresholds preserved"
     ],
     "premium_blocked_features": [
-      "Levels & XP configuration/reward expansion",
-      "Voice link",
-      "Sticky Messages premium configuration",
-      "Auto Purge premium configuration",
+      "Premium Levels & XP live operation / cosmetic reward expansion",
+      "Safe voice-role presence links",
+      "New Sticky Messages/templates",
+      "Auto Purge",
+      "Personalize avatar/banner",
       "Separate farewell channel",
-      "Birthday premium controls",
+      "Birthday Premium controls",
       "Premium suggestion decision-channel splits",
-      "Automatic star on new entries",
-      "Custom starboard emoji",
-      "Premium YouTube/Twitch capacity",
-      "Other premium-only capacity/features listed in desired state"
+      "Automatic star on new entries / custom starboard emoji",
+      "Expanded YouTube/Twitch capacity"
     ],
-    "blocker": "Existing renewal is not recognized by the currently authenticated Carl account. No additional purchase was made. Founder should resolve subscription/account entitlement through the already-paid Carl/Patreon/Discord subscription path; workers must not repurchase.",
-    "next_free_step": "Continue slash-first migration and RMS-owned Discord automation while Premium entitlement is reconciled. Preserve public access and all existing flows."
+    "standard_gap": [
+      "Logging channel/event hardening remains incomplete: current live routing is mixed between activity-reports, ticket-logs and voice-control-center; a direct programmatic persistence attempt did not survive reload."
+    ],
+    "blocker": "Carl does not recognize the previously renewed Premium entitlement on the authenticated account. No purchase or upgrade was attempted. Reconcile the existing Carl/Patreon/Discord subscription entitlement instead of buying again.",
+    "next_free_step": "Resolve the already-paid Premium entitlement/account mapping. Then activate safe presence-only voice links, high-value stickies, transient-only Auto Purge, cosmetic-only Levels rewards, Premium Starboard controls and extra approved feeds. Separately complete logging hardening through a persistence-safe dashboard interaction."
   }
 }
