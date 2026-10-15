@@ -143,7 +143,16 @@ test('community bots remain capabilities beneath whole-ecosystem authority', () 
   assert.ok(counts.every(n => Number.isInteger(n) && n > 0));
   assert.ok(counts.every(n => n === counts[0]));
   assert.equal(carl.tatsu_control.live_state.new_channel_coverage_requires_recheck, true);
-  const logging = carl.standard_features_to_harden.logging.live_state;
+  const loggingConfig = carl.standard_features_to_harden.logging;
+  assert.equal(loggingConfig.privacy_policy, 'REQUIRE_PRIVATE_STAFF_DESTINATIONS');
+  const logging = loggingConfig.live_state;
+  if (loggingConfig.private_only === true) {
+    assert.equal(logging.privacy_verification, 'VERIFIED_DISCORD_PERMISSIONS');
+    assert.ok(logging.privacy_evidence?.source);
+    assert.ok(logging.privacy_evidence?.verified_at);
+  } else {
+    assert.equal(loggingConfig.private_only, null);
+  }
   if (logging.privacy_gap === false) {
     assert.equal(logging.privacy_verification, 'VERIFIED_DISCORD_PERMISSIONS');
     assert.ok(logging.privacy_evidence?.source);

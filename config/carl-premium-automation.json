@@ -417,7 +417,7 @@
         "invites",
         "moderator actions"
       ],
-      "private_only": true,
+      "private_only": null,
       "live_default_channel": null,
       "live_state": {
         "default_log_channel": "No channel selected",
@@ -461,7 +461,9 @@
         "privacy_gap": null,
         "note": "All 26 configured events reload-verified; split destinations preserved. Channel names do not prove private access; permission-level verification remains pending.",
         "privacy_verification": "UNVERIFIED_DISCORD_PERMISSION_READBACK_REQUIRED"
-      }
+      },
+      "privacy_policy": "REQUIRE_PRIVATE_STAFF_DESTINATIONS",
+      "private_only_semantics": "Observed access state, not desired policy. Unknown until role/member permission evidence is verified."
     },
     "permissions": {
       "destructive_commands": "Founder + trusted moderators only",
