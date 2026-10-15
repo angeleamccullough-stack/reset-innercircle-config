@@ -150,33 +150,28 @@
         "Tatsu social/fun/search command noise"
       ],
       "cost_policy": "Use current/free Tatsu capabilities only. No Tatsu subscription, add-on, token purchase, paid reward inventory or upgrade without explicit Founder approval.",
-      "auth_state": "AUTHENTICATED_VERIFIED",
-      "latest_verification": "2026-10-15: authenticated Tatsu dashboard audited for Reset Inner Circle. Leveled Roles disabled; reward store empty; all Rewards & Economy commands disabled; Tatsu self-role command disabled and saved; reaction-role table has no rows; greetings and ban-log destinations empty; Social, Fun, and Search/Info commands all disabled.",
-      "next_safe_action": "Keep Tatsu recognition-only. Do not re-enable leveled roles or store listings. Passive chat score/credit accrual remains non-authoritative and must not drive access, membership, rights, licensing, or paid fulfillment.",
+      "auth_state": "VERIFIED_AUTHENTICATED_AND_RESTRICTED",
+      "latest_verification": "2026-10-15: authenticated Tatsu Reset Inner Circle dashboard audited and reduced to quiet recognition-backend mode.",
+      "next_safe_action": "Use Tatsu only for deliberate admin recognition/accolades when needed. Do not re-enable ambient XP/economy, self roles, leveled roles, store roles, or member-facing utility/fun/search commands while Carl remains the control authority.",
       "live_state": {
-        "managed_server": "Reset Inner Circle",
-        "server_id": "1429398855681573038",
-        "leveled_roles": "DISABLED_VERIFIED",
-        "reward_store": {
-          "status": "DISABLED_ALL_VISIBLE_LISTINGS",
-          "disabled_count": 12
-        },
-        "reward_economy_commands": {
-          "status": "DISABLE_PASS_EXECUTED",
-          "disabled_count": 10
-        },
-        "passive_chat_rates_displayed_on_server_page": {
-          "glow_credits": "3-5 per message / 2 minutes",
-          "glow_score": "10-20 per message / 2 minutes",
-          "status": "DISPLAYED_BUT_EARNING_NOT_RECERTIFIED_AFTER_COMMAND_DISABLE"
-        },
-        "high_risk_roles_previously_present": [
-          "🪶 RESET Inner Circle VIP",
-          "Inner Circle Access",
-          "✨ RESET Supporter | Legacy Builder",
-          "Spotlighted Member ✨"
-        ],
-        "policy_result": "Tatsu cannot currently auto-grant leveled access/status or fulfill reward-store obligations because leveled roles and visible reward listings are disabled."
+        "loyalty_points_name": "Glow Credits",
+        "server_score_name": "Glow Score",
+        "lounge_member_blocked_from_loyalty_points": true,
+        "lounge_member_blocked_from_server_score": true,
+        "rewards_economy_commands": "DISABLED_ALL",
+        "leveled_roles": "DISABLED",
+        "reward_store_items": "DISABLED",
+        "reaction_roles": "NONE",
+        "autorole": "NONE",
+        "self_roles_command": "DISABLED",
+        "greetings_destinations": "NONE",
+        "ban_log_destinations": "NONE",
+        "social_commands": "DISABLED_ALL",
+        "core_commands": "DISABLED_ALL",
+        "fun_commands": "DISABLED_ALL",
+        "utility_commands": "DISABLED_ALL",
+        "search_info_commands": "DISABLED_ALL",
+        "role": "quiet recognition backend only"
       },
       "current_live_state": {
         "leveled_roles": "DISABLED",
@@ -519,13 +514,11 @@
     "quiet_recognition": "policy_prepared; exact Glow Exchange application/dashboard not changed",
     "sound_stage_channel_id": "1431964592421998684",
     "tatsu_alignment": {
-      "state": "LIVE_RECOGNITION_ONLY_HARDENED",
+      "state": "VERIFIED_RECOGNITION_ONLY_GREEN",
       "incremental_cost_usd": 0,
       "founder_login_required": false,
-      "no_duplicate_authority_rewards": true,
-      "leveled_roles_disabled": true,
-      "reward_store_disabled_count": 12,
-      "reward_commands_disable_pass_count": 10
+      "no_duplicate_xp": true,
+      "no_authority_rewards": true
     }
   }
 }
