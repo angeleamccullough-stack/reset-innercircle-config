@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.10.0",
+  "schema_version": "1.10.1",
   "status": "active",
   "owner": "Angelea McCullough, Founder of RMS Global Publishing",
   "system": "RMS Fully Automated Intelligence System",
@@ -148,9 +148,34 @@
         "duplicate announcements already owned by Carl/RMS CreatorHub App"
       ],
       "cost_policy": "Use current/free Tatsu capabilities only. No Tatsu subscription, add-on, token purchase, paid reward inventory or upgrade without explicit Founder approval.",
-      "auth_state": "BLOCKED_LOGIN_REQUIRED",
-      "latest_verification": "2026-10-15: tatsu.gg/home redirected to Discord OAuth and then Discord login in the RMS browser. No credential bypass attempted.",
-      "next_safe_action": "After Founder signs into Discord in the existing browser, audit Tatsu server settings and disable any duplicate ambient XP/authority-bearing rewards before enabling RMS recognition use."
+      "auth_state": "AUTHENTICATED",
+      "latest_verification": "2026-10-15: authenticated Tatsu server dashboard for Reset Inner Circle verified live.",
+      "next_safe_action": "Keep Tatsu recognition-only. Do not re-enable leveled roles or store listings. Passive chat score/credit accrual remains non-authoritative and must not drive access, membership, rights, licensing, or paid fulfillment.",
+      "live_state": {
+        "managed_server": "Reset Inner Circle",
+        "server_id": "1429398855681573038",
+        "leveled_roles": "DISABLED_VERIFIED",
+        "reward_store": {
+          "status": "DISABLED_ALL_VISIBLE_LISTINGS",
+          "disabled_count": 12
+        },
+        "reward_economy_commands": {
+          "status": "DISABLE_PASS_EXECUTED",
+          "disabled_count": 10
+        },
+        "passive_chat_rates_displayed_on_server_page": {
+          "glow_credits": "3-5 per message / 2 minutes",
+          "glow_score": "10-20 per message / 2 minutes",
+          "status": "DISPLAYED_BUT_EARNING_NOT_RECERTIFIED_AFTER_COMMAND_DISABLE"
+        },
+        "high_risk_roles_previously_present": [
+          "🪶 RESET Inner Circle VIP",
+          "Inner Circle Access",
+          "✨ RESET Supporter | Legacy Builder",
+          "Spotlighted Member ✨"
+        ],
+        "policy_result": "Tatsu cannot currently auto-grant leveled access/status or fulfill reward-store obligations because leveled roles and visible reward listings are disabled."
+      }
     }
   },
   "automation_ownership": {
@@ -475,11 +500,13 @@
     "quiet_recognition": "policy_prepared; exact Glow Exchange application/dashboard not changed",
     "sound_stage_channel_id": "1431964592421998684",
     "tatsu_alignment": {
-      "state": "POLICY_ALIGNED_AUTH_WRITE_BLOCKED",
+      "state": "LIVE_RECOGNITION_ONLY_HARDENED",
       "incremental_cost_usd": 0,
-      "founder_login_required": true,
-      "no_duplicate_xp": true,
-      "no_authority_rewards": true
+      "founder_login_required": false,
+      "no_duplicate_authority_rewards": true,
+      "leveled_roles_disabled": true,
+      "reward_store_disabled_count": 12,
+      "reward_commands_disable_pass_count": 10
     }
   }
 }
